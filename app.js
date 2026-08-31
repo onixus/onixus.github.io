@@ -1,89 +1,108 @@
 /* ==========================================================================
    ONIXUS // SEC_LAB — Modern DevSecOps & Systems Showcase
-   Application Logic & Terminal Engine
+   Application Logic & Interactive Terminal Engine
    ========================================================================== */
 
-function getProjectsData() {
-  if (typeof window !== "undefined" && window.PROJECTS_DATA) {
-    return window.PROJECTS_DATA;
+const PROJECTS_DATA = [
+  {
+    id: "ferrum",
+    title: "FERRUM",
+    category: "security",
+    badge: "Rust • Kubernetes Security",
+    summary: "Self-hosted Kubernetes enforcement plane на Rust. Admission + runtime enforcement, подписанные policy bundle, last-known-good вместо fail-open.",
+    description: "Строгий enforcement plane для Kubernetes, ориентированный на детерминированную безопасность. Обеспечивает строгий admission control, подпись и валидацию политик (policy bundles), а также отказоустойчивый режим last-known-good вместо опасного fail-open.",
+    highlights: [
+      "Admission + Runtime Enforcement",
+      "Подписанные Policy Bundles",
+      "Отказоустойчивость: Last-Known-Good",
+      "Высокая производительность на Rust"
+    ],
+    tags: ["Rust", "Kubernetes", "Admission-Control", "Runtime-Security", "Policy-Bundles"],
+    githubUrl: "https://github.com/onixus/Ferrum",
+    cloneCmd: "git clone https://github.com/onixus/Ferrum.git",
+    icon: "shield"
+  },
+  {
+    id: "shapoclyack",
+    title: "Shapoclyack",
+    category: "security",
+    badge: "Python • Cloud Native EASM",
+    summary: "Self-hosted external attack surface discovery & vulnerability management platform.",
+    description: "Комплексная система обнаружения внешней поверхности атаки (EASM), инвентаризации сетевых активов и управления уязвимостями. Спроектирована для автономного развертывания в Kubernetes с использованием Kustomize манифестов.",
+    highlights: [
+      "External Attack Surface Discovery",
+      "Непрерывный аудит активов и сервисов",
+      "Управление уязвимостями периметра",
+      "Готовые манифесты для Kubernetes / Kustomize"
+    ],
+    tags: ["Python", "Kubernetes", "Kustomize", "EASM", "Vulnerability-Management"],
+    githubUrl: "https://github.com/onixus/Shapoclyack",
+    cloneCmd: "git clone https://github.com/onixus/Shapoclyack.git",
+    icon: "radar"
+  },
+  {
+    id: "bsdm",
+    alias: "bsdm-proxy",
+    title: "BSDM-Proxy",
+    category: "network",
+    badge: "Rust • Secure Web Gateway",
+    summary: "HTTPS caching proxy & Secure Web Gateway (SWG) на Rust с изолированной консолью администратора.",
+    description: "Высокопроизводительный кэширующий HTTPS прокси-сервер и шлюз безопасности веб-доступа (Secure Web Gateway). Включает встроенную панель администрирования, автоматизированные CI/CD пайплайны и строгий контроль трафика.",
+    highlights: [
+      "HTTPS Caching & Трафик-контроль",
+      "Secure Web Gateway (SWG) архитектура",
+      "Выделенная Admin Console",
+      "Сверхбыстрый асинхронный I/O на Rust"
+    ],
+    tags: ["Rust", "SWG", "Proxy-Server", "WebGateway", "Admin-Console"],
+    githubUrl: "https://github.com/onixus/bsdm-proxy",
+    cloneCmd: "git clone https://github.com/onixus/bsdm-proxy.git",
+    icon: "server"
+  },
+  {
+    id: "lariska",
+    title: "Lariska",
+    category: "telemetry",
+    badge: "Rust • Endpoint Agent",
+    summary: "Высокопроизводительный легковесный кроссплатформенный агент инвентаризации конечных точек для экосистемы Shapoclyack.",
+    description: "Системный агент телеметрии и инвентаризации: собирает информацию об установленном ПО, детектирует сторонние и неучтенные пакеты в рантайме (Shadow IT), собирает метаданные контейнеров/виртуализации и отправляет сжатые версионированные снапшоты с локальным спулингом.",
+    highlights: [
+      "Детекция несанкционированного ПО (Shadow IT)",
+      "Инвентаризация хостов, контейнеров и виртуализации",
+      "Локальный спулинг и защита от падений (Crash Recovery)",
+      "Минимальный футпринт по памяти и CPU"
+    ],
+    tags: ["Rust", "Endpoint-Agent", "Shadow-IT", "Telemetry", "Inventory"],
+    githubUrl: "https://github.com/onixus/Lariska",
+    cloneCmd: "git clone https://github.com/onixus/Lariska.git",
+    icon: "cpu"
+  },
+  {
+    id: "evacal",
+    title: "EvaCal",
+    category: "enterprise",
+    badge: "TypeScript • Enterprise Tooling",
+    summary: "Корпоративный калькулятор трудозатрат и автоматизированный генератор документации по ГОСТ 34 / ГОСТ 2.104.",
+    description: "Профессиональная платформа для пресейла, комплексной оценки трудозатрат ИТ-проектов и автоматической генерации полного комплекта нормативно-технической документации (ГОСТ 34.602-2020 / РД 50-34.698-90) с основной надписью по ГОСТ 2.104-2006 и сквозной матрицей трассируемости.",
+    highlights: [
+      "Календарный план и сметные расчеты КП",
+      "Генерация ТЗ и документации по ГОСТ 34.602-2020",
+      "Оформление по ГОСТ 2.104-2006 (Формы 2 и 2а)",
+      "Сквозная матрица требований и трассируемости"
+    ],
+    tags: ["TypeScript", "ГОСТ-34", "Presale", "Estimation", "Enterprise-Docs"],
+    githubUrl: "https://github.com/onixus/EvaCal",
+    cloneCmd: "git clone https://github.com/onixus/EvaCal.git",
+    icon: "file-text"
   }
-  if (typeof PROJECTS_DATA !== "undefined") {
-    return PROJECTS_DATA;
-  }
-  return [];
-}
+];
 
+// Initialize on DOM ready
 document.addEventListener("DOMContentLoaded", () => {
-  renderProjects();
   initTerminal();
   initQuickCopy();
   initToast();
 });
-
-/* --------------------------------------------------------------------------
-   Projects Grid Renderer
-   -------------------------------------------------------------------------- */
-function renderProjects() {
-  const container = document.getElementById("projectsGrid");
-  if (!container || container.children.length > 0) return;
-  const projects = getProjectsData();
-  if (!projects.length) return;
-
-  const icons = {
-    shield: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
-    radar: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/><path d="M12 12 19 5"/></svg>`,
-    server: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>`,
-    cpu: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>`,
-    "file-text": `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>`
-  };
-
-  container.innerHTML = projects.map(project => {
-    const iconSvg = icons[project.icon] || icons.shield;
-    const highlightsHtml = project.highlights.map(item => `
-      <li class="highlight-item">
-        <span class="highlight-dot"></span>
-        <span>${escapeHtml(item)}</span>
-      </li>
-    `).join("");
-
-    const tagsHtml = project.tags.map(tag => `
-      <span class="tag-pill">#${escapeHtml(tag)}</span>
-    `).join("");
-
-    return `
-      <article class="project-card" data-project-id="${escapeHtml(project.id)}">
-        <div class="card-header">
-          <div class="card-icon-box">
-            ${iconSvg}
-          </div>
-          <span class="card-badge">${escapeHtml(project.badge)}</span>
-        </div>
-        
-        <h3 class="card-title">${escapeHtml(project.title)}</h3>
-        <p class="card-summary">${escapeHtml(project.summary)}</p>
-        
-        <ul class="card-highlights">
-          ${highlightsHtml}
-        </ul>
-        
-        <div class="card-tags">
-          ${tagsHtml}
-        </div>
-        
-        <div class="card-actions">
-          <a href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            GitHub Repo
-          </a>
-          <button class="btn-card-clone" onclick="copyCloneCommand('${escapeHtml(project.cloneCmd)}')" title="Скопировать команду git clone">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-            git clone
-          </button>
-        </div>
-      </article>
-    `;
-  }).join("");
-}
 
 /* --------------------------------------------------------------------------
    Interactive Terminal Emulator
@@ -94,7 +113,7 @@ function initTerminal() {
   const terminalWrapper = document.querySelector(".terminal-wrapper");
   if (!input || !output) return;
 
-  // Focus input when clicking anywhere on the terminal
+  // Auto focus input on click
   if (terminalWrapper) {
     terminalWrapper.addEventListener("click", (e) => {
       if (e.target.tagName !== "BUTTON" && e.target.tagName !== "A") {
@@ -113,6 +132,7 @@ function initTerminal() {
     "ferrum",
     "shapoclyack",
     "bsdm",
+    "bsdm-proxy",
     "lariska",
     "evacal",
     "whoami",
@@ -122,10 +142,10 @@ function initTerminal() {
     "date"
   ];
 
-  // Welcome Message
+  // Welcome banner
   printOutput(`
 <span class="output-accent">ONIXUS // SEC_LAB Interactive Shell v2.4</span>
-Type <span class="output-success">'help'</span> or <span class="output-success">'projects'</span>, or click any button below.
+Type <span class="output-success">'help'</span> or <span class="output-success">'projects'</span> to explore, or click any button below.
 ---------------------------------------------------------------------`);
 
   function handleCommand(rawCmd) {
@@ -135,7 +155,7 @@ Type <span class="output-success">'help'</span> or <span class="output-success">
     history.push(trimmed);
     historyIndex = history.length;
 
-    // Print executed prompt line
+    // Echo user prompt
     printOutput(`<span class="terminal-prompt">onixus@lab:~$</span> <span class="output-highlight">${escapeHtml(trimmed)}</span>`);
 
     const parts = trimmed.split(/\s+/);
@@ -146,16 +166,15 @@ Type <span class="output-success">'help'</span> or <span class="output-success">
       case "help":
         printOutput(`
 <span class="output-highlight">Доступные команды терминала:</span>
-  <span class="output-accent">projects</span> (или <span class="output-accent">ls</span>)  - Список всех флагманских проектов
-  <span class="output-accent">ferrum</span>         - FERRUM (K8s enforcement plane на Rust)
-  <span class="output-accent">shapoclyack</span>    - Shapoclyack (Attack Surface & Vuln Management)
-  <span class="output-accent">bsdm</span>           - BSDM-Proxy (HTTPS Caching Proxy & SWG)
-  <span class="output-accent">lariska</span>        - Lariska (Endpoint inventory agent на Rust)
-  <span class="output-accent">evacal</span>         - EvaCal (Калькулятор трудозатрат и ГОСТ 34)
-  <span class="output-accent">cat &lt;name&gt;</span>     - Посмотреть манифест проекта (например: <span class="output-success">cat ferrum</span>)
-  <span class="output-accent">whoami</span>         - Профиль инженера и стек
-  <span class="output-accent">contact</span>        - Ссылки и контакты
-  <span class="output-accent">uname -a</span>       - Информация об окружении
+  <span class="output-accent">projects</span> (или <span class="output-accent">ls</span>)  - Вывести список 5 флагманских проектов
+  <span class="output-accent">ferrum</span>         - Детали FERRUM (K8s enforcement plane на Rust)
+  <span class="output-accent">shapoclyack</span>    - Детали Shapoclyack (Attack Surface Discovery & Vuln Management)
+  <span class="output-accent">bsdm</span>           - Детали BSDM-Proxy (HTTPS Caching Proxy & SWG)
+  <span class="output-accent">lariska</span>        - Детали Lariska (Endpoint inventory agent на Rust)
+  <span class="output-accent">evacal</span>         - Детали EvaCal (Оценка трудозатрат и ГОСТ 34)
+  <span class="output-accent">cat &lt;name&gt;</span>     - Посмотреть проект (например: <span class="output-success">cat ferrum</span>)
+  <span class="output-accent">whoami</span>         - Профиль инженера и компетенции
+  <span class="output-accent">contact</span>        - Ссылки и репозитории
   <span class="output-accent">clear</span>          - Очистить экран консоли`);
         break;
 
@@ -169,7 +188,7 @@ Type <span class="output-success">'help'</span> or <span class="output-success">
   [4] <span class="output-success">Lariska</span>      - High-performance endpoint inventory agent (Rust)
   [5] <span class="output-success">EvaCal</span>       - Enterprise ГОСТ 34 docs & labor estimation (TypeScript)
 
-Введите имя проекта (например: <span class="output-success">ferrum</span> или <span class="output-success">cat bsdm</span>) для вывода деталей.`);
+Введите имя проекта (например: <span class="output-success">ferrum</span>, <span class="output-success">shapoclyack</span>, <span class="output-success">bsdm</span>, <span class="output-success">lariska</span>, <span class="output-success">evacal</span>)`);
         break;
 
       case "cat":
@@ -190,7 +209,7 @@ Type <span class="output-success">'help'</span> or <span class="output-success">
 
       case "bsdm":
       case "bsdm-proxy":
-        showProjectDetails("bsdm-proxy");
+        showProjectDetails("bsdm");
         break;
 
       case "lariska":
@@ -214,7 +233,7 @@ Type <span class="output-success">'help'</span> or <span class="output-success">
         printOutput(`
 <span class="output-accent">Ссылки & Репозитории:</span>
   • Профиль GitHub: <a href="https://github.com/onixus" target="_blank" class="output-success">https://github.com/onixus</a>
-  • Репозиторий сайта: <a href="https://github.com/onixus/Git-site" target="_blank" class="output-success">https://github.com/onixus/Git-site</a>`);
+  • Репозиторий сайта: <a href="https://github.com/onixus/onixus.github.io" target="_blank" class="output-success">https://github.com/onixus/onixus.github.io</a>`);
         break;
 
       case "uname":
@@ -231,19 +250,30 @@ Type <span class="output-success">'help'</span> or <span class="output-success">
         break;
 
       default:
-        printOutput(`<span class="output-warning">Команда не найдена: '${escapeHtml(cmd)}'. Введите <span class="output-success">'help'</span> для списка команд.</span>`);
+        // Try matching by project name directly
+        if (!showProjectDetails(cmd, true)) {
+          printOutput(`<span class="output-warning">Команда не найдена: '${escapeHtml(cmd)}'. Введите <span class="output-success">'help'</span> для списка.</span>`);
+        }
         break;
     }
 
     output.scrollTop = output.scrollHeight;
   }
 
-  function showProjectDetails(id) {
-    const projects = getProjectsData();
-    const proj = projects.find(p => p.id === id || p.title.toLowerCase() === id);
+  function showProjectDetails(targetName, silentIfNotFound = false) {
+    const cleanTarget = targetName.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const proj = PROJECTS_DATA.find(p => {
+      const pId = p.id.toLowerCase().replace(/[^a-z0-9]/g, "");
+      const pTitle = p.title.toLowerCase().replace(/[^a-z0-9]/g, "");
+      const pAlias = (p.alias || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+      return pId === cleanTarget || pTitle === cleanTarget || pAlias === cleanTarget;
+    });
+
     if (!proj) {
-      printOutput(`<span class="output-warning">Проект '${escapeHtml(id)}' не найден. Введите 'projects' для списка.</span>`);
-      return;
+      if (!silentIfNotFound) {
+        printOutput(`<span class="output-warning">Проект '${escapeHtml(targetName)}' не найден. Введите 'projects' для списка.</span>`);
+      }
+      return false;
     }
 
     printOutput(`
@@ -255,6 +285,7 @@ ${proj.highlights.map(h => `  • ${escapeHtml(h)}`).join("\n")}
 
 <span class="output-highlight">GitHub:</span> <a href="${escapeHtml(proj.githubUrl)}" target="_blank" class="output-success">${escapeHtml(proj.githubUrl)}</a>
 <span class="output-highlight">Клонировать:</span> <span class="output-success">${escapeHtml(proj.cloneCmd)}</span>`);
+    return true;
   }
 
   function printOutput(html) {
@@ -295,6 +326,7 @@ ${proj.highlights.map(h => `  • ${escapeHtml(h)}`).join("\n")}
     }
   });
 
+  // Global helper for quick action buttons
   window.runTerminalCommand = function(cmdStr) {
     if (!input) return;
     input.value = cmdStr;
