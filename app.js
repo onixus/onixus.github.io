@@ -13,10 +13,20 @@ const PROJECTS_DATA = [
     description: "Строгий enforcement plane для Kubernetes, ориентированный на детерминированную безопасность. Обеспечивает строгий admission control, подпись и валидацию политик (policy bundles), а также отказоустойчивый режим last-known-good вместо опасного fail-open.",
     highlights: [
       "Admission + Runtime Enforcement",
-      "Подписанные Policy Bundles",
-      "Отказоустойчивость: Last-Known-Good",
+      "Подписанные Policy Bundles (Sigstore/Cosign)",
+      "Отказоустойчивость: Last-Known-Good кэш",
       "Высокая производительность на Rust"
     ],
+    structure: `ferrum/
+├── Cargo.toml
+├── crates/
+│   ├── ferrum-admission/     # Webhook admission controller (Validating/Mutating)
+│   ├── ferrum-runtime/       # Runtime security & eBPF enforcement engine
+│   ├── ferrum-policy/        # Sigstore/Cosign bundle validation & compiler
+│   └── ferrum-core/          # Last-known-good state machine & cache
+└── config/
+    ├── crds/                 # CustomResourceDefinitions (FerrumPolicy)
+    └── manifests/            # DaemonSet & Webhook deployment manifests`,
     tags: ["Rust", "Kubernetes", "Admission-Control", "Runtime-Security", "Policy-Bundles"],
     githubUrl: "https://github.com/onixus/Ferrum",
     cloneCmd: "git clone https://github.com/onixus/Ferrum.git",
@@ -30,11 +40,21 @@ const PROJECTS_DATA = [
     summary: "Self-hosted external attack surface discovery & vulnerability management platform.",
     description: "Комплексная система обнаружения внешней поверхности атаки (EASM), инвентаризации сетевых активов и управления уязвимостями. Спроектирована для автономного развертывания в Kubernetes с использованием Kustomize манифестов.",
     highlights: [
-      "External Attack Surface Discovery",
-      "Непрерывный аудит активов и сервисов",
-      "Управление уязвимостями периметра",
+      "External Attack Surface Discovery (EASM)",
+      "Непрерывный аудит активов, портов и сертификатов",
+      "Корреляция уязвимостей периметра (CVE)",
       "Готовые манифесты для Kubernetes / Kustomize"
     ],
+    structure: `shapoclyack/
+├── pyproject.toml
+├── app/
+│   ├── core/                 # EASM scanner engine & asset inventory
+│   ├── api/                  # FastAPI REST endpoints & Prometheus metrics
+│   ├── scanners/             # Subdomain, port, TLS & CVE discovery modules
+│   └── worker/               # Celery / Redis background task queue
+├── deploy/
+│   └── kustomize/            # Base & Overlay manifests for Kubernetes
+└── docker-compose.yml`,
     tags: ["Python", "Kubernetes", "Kustomize", "EASM", "Vulnerability-Management"],
     githubUrl: "https://github.com/onixus/Shapoclyack",
     cloneCmd: "git clone https://github.com/onixus/Shapoclyack.git",
@@ -54,6 +74,16 @@ const PROJECTS_DATA = [
       "Выделенная Admin Console",
       "Сверхбыстрый асинхронный I/O на Rust"
     ],
+    structure: `bsdm-proxy/
+├── Cargo.toml
+├── src/
+│   ├── main.rs
+│   ├── proxy/                # Tokio/Hyper async HTTPS caching proxy engine
+│   ├── swg/                  # TLS inspection & Secure Web Gateway rules
+│   ├── admin_ui/             # Embedded web console & dashboard
+│   └── auth/                 # RBAC & bearer token authorization
+└── config/
+    └── bsdm.example.toml     # Routing, caching & SWG policy config`,
     tags: ["Rust", "SWG", "Proxy-Server", "WebGateway", "Admin-Console"],
     githubUrl: "https://github.com/onixus/bsdm-proxy",
     cloneCmd: "git clone https://github.com/onixus/bsdm-proxy.git",
@@ -72,6 +102,16 @@ const PROJECTS_DATA = [
       "Локальный спулинг и защита от падений (Crash Recovery)",
       "Минимальный футпринт по памяти и CPU"
     ],
+    structure: `lariska/
+├── Cargo.toml
+├── src/
+│   ├── main.rs
+│   ├── collector/            # OS packages, kernel modules & process telemetry
+│   ├── shadow_it/            # Runtime unauthorized binary detector
+│   ├── spool/                # Local crash-resilient disk spooler
+│   └── transport/            # mTLS compressed snapshot sender
+└── packaging/
+    └── systemd/              # Linux systemd daemon service definition`,
     tags: ["Rust", "Endpoint-Agent", "Shadow-IT", "Telemetry", "Inventory"],
     githubUrl: "https://github.com/onixus/Lariska",
     cloneCmd: "git clone https://github.com/onixus/Lariska.git",
@@ -90,6 +130,16 @@ const PROJECTS_DATA = [
       "Оформление по ГОСТ 2.104-2006 (Формы 2 и 2а)",
       "Сквозная матрица требований и трассируемости"
     ],
+    structure: `evacal/
+├── package.json
+├── tsconfig.json
+├── src/
+│   ├── engine/               # Labor cost estimation & calendar planner
+│   ├── gost/                 # GOST 34.602 & RD 50-34.698 doc generator
+│   ├── stamps/               # GOST 2.104 title blocks (Form 2 / 2a)
+│   └── ui/                   # Interactive estimation dashboard
+└── templates/
+    └── gost_spec.json        # Standard requirements & traceability matrix`,
     tags: ["TypeScript", "ГОСТ-34", "Presale", "Estimation", "Enterprise-Docs"],
     githubUrl: "https://github.com/onixus/EvaCal",
     cloneCmd: "git clone https://github.com/onixus/EvaCal.git",
@@ -129,6 +179,9 @@ function initTerminal() {
     "help",
     "ls",
     "projects",
+    "tree",
+    "structure",
+    "arch",
     "ferrum",
     "shapoclyack",
     "bsdm",
@@ -145,7 +198,7 @@ function initTerminal() {
   // Welcome banner
   printOutput(`
 <span class="output-accent">ONIXUS // SEC_LAB Interactive Shell v2.4</span>
-Type <span class="output-success">'help'</span> or <span class="output-success">'projects'</span> to explore, or click any button below.
+Type <span class="output-success">'help'</span>, <span class="output-success">'projects'</span> or <span class="output-success">'tree'</span> to explore, or click any button below.
 ---------------------------------------------------------------------`);
 
   function handleCommand(rawCmd) {
@@ -167,12 +220,13 @@ Type <span class="output-success">'help'</span> or <span class="output-success">
         printOutput(`
 <span class="output-highlight">Доступные команды терминала:</span>
   <span class="output-accent">projects</span> (или <span class="output-accent">ls</span>)  - Вывести список 5 флагманских проектов
-  <span class="output-accent">ferrum</span>         - Детали FERRUM (K8s enforcement plane на Rust)
-  <span class="output-accent">shapoclyack</span>    - Детали Shapoclyack (Attack Surface Discovery & Vuln Management)
-  <span class="output-accent">bsdm</span>           - Детали BSDM-Proxy (HTTPS Caching Proxy & SWG)
-  <span class="output-accent">lariska</span>        - Детали Lariska (Endpoint inventory agent на Rust)
-  <span class="output-accent">evacal</span>         - Детали EvaCal (Оценка трудозатрат и ГОСТ 34)
-  <span class="output-accent">cat &lt;name&gt;</span>     - Посмотреть проект (например: <span class="output-success">cat ferrum</span>)
+  <span class="output-accent">tree [project]</span> - Дерево компонентов и файловая структура
+  <span class="output-accent">ferrum</span>         - Детали и структура FERRUM (K8s enforcement plane)
+  <span class="output-accent">shapoclyack</span>    - Детали и структура Shapoclyack (EASM & Vuln Management)
+  <span class="output-accent">bsdm</span>           - Детали и структура BSDM-Proxy (HTTPS Caching & SWG)
+  <span class="output-accent">lariska</span>        - Детали и структура Lariska (Endpoint inventory agent)
+  <span class="output-accent">evacal</span>         - Детали и структура EvaCal (Оценка трудозатрат и ГОСТ 34)
+  <span class="output-accent">cat &lt;name&gt;</span>     - Просмотр проекта (например: <span class="output-success">cat ferrum</span>)
   <span class="output-accent">whoami</span>         - Профиль инженера и компетенции
   <span class="output-accent">contact</span>        - Ссылки и репозитории
   <span class="output-accent">clear</span>          - Очистить экран консоли`);
@@ -188,7 +242,17 @@ Type <span class="output-success">'help'</span> or <span class="output-success">
   [4] <span class="output-success">Lariska</span>      - High-performance endpoint inventory agent (Rust)
   [5] <span class="output-success">EvaCal</span>       - Enterprise ГОСТ 34 docs & labor estimation (TypeScript)
 
-Введите имя проекта (например: <span class="output-success">ferrum</span>, <span class="output-success">shapoclyack</span>, <span class="output-success">bsdm</span>, <span class="output-success">lariska</span>, <span class="output-success">evacal</span>)`);
+Введите имя проекта (например: <span class="output-success">ferrum</span>, <span class="output-success">tree</span>, <span class="output-success">tree ferrum</span>)`);
+        break;
+
+      case "tree":
+      case "structure":
+      case "arch":
+        if (arg) {
+          showProjectStructure(arg);
+        } else {
+          showFullEcosystemTree();
+        }
         break;
 
       case "cat":
@@ -260,14 +324,45 @@ Type <span class="output-success">'help'</span> or <span class="output-success">
     output.scrollTop = output.scrollHeight;
   }
 
-  function showProjectDetails(targetName, silentIfNotFound = false) {
+  function findProject(targetName) {
     const cleanTarget = targetName.toLowerCase().replace(/[^a-z0-9]/g, "");
-    const proj = PROJECTS_DATA.find(p => {
+    return PROJECTS_DATA.find(p => {
       const pId = p.id.toLowerCase().replace(/[^a-z0-9]/g, "");
       const pTitle = p.title.toLowerCase().replace(/[^a-z0-9]/g, "");
       const pAlias = (p.alias || "").toLowerCase().replace(/[^a-z0-9]/g, "");
       return pId === cleanTarget || pTitle === cleanTarget || pAlias === cleanTarget;
     });
+  }
+
+  function showFullEcosystemTree() {
+    printOutput(`
+<span class="output-accent">=== Архитектурное дерево экосистемы ONIXUS // SEC_LAB ===</span>
+<span class="output-dim">.
+├── </span><span class="output-highlight">ferrum/</span>         <span class="output-accent">[Rust]</span>        Kubernetes Admission & Runtime Enforcement Plane
+<span class="output-dim">├── </span><span class="output-highlight">shapoclyack/</span>    <span class="output-accent">[Python]</span>      External Attack Surface Discovery & Vulnerability Platform
+<span class="output-dim">├── </span><span class="output-highlight">bsdm-proxy/</span>     <span class="output-accent">[Rust]</span>        HTTPS Caching Proxy & Secure Web Gateway (SWG)
+<span class="output-dim">├── </span><span class="output-highlight">lariska/</span>        <span class="output-accent">[Rust]</span>        High-Performance Endpoint Telemetry & Inventory Agent
+<span class="output-dim">└── </span><span class="output-highlight">evacal/</span>         <span class="output-accent">[TypeScript]</span>  Enterprise Labor Cost & ГОСТ 34 Documentation Generator</span>
+
+Для просмотра детальной структуры проекта введите: <span class="output-success">tree &lt;project&gt;</span> (например: <span class="output-success">tree ferrum</span>)`);
+  }
+
+  function showProjectStructure(targetName) {
+    const proj = findProject(targetName);
+    if (!proj) {
+      printOutput(`<span class="output-warning">Проект '${escapeHtml(targetName)}' не найден. Введите 'projects' для списка.</span>`);
+      return;
+    }
+
+    printOutput(`
+<span class="output-accent">=== Структура репозитория: ${escapeHtml(proj.title)} ===</span>
+<span class="output-dim">${escapeHtml(proj.structure)}</span>
+
+<span class="output-highlight">GitHub:</span> <a href="${escapeHtml(proj.githubUrl)}" target="_blank" class="output-success">${escapeHtml(proj.githubUrl)}</a>`);
+  }
+
+  function showProjectDetails(targetName, silentIfNotFound = false) {
+    const proj = findProject(targetName);
 
     if (!proj) {
       if (!silentIfNotFound) {
@@ -279,6 +374,9 @@ Type <span class="output-success">'help'</span> or <span class="output-success">
     printOutput(`
 <span class="output-accent">=== ${escapeHtml(proj.title)} [${escapeHtml(proj.badge)}] ===</span>
 ${escapeHtml(proj.description)}
+
+<span class="output-highlight">Файловая структура & компоненты:</span>
+<span class="output-dim">${escapeHtml(proj.structure)}</span>
 
 <span class="output-highlight">Ключевые возможности:</span>
 ${proj.highlights.map(h => `  • ${escapeHtml(h)}`).join("\n")}
