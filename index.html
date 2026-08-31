@@ -95,8 +95,205 @@
           <p class="section-desc">Ключевые авторские разработки с фокусом на детерминированную безопасность, высокую производительность и надежность.</p>
         </div>
 
-        <!-- Rendered dynamically by app.js -->
-        <div id="projectsGrid" class="projects-grid"></div>
+        <!-- Pre-rendered Static Project Cards -->
+        <div id="projectsGrid" class="projects-grid">
+          
+          <!-- Card 1: FERRUM -->
+          <article class="project-card" data-project-id="ferrum">
+            <div class="card-header">
+              <div class="card-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <span class="card-badge">Rust • Kubernetes Security</span>
+            </div>
+            
+            <h3 class="card-title">FERRUM</h3>
+            <p class="card-summary">Self-hosted Kubernetes enforcement plane на Rust. Admission + runtime enforcement, подписанные policy bundle, last-known-good вместо fail-open.</p>
+            
+            <ul class="card-highlights">
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Admission + Runtime Enforcement</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Подписанные Policy Bundles</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Отказоустойчивость: Last-Known-Good</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Высокая производительность на Rust</span></li>
+            </ul>
+            
+            <div class="card-tags">
+              <span class="tag-pill">#Rust</span>
+              <span class="tag-pill">#Kubernetes</span>
+              <span class="tag-pill">#Admission-Control</span>
+              <span class="tag-pill">#Runtime-Security</span>
+              <span class="tag-pill">#Policy-Bundles</span>
+            </div>
+            
+            <div class="card-actions">
+              <a href="https://github.com/onixus/Ferrum" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub Repo
+              </a>
+              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Ferrum.git')" title="Скопировать команду git clone">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                git clone
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 2: Shapoclyack -->
+          <article class="project-card" data-project-id="shapoclyack">
+            <div class="card-header">
+              <div class="card-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/><path d="M12 12 19 5"/></svg>
+              </div>
+              <span class="card-badge">Python • Cloud Native EASM</span>
+            </div>
+            
+            <h3 class="card-title">Shapoclyack</h3>
+            <p class="card-summary">Self-hosted платформа для обнаружения внешней поверхности атаки (EASM), инвентаризации сетевых активов и управления уязвимостями.</p>
+            
+            <ul class="card-highlights">
+              <li class="highlight-item"><span class="highlight-dot"></span><span>External Attack Surface Discovery</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Непрерывный аудит активов и сервисов</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Управление уязвимостями периметра</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Манифесты для Kubernetes / Kustomize</span></li>
+            </ul>
+            
+            <div class="card-tags">
+              <span class="tag-pill">#Python</span>
+              <span class="tag-pill">#Kubernetes</span>
+              <span class="tag-pill">#Kustomize</span>
+              <span class="tag-pill">#EASM</span>
+              <span class="tag-pill">#Vulnerability-Management</span>
+            </div>
+            
+            <div class="card-actions">
+              <a href="https://github.com/onixus/Shapoclyack" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub Repo
+              </a>
+              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Shapoclyack.git')" title="Скопировать команду git clone">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                git clone
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 3: BSDM-Proxy -->
+          <article class="project-card" data-project-id="bsdm-proxy">
+            <div class="card-header">
+              <div class="card-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+              </div>
+              <span class="card-badge">Rust • Secure Web Gateway</span>
+            </div>
+            
+            <h3 class="card-title">BSDM-Proxy</h3>
+            <p class="card-summary">Высокопроизводительный HTTPS кэширующий прокси-сервер и Secure Web Gateway (SWG) на Rust с изолированной консолью администратора.</p>
+            
+            <ul class="card-highlights">
+              <li class="highlight-item"><span class="highlight-dot"></span><span>HTTPS Caching & Трафик-контроль</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Secure Web Gateway (SWG) архитектура</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Выделенная Admin Console</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Сверхбыстрый асинхронный I/O на Rust</span></li>
+            </ul>
+            
+            <div class="card-tags">
+              <span class="tag-pill">#Rust</span>
+              <span class="tag-pill">#SWG</span>
+              <span class="tag-pill">#Proxy-Server</span>
+              <span class="tag-pill">#WebGateway</span>
+              <span class="tag-pill">#Admin-Console</span>
+            </div>
+            
+            <div class="card-actions">
+              <a href="https://github.com/onixus/bsdm-proxy" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub Repo
+              </a>
+              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/bsdm-proxy.git')" title="Скопировать команду git clone">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                git clone
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 4: Lariska -->
+          <article class="project-card" data-project-id="lariska">
+            <div class="card-header">
+              <div class="card-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+              </div>
+              <span class="card-badge">Rust • Endpoint Agent</span>
+            </div>
+            
+            <h3 class="card-title">Lariska</h3>
+            <p class="card-summary">Высокопроизводительный легковесный кроссплатформенный агент инвентаризации конечных точек для экосистемы Shapoclyack.</p>
+            
+            <ul class="card-highlights">
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Детекция несанкционированного ПО (Shadow IT)</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Инвентаризация хостов, контейнеров и виртуализации</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Локальный спулинг и защита от сбоев (Crash Recovery)</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Минимальный футпринт по памяти и CPU</span></li>
+            </ul>
+            
+            <div class="card-tags">
+              <span class="tag-pill">#Rust</span>
+              <span class="tag-pill">#Endpoint-Agent</span>
+              <span class="tag-pill">#Shadow-IT</span>
+              <span class="tag-pill">#Telemetry</span>
+              <span class="tag-pill">#Inventory</span>
+            </div>
+            
+            <div class="card-actions">
+              <a href="https://github.com/onixus/Lariska" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub Repo
+              </a>
+              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Lariska.git')" title="Скопировать команду git clone">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                git clone
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 5: EvaCal -->
+          <article class="project-card" data-project-id="evacal">
+            <div class="card-header">
+              <div class="card-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+              </div>
+              <span class="card-badge">TypeScript • Enterprise Tooling</span>
+            </div>
+            
+            <h3 class="card-title">EvaCal</h3>
+            <p class="card-summary">Корпоративный калькулятор трудозатрат и автоматизированный генератор документации по ГОСТ 34.602-2020 / РД 50-34.698-90 с оформлением по ГОСТ 2.104-2006.</p>
+            
+            <ul class="card-highlights">
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Календарный план и сметные расчеты КП</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Генерация ТЗ и документации по ГОСТ 34.602-2020</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Оформление по ГОСТ 2.104-2006 (Формы 2 и 2а)</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Сквозная матрица требований и трассируемости</span></li>
+            </ul>
+            
+            <div class="card-tags">
+              <span class="tag-pill">#TypeScript</span>
+              <span class="tag-pill">#ГОСТ-34</span>
+              <span class="tag-pill">#Presale</span>
+              <span class="tag-pill">#Estimation</span>
+              <span class="tag-pill">#Enterprise-Docs</span>
+            </div>
+            
+            <div class="card-actions">
+              <a href="https://github.com/onixus/EvaCal" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub Repo
+              </a>
+              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/EvaCal.git')" title="Скопировать команду git clone">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                git clone
+              </button>
+            </div>
+          </article>
+
+        </div>
 
       </div>
     </section>
