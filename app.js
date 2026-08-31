@@ -3,6 +3,16 @@
    Application Logic & Terminal Engine
    ========================================================================== */
 
+function getProjectsData() {
+  if (typeof window !== "undefined" && window.PROJECTS_DATA) {
+    return window.PROJECTS_DATA;
+  }
+  if (typeof PROJECTS_DATA !== "undefined") {
+    return PROJECTS_DATA;
+  }
+  return [];
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderProjects();
   initTerminal();
@@ -15,7 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
    -------------------------------------------------------------------------- */
 function renderProjects() {
   const container = document.getElementById("projectsGrid");
-  if (!container || !window.PROJECTS_DATA) return;
+  const projects = getProjectsData();
+  if (!container || !projects.length) return;
 
   const icons = {
     shield: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
@@ -25,7 +36,7 @@ function renderProjects() {
     "file-text": `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>`
   };
 
-  container.innerHTML = PROJECTS_DATA.map(project => {
+  container.innerHTML = projects.map(project => {
     const iconSvg = icons[project.icon] || icons.shield;
     const highlightsHtml = project.highlights.map(item => `
       <li class="highlight-item">
@@ -63,7 +74,7 @@ function renderProjects() {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
             GitHub Repo
           </a>
-          <button class="btn-card-clone" onclick="copyCloneCommand('${escapeHtml(project.cloneCmd)}')" title="Copy git clone command">
+          <button class="btn-card-clone" onclick="copyCloneCommand('${escapeHtml(project.cloneCmd)}')" title="Скопировать команду git clone">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
             git clone
           </button>
@@ -79,13 +90,24 @@ function renderProjects() {
 function initTerminal() {
   const input = document.getElementById("terminalInput");
   const output = document.getElementById("terminalBody");
+  const terminalWrapper = document.querySelector(".terminal-wrapper");
   if (!input || !output) return;
+
+  // Focus input when clicking anywhere on the terminal
+  if (terminalWrapper) {
+    terminalWrapper.addEventListener("click", (e) => {
+      if (e.target.tagName !== "BUTTON" && e.target.tagName !== "A") {
+        input.focus();
+      }
+    });
+  }
 
   const history = [];
   let historyIndex = -1;
 
   const availableCommands = [
     "help",
+    "ls",
     "projects",
     "ferrum",
     "shapoclyack",
@@ -93,14 +115,16 @@ function initTerminal() {
     "lariska",
     "evacal",
     "whoami",
+    "contact",
     "clear",
-    "contact"
+    "uname",
+    "date"
   ];
 
   // Welcome Message
   printOutput(`
 <span class="output-accent">ONIXUS // SEC_LAB Interactive Shell v2.4</span>
-Type <span class="output-success">'help'</span> to see available commands or click the shortcut buttons below.
+Type <span class="output-success">'help'</span> or <span class="output-success">'projects'</span>, or click any button below.
 ---------------------------------------------------------------------`);
 
   function handleCommand(rawCmd) {
@@ -110,38 +134,49 @@ Type <span class="output-success">'help'</span> to see available commands or cli
     history.push(trimmed);
     historyIndex = history.length;
 
-    // Print command line
+    // Print executed prompt line
     printOutput(`<span class="terminal-prompt">onixus@lab:~$</span> <span class="output-highlight">${escapeHtml(trimmed)}</span>`);
 
-    const parts = trimmed.split(" ");
+    const parts = trimmed.split(/\s+/);
     const cmd = parts[0].toLowerCase();
     const arg = parts[1]?.toLowerCase();
 
     switch (cmd) {
       case "help":
         printOutput(`
-Available commands:
-  <span class="output-accent">projects</span>       - List all 5 flagship projects
-  <span class="output-accent">ferrum</span>         - Info on Ferrum (K8s enforcement plane in Rust)
-  <span class="output-accent">shapoclyack</span>    - Info on Shapoclyack (Attack Surface & Vuln Management)
-  <span class="output-accent">bsdm</span>           - Info on BSDM-Proxy (HTTPS Caching Proxy & SWG)
-  <span class="output-accent">lariska</span>        - Info on Lariska (Endpoint inventory agent in Rust)
-  <span class="output-accent">evacal</span>         - Info on EvaCal (Labor estimation & GOST 34 generator)
-  <span class="output-accent">whoami</span>         - Display engineer profile & focus
-  <span class="output-accent">contact</span>        - Contact details & links
-  <span class="output-accent">clear</span>          - Clear terminal window`);
+<span class="output-highlight">Доступные команды терминала:</span>
+  <span class="output-accent">projects</span> (или <span class="output-accent">ls</span>)  - Список всех флагманских проектов
+  <span class="output-accent">ferrum</span>         - FERRUM (K8s enforcement plane на Rust)
+  <span class="output-accent">shapoclyack</span>    - Shapoclyack (Attack Surface & Vuln Management)
+  <span class="output-accent">bsdm</span>           - BSDM-Proxy (HTTPS Caching Proxy & SWG)
+  <span class="output-accent">lariska</span>        - Lariska (Endpoint inventory agent на Rust)
+  <span class="output-accent">evacal</span>         - EvaCal (Калькулятор трудозатрат и ГОСТ 34)
+  <span class="output-accent">cat &lt;name&gt;</span>     - Посмотреть манифест проекта (например: <span class="output-success">cat ferrum</span>)
+  <span class="output-accent">whoami</span>         - Профиль инженера и стек
+  <span class="output-accent">contact</span>        - Ссылки и контакты
+  <span class="output-accent">uname -a</span>       - Информация об окружении
+  <span class="output-accent">clear</span>          - Очистить экран консоли`);
         break;
 
+      case "ls":
       case "projects":
         printOutput(`
-<span class="output-accent">Flagship Open-Source Projects:</span>
-1. <span class="output-success">FERRUM</span>         - Kubernetes Admission + Runtime enforcement plane (Rust)
-2. <span class="output-success">Shapoclyack</span>    - Attack Surface Discovery & Vulnerability Platform (Python/K8s)
-3. <span class="output-success">BSDM-Proxy</span>     - HTTPS Caching Proxy & Secure Web Gateway (Rust)
-4. <span class="output-success">Lariska</span>        - Lightweight endpoint inventory & Shadow IT agent (Rust)
-5. <span class="output-success">EvaCal</span>         - Enterprise GOST 34 / 2.104 docs & estimation platform (TypeScript)
+<span class="output-accent">=== Флагманские авторские проекты ===</span>
+  [1] <span class="output-success">FERRUM</span>       - Kubernetes Admission + Runtime enforcement plane (Rust)
+  [2] <span class="output-success">Shapoclyack</span>  - External Attack Surface Discovery & Vuln Platform (Python/K8s)
+  [3] <span class="output-success">BSDM-Proxy</span>   - HTTPS Caching Proxy & Secure Web Gateway (Rust)
+  [4] <span class="output-success">Lariska</span>      - High-performance endpoint inventory agent (Rust)
+  [5] <span class="output-success">EvaCal</span>       - Enterprise ГОСТ 34 docs & labor estimation (TypeScript)
 
-Type <span class="output-accent">&lt;project-name&gt;</span> (e.g. <span class="output-success">ferrum</span>) for details and clone command.`);
+Введите имя проекта (например: <span class="output-success">ferrum</span> или <span class="output-success">cat bsdm</span>) для вывода деталей.`);
+        break;
+
+      case "cat":
+        if (!arg) {
+          printOutput(`<span class="output-warning">Использование: cat &lt;project-name&gt; (например: cat ferrum)</span>`);
+        } else {
+          showProjectDetails(arg);
+        }
         break;
 
       case "ferrum":
@@ -167,18 +202,27 @@ Type <span class="output-accent">&lt;project-name&gt;</span> (e.g. <span class="
 
       case "whoami":
         printOutput(`
-<span class="output-accent">Engineer Profile:</span>
-- <span class="output-highlight">Handle:</span> onixus
-- <span class="output-highlight">Focus:</span> Systems Engineering, Cloud Native Security, DevSecOps, Enterprise Automation
-- <span class="output-highlight">Core Stack:</span> Rust, Python, TypeScript, Kubernetes, Linux
-- <span class="output-highlight">GitHub:</span> https://github.com/onixus`);
+<span class="output-accent">Профиль инженера:</span>
+  • <span class="output-highlight">Никнейм:</span> onixus
+  • <span class="output-highlight">Специализация:</span> Systems Programming, Cloud-Native Security, DevSecOps, Enterprise Automation
+  • <span class="output-highlight">Основной стек:</span> Rust, Python, TypeScript, Kubernetes, Linux
+  • <span class="output-highlight">GitHub:</span> https://github.com/onixus`);
         break;
 
       case "contact":
         printOutput(`
-<span class="output-accent">Links & Profile:</span>
-- GitHub: <a href="https://github.com/onixus" target="_blank" class="output-success">https://github.com/onixus</a>
-- Repository: <a href="https://github.com/onixus/Git-site" target="_blank" class="output-success">https://github.com/onixus/Git-site</a>`);
+<span class="output-accent">Ссылки & Репозитории:</span>
+  • Профиль GitHub: <a href="https://github.com/onixus" target="_blank" class="output-success">https://github.com/onixus</a>
+  • Репозиторий сайта: <a href="https://github.com/onixus/Git-site" target="_blank" class="output-success">https://github.com/onixus/Git-site</a>`);
+        break;
+
+      case "uname":
+      case "uname -a":
+        printOutput(`<span class="output-dim">Linux onixus-sec-node 6.12.0-rust-sec #1 SMP PREEMPT_DYNAMIC x86_64 GNU/Linux</span>`);
+        break;
+
+      case "date":
+        printOutput(`<span class="output-dim">${new Date().toUTCString()}</span>`);
         break;
 
       case "clear":
@@ -186,7 +230,7 @@ Type <span class="output-accent">&lt;project-name&gt;</span> (e.g. <span class="
         break;
 
       default:
-        printOutput(`<span class="output-warning">Command not recognized: '${escapeHtml(cmd)}'. Type <span class="output-success">'help'</span> for instructions.</span>`);
+        printOutput(`<span class="output-warning">Команда не найдена: '${escapeHtml(cmd)}'. Введите <span class="output-success">'help'</span> для списка команд.</span>`);
         break;
     }
 
@@ -194,18 +238,22 @@ Type <span class="output-accent">&lt;project-name&gt;</span> (e.g. <span class="
   }
 
   function showProjectDetails(id) {
-    const proj = window.PROJECTS_DATA.find(p => p.id === id);
-    if (!proj) return;
+    const projects = getProjectsData();
+    const proj = projects.find(p => p.id === id || p.title.toLowerCase() === id);
+    if (!proj) {
+      printOutput(`<span class="output-warning">Проект '${escapeHtml(id)}' не найден. Введите 'projects' для списка.</span>`);
+      return;
+    }
 
     printOutput(`
-<span class="output-accent">=== ${proj.title} [${proj.badge}] ===</span>
-${proj.description}
+<span class="output-accent">=== ${escapeHtml(proj.title)} [${escapeHtml(proj.badge)}] ===</span>
+${escapeHtml(proj.description)}
 
-<span class="output-highlight">Highlights:</span>
-${proj.highlights.map(h => `  • ${h}`).join("\n")}
+<span class="output-highlight">Ключевые возможности:</span>
+${proj.highlights.map(h => `  • ${escapeHtml(h)}`).join("\n")}
 
-<span class="output-highlight">GitHub:</span> ${proj.githubUrl}
-<span class="output-highlight">Clone:</span> <span class="output-success">${proj.cloneCmd}</span>`);
+<span class="output-highlight">GitHub:</span> <a href="${escapeHtml(proj.githubUrl)}" target="_blank" class="output-success">${escapeHtml(proj.githubUrl)}</a>
+<span class="output-highlight">Клонировать:</span> <span class="output-success">${escapeHtml(proj.cloneCmd)}</span>`);
   }
 
   function printOutput(html) {
@@ -247,6 +295,7 @@ ${proj.highlights.map(h => `  • ${h}`).join("\n")}
   });
 
   window.runTerminalCommand = function(cmdStr) {
+    if (!input) return;
     input.value = cmdStr;
     handleCommand(cmdStr);
     input.focus();
@@ -258,12 +307,33 @@ ${proj.highlights.map(h => `  • ${h}`).join("\n")}
    -------------------------------------------------------------------------- */
 function initQuickCopy() {
   window.copyCloneCommand = function(cmd) {
-    navigator.clipboard.writeText(cmd).then(() => {
-      showToast(`Copied to clipboard: ${cmd}`);
-    }).catch(() => {
-      showToast("Unable to copy to clipboard");
-    });
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(cmd).then(() => {
+        showToast(`Скопировано: ${cmd}`);
+      }).catch(() => {
+        fallbackCopy(cmd);
+      });
+    } else {
+      fallbackCopy(cmd);
+    }
   };
+
+  function fallbackCopy(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    textArea.style.opacity = "0";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      showToast(`Скопировано: ${text}`);
+    } catch (err) {
+      showToast("Ошибка копирования в буфер");
+    }
+    document.body.removeChild(textArea);
+  }
 }
 
 function initToast() {

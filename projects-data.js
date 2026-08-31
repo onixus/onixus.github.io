@@ -1,4 +1,9 @@
-const PROJECTS_DATA = [
+/**
+ * ONIXUS // SEC_LAB
+ * Flagship Projects Database
+ */
+
+var PROJECTS_DATA = [
   {
     id: "ferrum",
     title: "FERRUM",
@@ -91,6 +96,10 @@ const PROJECTS_DATA = [
   }
 ];
 
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof window !== "undefined") {
+  window.PROJECTS_DATA = PROJECTS_DATA;
+}
+
+if (typeof module !== "undefined" && module.exports) {
   module.exports = { PROJECTS_DATA };
 }
