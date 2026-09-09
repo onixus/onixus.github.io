@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>onixus // Systems & Cybersecurity Showcase</title>
-  <meta name="description" content="Флагманские проекты onixus в области Systems Engineering, Kubernetes Enforcement, Secure Web Gateway, EASM и корпоративной автоматизации.">
+  <meta name="description" content="Флагманские проекты onixus: Asmodeus (BAS/Red Team), Ferrum (K8s eBPF), Shapoclyack (EASM/RBVM & Enterprise Wiki), APEX Unified Platform, Lariska, BSDM-Proxy, Pulse, Oko-Ra, Octo-man, EvaCal.">
   <link rel="icon" href="https://avatars.githubusercontent.com/u/12559109?v=4" type="image/png">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -21,7 +21,8 @@
 
       <nav>
         <ul class="nav-links">
-          <li><a href="#projects" class="nav-link">Проекты</a></li>
+          <li><a href="#projects" class="nav-link">Проекты (10)</a></li>
+          <li><a href="#wiki" class="nav-link" style="color: var(--accent-amber);">База знаний (Wiki) 🇷🇺</a></li>
           <li><a href="#terminal" class="nav-link">Терминал</a></li>
           <li>
             <a href="https://github.com/onixus" target="_blank" rel="noopener noreferrer" class="github-btn">
@@ -43,7 +44,7 @@
         
         <div class="hero-badge-wrapper">
           <span class="status-dot"></span>
-          <span class="hero-badge-text">Systems & Cybersecurity Engineering</span>
+          <span class="hero-badge-text">Systems & Cybersecurity Engineering · 10 Platforms · Enterprise Wiki</span>
         </div>
 
         <div class="hero-profile">
@@ -58,28 +59,163 @@
         </h1>
 
         <p class="hero-subtitle">
-          Разработка отказоустойчивых систем контроля безопасности: Kubernetes runtime & admission enforcement, 
-          внешний мониторинг периметра (EASM), Secure Web Gateway и корпоративная автоматизация.
+          Замкнутый контур непрерывной киберзащиты (NIST CSF 2.0): симуляция атак (BAS/Red Team), 
+          eBPF перехват в ядре Linux, управление поверхностью атаки (EASM/RBVM), 
+          корпоративная база знаний (Wiki) и единая консоль APEX.
         </p>
 
         <div class="hero-actions">
           <a href="#projects" class="btn-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-            Изучить проекты
+            Изучить проекты (10)
+          </a>
+          <a href="#wiki" class="btn-secondary" style="border-color: rgba(245, 158, 11, 0.4); color: #fef08a;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            База знаний (Wiki) 🇷🇺
           </a>
           <a href="#terminal" class="btn-secondary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
-            Открыть CLI терминал
+            CLI терминал
           </a>
         </div>
 
         <div class="hero-quick-cmd">
           <div class="cmd-text">
-            <span class="cmd-prompt">$</span> git clone https://github.com/onixus/Ferrum.git
+            <span class="cmd-prompt">$</span> git clone https://github.com/onixus/Shapoclyack.git
           </div>
-          <button class="copy-mini-btn" onclick="copyCloneCommand('git clone https://github.com/onixus/Ferrum.git')" title="Скопировать команду git clone">
+          <button class="copy-mini-btn" onclick="copyCloneCommand('git clone https://github.com/onixus/Shapoclyack.git')" title="Скопировать команду git clone">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
           </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================
+         ENTERPRISE WIKI SHOWCASE SECTION
+         =================================================== -->
+    <section id="wiki" class="section">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag" style="color: var(--accent-amber);">Корпоративные стандарты & Регламенты</span>
+          <h2 class="section-title">База знаний (Enterprise Wiki) & Ролевые сценарии ИБ</h2>
+          <p class="section-desc">
+            Полный свод операционных регламентов, ролевых руководств и дорожной карты внедрения платформы Shapoclyack на русском языке.
+          </p>
+        </div>
+
+        <div class="wiki-banner">
+          <div class="wiki-banner-header">
+            <div>
+              <span class="wiki-badge">⚡ KNOWLEDGE BASE REPOSITORY & WIKI</span>
+              <h3 class="wiki-header-title">Shapoclyack Enterprise Knowledge Base & Operational Framework</h3>
+            </div>
+            <div class="wiki-header-actions">
+              <a href="https://github.com/onixus/Shapoclyack/wiki" target="_blank" rel="noopener noreferrer" class="btn-wiki-action">
+                <span>Открыть GitHub Wiki</span> ↗
+              </a>
+              <a href="https://github.com/onixus/Shapoclyack/tree/main/docs/wiki" target="_blank" rel="noopener noreferrer" class="btn-wiki-action">
+                <span>Исходники docs/wiki/</span> ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Role Cards Grid -->
+          <div class="wiki-roles-grid">
+            
+            <!-- Role 1: Security Engineer -->
+            <div class="wiki-role-card">
+              <div class="wiki-role-icon">🛠️</div>
+              <span class="wiki-role-scope">ОПЕРАЦИОННАЯ ДЕЯТЕЛЬНОСТЬ</span>
+              <h4 class="wiki-role-title">Инженер ИБ</h4>
+              <p class="wiki-role-desc">
+                Повседневная работа с уязвимостями, углубленный триаж, валидация исправления и устранение слепого шума:
+              </p>
+              <ul class="wiki-role-items">
+                <li>Триаж находок с фиксацией доказательной базы (proof).</li>
+                <li><strong>Инструментальная ре-верификация:</strong> закрытие только по повторному скану (<code>machine_verified = true</code>).</li>
+                <li><strong>Patch Gaps:</strong> готовые консольные команды обновления дистрибутивов (Ubuntu USN / Debian Security).</li>
+                <li>Фильтрация невоспроизводимых CVE и подавление FP.</li>
+              </ul>
+              <a href="https://github.com/onixus/Shapoclyack/blob/main/docs/wiki/scenarios-security-engineer.md" target="_blank" rel="noopener noreferrer" class="wiki-card-link">
+                Сценарии инженера ИБ →
+              </a>
+            </div>
+
+            <!-- Role 2: Security Architect -->
+            <div class="wiki-role-card">
+              <div class="wiki-role-icon">🏛️</div>
+              <span class="wiki-role-scope">СИСТЕМНАЯ АРХИТЕКТУРА</span>
+              <h4 class="wiki-role-title">Архитектор ИБ / Enterprise</h4>
+              <p class="wiki-role-desc">
+                Картографирование ландшафта, контроль сегментации, интеграции и соответствие регуляторным нормам:
+              </p>
+              <ul class="wiki-role-items">
+                <li>Инвентаризация периметра (EASM/CAASM), выявление Shadow IT.</li>
+                <li>Топология remote agents через <strong>NATS JetStream mTLS</strong> без входящих портов в сегментах.</li>
+                <li>Интеграция с CMDB, Active Directory, CI/CD и SIEM/SOAR.</li>
+                <li>Оценка соответствия: <strong>PCI DSS 4.0, CIS Controls v8, ISO 27001</strong>.</li>
+              </ul>
+              <a href="https://github.com/onixus/Shapoclyack/blob/main/docs/wiki/scenarios-architect.md" target="_blank" rel="noopener noreferrer" class="wiki-card-link">
+                Сценарии архитектора ИБ →
+              </a>
+            </div>
+
+            <!-- Role 3: CISO / Management -->
+            <div class="wiki-role-card">
+              <div class="wiki-role-icon">📊</div>
+              <span class="wiki-role-scope">СТРАТЕГИЧЕСКОЕ УПРАВЛЕНИЕ</span>
+              <h4 class="wiki-role-title">CISO / Руководство ИБ</h4>
+              <p class="wiki-role-desc">
+                Управление совокупным риском компании, соответствие стандартам и объективные метрики зрелости:
+              </p>
+              <ul class="wiki-role-items">
+                <li>Дашборд <strong>Estate Risk по NIST SP 800-30 Rev. 1</strong>: двухосевой скоринг (вероятность vs ущерб).</li>
+                <li>Контроль эксплойтов в дикой природе (CISA KEV) и EPSS.</li>
+                <li>Контроль соблюдения SLA ремедиации и медианного MTTR.</li>
+                <li>Метрики Adoption и Noise: контроль качества работы команды.</li>
+              </ul>
+              <a href="https://github.com/onixus/Shapoclyack/blob/main/docs/wiki/scenarios-ciso.md" target="_blank" rel="noopener noreferrer" class="wiki-card-link">
+                Сценарии CISO / Руководства →
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Operational Processes Grid -->
+          <div class="wiki-ops-grid">
+            <div class="wiki-op-card">
+              <h5 class="wiki-op-title">🔄 VM Lifecycle Регламент</h5>
+              <p class="wiki-op-desc">
+                Машина состояний от открытия дефекта до машинной перепроверки: <code>OPEN</code> ➔ <code>ASSIGNED</code> ➔ <code>FIXING</code> ➔ <code>VERIFYING</code> ➔ <code>CLOSED</code>. Запрет формальных ручных закрытий без доказательств.
+              </p>
+              <a href="https://github.com/onixus/Shapoclyack/blob/main/docs/wiki/security-processes.md" target="_blank" rel="noopener noreferrer" class="wiki-card-link" style="font-size: 0.8rem;">
+                Регламент процессов ИБ →
+              </a>
+            </div>
+
+            <div class="wiki-op-card">
+              <h5 class="wiki-op-title">🚨 Экстренное реагирование (0-Day / KEV)</h5>
+              <p class="wiki-op-desc">
+                Регламент немедленной локализации угроз с активными эксплойтами в дикой природе. Экстренный SLA: 24 часа для критических систем и внешнего периметра.
+              </p>
+              <a href="https://github.com/onixus/Shapoclyack/blob/main/docs/wiki/security-processes.md#3-процесс-экстренного-реагирования-на-0-day-и-активные-угрозы-cisa-kev" target="_blank" rel="noopener noreferrer" class="wiki-card-link" style="font-size: 0.8rem;">
+                Регламент 0-Day / KEV →
+              </a>
+            </div>
+
+            <div class="wiki-op-card">
+              <h5 class="wiki-op-title">📅 Дорожная карта внедрения (12 недель)</h5>
+              <p class="wiki-op-desc">
+                4 фазы внедрения платформы: Пилот ➔ Агенты и сегментация ➔ Интеграция с IT и CI/CD ➔ Промышленная эксплуатация с контролем KPI и матрицей RACI.
+              </p>
+              <a href="https://github.com/onixus/Shapoclyack/blob/main/docs/wiki/implementation-plan.md" target="_blank" rel="noopener noreferrer" class="wiki-card-link" style="font-size: 0.8rem;">
+                План внедрения и RACI →
+              </a>
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -90,38 +226,77 @@
       <div class="container">
         
         <div class="section-header">
-          <span class="section-tag">Flagship Projects</span>
+          <span class="section-tag">Flagship Projects (10 Systems)</span>
           <h2 class="section-title">Флагманские решения & Open Source</h2>
-          <p class="section-desc">Ключевые авторские разработки с фокусом на детерминированную безопасность, высокую производительность и надежность.</p>
+          <p class="section-desc">10 авторских платформ и агентов с фокусом на детерминированную безопасность, высокую производительность и надежность.</p>
         </div>
 
         <!-- Pre-rendered Static Project Cards -->
         <div id="projectsGrid" class="projects-grid">
           
-          <!-- Card 1: FERRUM -->
+          <!-- Card 1: ASMODEUS -->
+          <article class="project-card" data-project-id="asmodeus">
+            <div class="card-header">
+              <div class="card-icon-box" style="color: var(--accent-red); border-color: rgba(244, 63, 94, 0.3);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <span class="card-badge" style="background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3);">Rust • BAS & Red Team</span>
+            </div>
+            
+            <h3 class="card-title">ASMODEUS</h3>
+            <p class="card-summary">Adversary Emulation (BAS), Red Team Cyber Exercises & Chaos Engineering Engine на Rust (NIST CSF 2.0).</p>
+            
+            <ul class="card-highlights">
+              <li class="highlight-item"><span class="highlight-dot"></span><span>8 сценариев MITRE ATT&CK (Ransomware, K8s Escape, C2, Exfiltration)</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Инфраструктурный хаос (LATENCY_SPIKE, AGENT_CRASH, DNS_SINKHOLE_DROP)</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Защитные барьеры: Blast Radius limit, Circuit Breaker, Auto-Rollback</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Замер метрик Blue Team: MTTD, MTTR, Resilience Score</span></li>
+            </ul>
+            
+            <div class="card-tags">
+              <span class="tag-pill">#Rust</span>
+              <span class="tag-pill">#BAS</span>
+              <span class="tag-pill">#Red-Team</span>
+              <span class="tag-pill">#MITRE-ATTCK</span>
+              <span class="tag-pill">#Chaos-Engineering</span>
+            </div>
+            
+            <div class="card-actions">
+              <a href="https://github.com/onixus/Asmodeus" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub Repo
+              </a>
+              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Asmodeus.git')" title="Скопировать команду git clone">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                git clone
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 2: FERRUM -->
           <article class="project-card" data-project-id="ferrum">
             <div class="card-header">
               <div class="card-icon-box">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
-              <span class="card-badge">Rust • Kubernetes Security</span>
+              <span class="card-badge">Rust • Kubernetes eBPF Security</span>
             </div>
             
             <h3 class="card-title">FERRUM</h3>
             <p class="card-summary">Self-hosted Kubernetes enforcement plane на Rust. Admission + runtime enforcement, подписанные policy bundle, last-known-good вместо fail-open.</p>
             
             <ul class="card-highlights">
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Admission + Runtime Enforcement</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Подписанные Policy Bundles</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Отказоустойчивость: Last-Known-Good</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Высокая производительность на Rust</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>eBPF sys_enter tracepoint datapath (aya-ebpf)</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Admission Webhook: fail-closed, hot-reload, LKG на диске</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Ed25519 Signed Bundles: офлайн-выпуск PKI и валидация</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Strict Boundary Gate: строгий контроль покрытия тестами</span></li>
             </ul>
             
             <div class="card-tags">
               <span class="tag-pill">#Rust</span>
               <span class="tag-pill">#Kubernetes</span>
-              <span class="tag-pill">#Admission-Control</span>
-              <span class="tag-pill">#Runtime-Security</span>
+              <span class="tag-pill">#eBPF</span>
+              <span class="tag-pill">#Aya</span>
               <span class="tag-pill">#Policy-Bundles</span>
             </div>
             
@@ -137,37 +312,44 @@
             </div>
           </article>
 
-          <!-- Card 2: Shapoclyack -->
-          <article class="project-card" data-project-id="shapoclyack">
+          <!-- Card 3: Shapoclyack (Featured with Wiki) -->
+          <article class="project-card" data-project-id="shapoclyack" style="border-color: rgba(245, 158, 11, 0.4); background: linear-gradient(135deg, rgba(19, 25, 41, 0.95), rgba(24, 30, 50, 0.9));">
             <div class="card-header">
-              <div class="card-icon-box">
+              <div class="card-icon-box" style="color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.3);">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/><path d="M12 12 19 5"/></svg>
               </div>
-              <span class="card-badge">Python • Cloud Native EASM</span>
+              <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                <span class="card-badge">Python • EASM & RBVM</span>
+                <span class="card-badge" style="background: rgba(245, 158, 11, 0.18); color: #fef08a; border-color: rgba(245, 158, 11, 0.4);">Enterprise Wiki 🇷🇺</span>
+              </div>
             </div>
             
             <h3 class="card-title">Shapoclyack</h3>
-            <p class="card-summary">Self-hosted платформа для обнаружения внешней поверхности атаки (EASM), инвентаризации сетевых активов и управления уязвимостями.</p>
+            <p class="card-summary">Self-hosted EASM, CAASM и Risk-Based Vulnerability Management платформа со встроенной Enterprise Wiki и механической верификацией.</p>
             
             <ul class="card-highlights">
-              <li class="highlight-item"><span class="highlight-dot"></span><span>External Attack Surface Discovery</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Непрерывный аудит активов и сервисов</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Управление уязвимостями периметра</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Манифесты для Kubernetes / Kustomize</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Asset-Centric модель: сохранение контекста активов при смене IP/DHCP</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Двухосевой риск по NIST SP 800-30 Rev. 1 (Likelihood vs Impact)</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Механическая ре-верификация закрытия (machine_verified = true)</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Vendor Advisory Matching (Patch Gaps для Ubuntu USN / Debian)</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Enterprise Wiki: ролевые сценарии (Инженер, Архитектор, CISO) и регламенты SLA</span></li>
             </ul>
             
             <div class="card-tags">
               <span class="tag-pill">#Python</span>
-              <span class="tag-pill">#Kubernetes</span>
-              <span class="tag-pill">#Kustomize</span>
               <span class="tag-pill">#EASM</span>
-              <span class="tag-pill">#Vulnerability-Management</span>
+              <span class="tag-pill">#RBVM</span>
+              <span class="tag-pill">#NIST-SP-800-30</span>
+              <span class="tag-pill">#Enterprise-Wiki</span>
             </div>
             
             <div class="card-actions">
               <a href="https://github.com/onixus/Shapoclyack" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                 GitHub Repo
+              </a>
+              <a href="https://github.com/onixus/Shapoclyack/wiki" target="_blank" rel="noopener noreferrer" class="btn-card-wiki">
+                <span>База знаний (Wiki)</span> ↗
               </a>
               <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Shapoclyack.git')" title="Скопировать команду git clone">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
@@ -176,7 +358,46 @@
             </div>
           </article>
 
-          <!-- Card 3: BSDM-Proxy -->
+          <!-- Card 4: APEX Unified Platform -->
+          <article class="project-card" data-project-id="apex">
+            <div class="card-header">
+              <div class="card-icon-box" style="color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+              </div>
+              <span class="card-badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3);">Next.js • Single Pane of Glass</span>
+            </div>
+            
+            <h3 class="card-title">APEX Unified Platform</h3>
+            <p class="card-summary">Централизованная консоль безопасности и управления, объединяющая 8 систем в платформу класса XDR / EASM / SWG.</p>
+            
+            <ul class="card-highlights">
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Asset 360° Explorer: сквозной профиль хоста со сведениями всех подсистем</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Unified API Gateway (BFF): высокопроизводительная агрегация телеметрии</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>ClickHouse DataLake: аналитика событий безопасности в реальном времени</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Интеграция 8 компонентов: Shapoclyack, Ferrum, BSDM, Lariska, Pulse, Oko-Ra, Octo-man, EvaCal</span></li>
+            </ul>
+            
+            <div class="card-tags">
+              <span class="tag-pill">#Next.js</span>
+              <span class="tag-pill">#FastAPI</span>
+              <span class="tag-pill">#BFF</span>
+              <span class="tag-pill">#ClickHouse</span>
+              <span class="tag-pill">#XDR</span>
+            </div>
+            
+            <div class="card-actions">
+              <a href="https://github.com/onixus/unified-platform" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub Repo
+              </a>
+              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/unified-platform.git')" title="Скопировать команду git clone">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                git clone
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 5: BSDM-Proxy -->
           <article class="project-card" data-project-id="bsdm-proxy">
             <div class="card-header">
               <div class="card-icon-box">
@@ -189,17 +410,17 @@
             <p class="card-summary">Высокопроизводительный HTTPS кэширующий прокси-сервер и Secure Web Gateway (SWG) на Rust с изолированной консолью администратора.</p>
             
             <ul class="card-highlights">
-              <li class="highlight-item"><span class="highlight-dot"></span><span>HTTPS Caching & Трафик-контроль</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Secure Web Gateway (SWG) архитектура</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Выделенная Admin Console</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Сверхбыстрый асинхронный I/O на Rust</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>HTTPS Caching & MITM TLS-инспекция трафика</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>DNS Sinkhole (RPZ) для блокировки C2 и вредоносных доменов</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Аналитический конвейер: Kafka -> ClickHouse -> ML-детекция</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Поддержка защищенных туннелей AmneziaWG VPN</span></li>
             </ul>
             
             <div class="card-tags">
               <span class="tag-pill">#Rust</span>
               <span class="tag-pill">#SWG</span>
               <span class="tag-pill">#Proxy-Server</span>
-              <span class="tag-pill">#WebGateway</span>
+              <span class="tag-pill">#DNS-RPZ</span>
               <span class="tag-pill">#Admin-Console</span>
             </div>
             
@@ -215,7 +436,7 @@
             </div>
           </article>
 
-          <!-- Card 4: Lariska -->
+          <!-- Card 6: Lariska -->
           <article class="project-card" data-project-id="lariska">
             <div class="card-header">
               <div class="card-icon-box">
@@ -225,20 +446,20 @@
             </div>
             
             <h3 class="card-title">Lariska</h3>
-            <p class="card-summary">Высокопроизводительный легковесный кроссплатформенный агент инвентаризации конечных точек для экосистемы Shapoclyack.</p>
+            <p class="card-summary">Высокопроизводительный кроссплатформенный агент инвентаризации конечных точек с изоляцией на E-ядрах.</p>
             
             <ul class="card-highlights">
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Детекция несанкционированного ПО (Shadow IT)</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Инвентаризация хостов, контейнеров и виртуализации</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Локальный спулинг и защита от сбоев (Crash Recovery)</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Минимальный футпринт по памяти и CPU</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>E-Core Pinning: изоляция на энергоэффективных ядрах (M1-M4, Intel, AMD)</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Детекция несанкционированного ПО (Shadow IT) в рантайме</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Локальный спулинг SQLite с zstd сжатием и Crash Recovery</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Псевдонимизация hardware ID (SHA-256) и защита от PATH-hijacking</span></li>
             </ul>
             
             <div class="card-tags">
               <span class="tag-pill">#Rust</span>
               <span class="tag-pill">#Endpoint-Agent</span>
               <span class="tag-pill">#Shadow-IT</span>
-              <span class="tag-pill">#Telemetry</span>
+              <span class="tag-pill">#E-Cores</span>
               <span class="tag-pill">#Inventory</span>
             </div>
             
@@ -254,22 +475,138 @@
             </div>
           </article>
 
-          <!-- Card 5: EvaCal -->
+          <!-- Card 7: Pulse -->
+          <article class="project-card" data-project-id="pulse">
+            <div class="card-header">
+              <div class="card-icon-box" style="color: var(--accent-violet); border-color: rgba(168, 85, 247, 0.3);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.2 19.1 19.1"/></svg>
+              </div>
+              <span class="card-badge" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">Rust • Async Port Scanner</span>
+            </div>
+            
+            <h3 class="card-title">Pulse</h3>
+            <p class="card-summary">Субсекундный асинхронный сканер сети, портов и TLS-отпечатков на Rust (CLI, TUI, macOS & Win GUI).</p>
+            
+            <ul class="card-highlights">
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Async TCP connect, SYN half-open, UDP зонды для 20 протоколов</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Salesforce JARM TLS Fingerprinting (10-зондовое хэширование)</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Встроенный движок аудита Rhai для скриптов безопасности</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Периметральный демон отслеживания дрейфа с алертами в Telegram/Slack</span></li>
+            </ul>
+            
+            <div class="card-tags">
+              <span class="tag-pill">#Rust</span>
+              <span class="tag-pill">#Port-Scanner</span>
+              <span class="tag-pill">#JARM-TLS</span>
+              <span class="tag-pill">#Rhai</span>
+              <span class="tag-pill">#TUI</span>
+            </div>
+            
+            <div class="card-actions">
+              <a href="https://github.com/onixus/pulse" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub Repo
+              </a>
+              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/pulse.git')" title="Скопировать команду git clone">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                git clone
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 8: Oko-Ra -->
+          <article class="project-card" data-project-id="okora">
+            <div class="card-header">
+              <div class="card-icon-box" style="color: var(--accent-red); border-color: rgba(239, 68, 68, 0.3);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <span class="card-badge" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3);">Python • Causal AI Threats</span>
+            </div>
+            
+            <h3 class="card-title">Oko-Ra (Око-Ра)</h3>
+            <p class="card-summary">Автономная платформа анализа гибридных угроз, моделирования каскадных сценариев и социетальных рисков.</p>
+            
+            <ul class="card-highlights">
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Детерминированное ядро + Causal AI для анализа гибридных угроз</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Моделирование каскадных сбоев и инфраструктурного эффекта домино</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Интеграция с Национальным УЦ Минцифры РФ (Russian CA)</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>7 строгих производственных шлюзов: 282/282 тестов, 100% strict Mypy</span></li>
+            </ul>
+            
+            <div class="card-tags">
+              <span class="tag-pill">#Python</span>
+              <span class="tag-pill">#Causal-AI</span>
+              <span class="tag-pill">#Hybrid-Threats</span>
+              <span class="tag-pill">#Russian-CA</span>
+            </div>
+            
+            <div class="card-actions">
+              <a href="https://github.com/onixus/Oko-Ra" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub Repo
+              </a>
+              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Oko-Ra.git')" title="Скопировать команду git clone">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                git clone
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 9: Network Scan CLI (Octo-man) -->
+          <article class="project-card" data-project-id="octoman">
+            <div class="card-header">
+              <div class="card-icon-box" style="color: var(--accent-cyan); border-color: rgba(6, 182, 212, 0.3);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+              </div>
+              <span class="card-badge" style="background: rgba(6, 182, 212, 0.15); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.3);">Go • Scalable Network Sweep</span>
+            </div>
+            
+            <h3 class="card-title">Network Scan CLI (Octo-man)</h3>
+            <p class="card-summary">Контейнеризованный конвейер пакетного сканирования масштабных сетей (CIDR + IP + FQDN).</p>
+            
+            <ul class="card-highlights">
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Лестница зондирования (Probe Ladder): fping ICMP -> TCP SYN -> naabu</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Адаптивное сканирование с заполнением пробелов (wave-2 gap fill)</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Delta Discovery (--delta) для отслеживания динамики периметра</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Обогащение именами хостов (dnsx forward + reverse PTR)</span></li>
+            </ul>
+            
+            <div class="card-tags">
+              <span class="tag-pill">#Go</span>
+              <span class="tag-pill">#Docker</span>
+              <span class="tag-pill">#Network-Scan</span>
+              <span class="tag-pill">#Naabu</span>
+              <span class="tag-pill">#CIDR-Sweep</span>
+            </div>
+            
+            <div class="card-actions">
+              <a href="https://github.com/onixus/Octo-man" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub Repo
+              </a>
+              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Octo-man.git')" title="Скопировать команду git clone">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                git clone
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 10: EvaCal -->
           <article class="project-card" data-project-id="evacal">
             <div class="card-header">
               <div class="card-icon-box">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
               </div>
-              <span class="card-badge">TypeScript • Enterprise Tooling</span>
+              <span class="card-badge">TypeScript • ГОСТ 34 & Presale</span>
             </div>
             
             <h3 class="card-title">EvaCal</h3>
             <p class="card-summary">Корпоративный калькулятор трудозатрат и автоматизированный генератор документации по ГОСТ 34.602-2020 / РД 50-34.698-90 с оформлением по ГОСТ 2.104-2006.</p>
             
             <ul class="card-highlights">
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Календарный план и сметные расчеты КП</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Генерация ТЗ и документации по ГОСТ 34.602-2020</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Оформление по ГОСТ 2.104-2006 (Формы 2 и 2а)</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Календарный план, ставки ролей и сметные расчеты КП</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Генерация комплекта ТЗ, ПЗ, АФ, ПМИ и спецификаций</span></li>
+              <li class="highlight-item"><span class="highlight-dot"></span><span>Оформление по ГОСТ 2.104-2006 (Формы 2 и 2а) и профиль без рамок</span></li>
               <li class="highlight-item"><span class="highlight-dot"></span><span>Сквозная матрица требований и трассируемости</span></li>
             </ul>
             
@@ -305,7 +642,7 @@
         <div class="section-header">
           <span class="section-tag">Interactive Console</span>
           <h2 class="section-title">Интерактивный терминал</h2>
-          <p class="section-desc">Быстрый доступ к описанию систем, манифестам и командам прямо из веб-консоли.</p>
+          <p class="section-desc">Быстрый доступ к описанию систем, манифестам, структуре репозиториев и разделам Wiki прямо из веб-консоли.</p>
         </div>
 
         <div class="terminal-wrapper">
@@ -326,18 +663,23 @@
           <div style="padding: 0 1.5rem 1.5rem 1.5rem; background: #05080f;">
             <div class="terminal-input-row">
               <span class="terminal-prompt">onixus@lab:~$</span>
-              <input type="text" id="terminalInput" class="terminal-input" placeholder="Введите команду (например: projects, ferrum, help)..." autocomplete="off" spellcheck="false">
+              <input type="text" id="terminalInput" class="terminal-input" placeholder="Введите команду (например: projects, wiki, tree, asmodeus)..." autocomplete="off" spellcheck="false">
             </div>
 
             <div class="terminal-quick-cmds">
               <button class="quick-cmd-btn" onclick="runTerminalCommand('projects')">projects</button>
+              <button class="quick-cmd-btn" onclick="runTerminalCommand('wiki')" style="border-color: rgba(245,158,11,0.5); color: #fef08a;">wiki</button>
               <button class="quick-cmd-btn" onclick="runTerminalCommand('tree')">tree</button>
+              <button class="quick-cmd-btn" onclick="runTerminalCommand('asmodeus')">asmodeus</button>
               <button class="quick-cmd-btn" onclick="runTerminalCommand('ferrum')">ferrum</button>
               <button class="quick-cmd-btn" onclick="runTerminalCommand('shapoclyack')">shapoclyack</button>
+              <button class="quick-cmd-btn" onclick="runTerminalCommand('apex')">apex</button>
               <button class="quick-cmd-btn" onclick="runTerminalCommand('bsdm')">bsdm</button>
               <button class="quick-cmd-btn" onclick="runTerminalCommand('lariska')">lariska</button>
+              <button class="quick-cmd-btn" onclick="runTerminalCommand('pulse')">pulse</button>
+              <button class="quick-cmd-btn" onclick="runTerminalCommand('okora')">okora</button>
+              <button class="quick-cmd-btn" onclick="runTerminalCommand('octoman')">octoman</button>
               <button class="quick-cmd-btn" onclick="runTerminalCommand('evacal')">evacal</button>
-              <button class="quick-cmd-btn" onclick="runTerminalCommand('whoami')">whoami</button>
               <button class="quick-cmd-btn" onclick="runTerminalCommand('clear')">clear</button>
             </div>
           </div>
@@ -353,11 +695,12 @@
       <div class="footer-content">
         <div class="footer-brand">
           <span class="footer-logo">onixus // SEC_LAB</span>
-          <span class="footer-sub">Systems Engineering & DevSecOps Solutions</span>
+          <span class="footer-sub">Autonomous Cyber Resilience, eBPF Kernel Security & DevSecOps Solutions</span>
         </div>
 
         <ul class="footer-links">
-          <li><a href="#projects" class="footer-link">Проекты</a></li>
+          <li><a href="#projects" class="footer-link">Проекты (10)</a></li>
+          <li><a href="#wiki" class="footer-link">База знаний (Wiki)</a></li>
           <li><a href="#terminal" class="footer-link">Терминал</a></li>
           <li><a href="https://github.com/onixus" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub Profile</a></li>
           <li><a href="https://github.com/onixus/onixus.github.io" target="_blank" rel="noopener noreferrer" class="footer-link">Repository</a></li>
@@ -367,16 +710,17 @@
       <div class="footer-bottom">
         <div class="footer-status">
           <span class="footer-status-indicator"></span>
-          <span>GitHub Pages • Ready to Deploy</span>
+          <span>GitHub Pages • Live & Production Ready</span>
         </div>
         <div>
-          © onixus. Built for GitHub Pages.
+          © 2026 onixus. Built for GitHub Pages.
         </div>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
+  <script src="projects-data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

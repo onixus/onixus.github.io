@@ -899,3 +899,232 @@ a {
     font-size: 0.75rem;
   }
 }
+
+/* ==========================================================================
+   Enterprise Wiki & Knowledge Base Section Styling
+   ========================================================================== */
+.wiki-banner {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(15, 23, 42, 0.95) 50%, rgba(30, 27, 75, 0.4) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(245, 158, 11, 0.1);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.wiki-banner::after {
+  content: "WIKI";
+  position: absolute;
+  right: 1.5rem;
+  bottom: -1.5rem;
+  font-size: 8rem;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  color: rgba(245, 158, 11, 0.03);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.wiki-banner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.wiki-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(245, 158, 11, 0.15);
+  color: #fef08a;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.wiki-header-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #fef08a;
+  margin-top: 0.5rem;
+}
+
+.wiki-header-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-wiki-action {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  color: #fef3c7;
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-normal);
+}
+
+.btn-wiki-action:hover {
+  background: rgba(245, 158, 11, 0.3);
+  border-color: #fbbf24;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
+}
+
+.wiki-roles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.wiki-role-card {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: var(--transition-normal);
+}
+
+.wiki-role-card:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+  background: rgba(22, 34, 60, 0.8);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.wiki-role-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.wiki-role-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.wiki-role-scope {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-amber);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.wiki-role-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.wiki-role-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding-left: 0.25rem;
+}
+
+.wiki-role-items li::before {
+  content: "▹ ";
+  color: var(--accent-amber);
+  font-weight: bold;
+}
+
+.wiki-card-link {
+  font-size: 0.85rem;
+  color: #fef08a;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  transition: var(--transition-fast);
+}
+
+.wiki-card-link:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.wiki-ops-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.wiki-op-card {
+  background: rgba(10, 15, 28, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wiki-op-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wiki-op-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.btn-card-wiki {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: var(--transition-fast);
+}
+
+.btn-card-wiki:hover {
+  background: #f59e0b;
+  color: #05080f;
+  border-color: #f59e0b;
+}
+
+@media (max-width: 900px) {
+  .wiki-roles-grid,
+  .wiki-ops-grid {
+    grid-template-columns: 1fr;
+  }
+}
