@@ -105,38 +105,6 @@ var PROJECTS_DATA = [
     icon: "radar"
   },
   {
-    id: "apex",
-    alias: "unified-platform",
-    title: "APEX Unified Platform",
-    category: "security",
-    badge: "Next.js • Single Pane of Glass",
-    summary: "Централизованная консоль безопасности и управления, объединяющая 8 систем в платформу класса XDR / EASM / SWG.",
-    description: "Единый операторский портал (Single Pane of Glass), объединяющий разрозненные защитные и исследовательские компоненты через Unified API Gateway (BFF) на FastAPI и фронтенд на Next.js 14 с хранилищем телеметрии ClickHouse.",
-    highlights: [
-      "Asset 360° Explorer: сквозной профиль хоста со сведениями всех подсистем",
-      "Unified API Gateway (BFF): высокопроизводительная агрегация телеметрии",
-      "ClickHouse DataLake: аналитика событий безопасности в реальном времени",
-      "Интеграция 8 компонентов: Shapoclyack, Ferrum, BSDM, Lariska, Pulse, Oko-Ra, Octo-man, EvaCal"
-    ],
-    structure: `unified-platform/
-├── gateway/                  # FastAPI Backend-for-Frontend (BFF)
-│   ├── app/
-│   │   ├── routers/          # Proxy & aggregator endpoints for 8 subsystems
-│   │   ├── services/         # ClickHouse & cache connector
-│   │   └── main.py
-│   └── Dockerfile
-├── web-console/              # Next.js 14 / React 18 / Tailwind Web Shell
-│   ├── src/
-│   │   ├── app/              # Dashboard, Asset 360, Analytics views
-│   │   └── components/       # Radix UI cybersecurity components
-│   └── package.json
-└── docker-compose.yml        # Orchestration with ClickHouse & Redis`,
-    tags: ["Next.js", "FastAPI", "BFF", "ClickHouse", "Single-Pane-of-Glass", "XDR"],
-    githubUrl: "https://github.com/onixus/unified-platform",
-    cloneCmd: "git clone https://github.com/onixus/unified-platform.git",
-    icon: "grid"
-  },
-  {
     id: "bsdm",
     alias: "bsdm-proxy",
     title: "BSDM-Proxy",
@@ -219,8 +187,8 @@ var PROJECTS_DATA = [
 │   └── tui/                  # Ratatui terminal dashboard
 └── gui/                      # Native macOS and Windows Glass-Neon GUI apps`,
     tags: ["Rust", "Port-Scanner", "JARM-TLS", "Rhai", "TUI", "Network-Audit"],
-    githubUrl: "https://github.com/onixus/pulse",
-    cloneCmd: "git clone https://github.com/onixus/pulse.git",
+    githubUrl: "https://github.com/onixus/GenDec",
+    cloneCmd: "git clone https://github.com/onixus/GenDec.git",
     icon: "radio"
   },
   {
@@ -348,7 +316,6 @@ function initTerminal() {
     "asmodeus",
     "ferrum",
     "shapoclyack",
-    "apex",
     "bsdm",
     "bsdm-proxy",
     "lariska",
@@ -387,13 +354,12 @@ Type <span class="output-success">'help'</span>, <span class="output-success">'p
       case "help":
         printOutput(`
 <span class="output-highlight">Доступные команды терминала:</span>
-  <span class="output-accent">projects</span> (или <span class="output-accent">ls</span>)  - Вывести список 10 авторских систем экосистемы
+  <span class="output-accent">projects</span> (или <span class="output-accent">ls</span>)  - Вывести список 9 авторских систем
   <span class="output-accent">wiki [role/ops]</span> - Корпоративная база знаний (Wiki) и сценарии ИБ
   <span class="output-accent">tree [project]</span> - Дерево компонентов и файловая структура
   <span class="output-accent">asmodeus</span>       - BAS, симуляция атак по MITRE ATT&CK и хаос-тестирование
   <span class="output-accent">ferrum</span>         - Kubernetes eBPF enforcement plane на Rust
   <span class="output-accent">shapoclyack</span>    - Платформа EASM, CAASM, NIST SP 800-30 скоринг и Wiki
-  <span class="output-accent">apex</span>           - Single Pane of Glass консоль и Asset 360° Explorer
   <span class="output-accent">bsdm</span>           - Корпоративный HTTPS SWG и кэширующий прокси
   <span class="output-accent">lariska</span>        - Агент инвентаризации с изоляцией на E-ядрах
   <span class="output-accent">pulse</span>          - Асинхронный сканер портов и JARM TLS отпечатков
@@ -409,17 +375,16 @@ Type <span class="output-success">'help'</span>, <span class="output-success">'p
       case "ls":
       case "projects":
         printOutput(`
-<span class="output-accent">=== Флагманские авторские проекты (10 систем) ===</span>
-  [1]  <span class="output-success">ASMODEUS</span>     - Adversary Emulation (BAS), Red Team & Chaos Engine (Rust)
-  [2]  <span class="output-success">FERRUM</span>       - Kubernetes Admission & Runtime eBPF enforcement plane (Rust)
-  [3]  <span class="output-success">Shapoclyack</span>  - External Attack Surface Discovery, RBVM & Enterprise Wiki
-  [4]  <span class="output-success">APEX</span>         - Centralized Resilience Console (Single Pane of Glass)
-  [5]  <span class="output-success">BSDM-Proxy</span>   - HTTPS Caching Proxy & Secure Web Gateway (Rust)
-  [6]  <span class="output-success">Lariska</span>      - E-Core isolated endpoint telemetry & inventory agent (Rust)
-  [7]  <span class="output-success">Pulse</span>        - Async network scanner & JARM TLS fingerprinting (Rust)
-  [8]  <span class="output-success">Oko-Ra</span>       - Causal AI hybrid threat & cascading risk platform (Python)
-  [9]  <span class="output-success">Octo-man</span>     - Scalable containerized network sweep CLI (Go / Docker)
-  [10] <span class="output-success">EvaCal</span>       - Enterprise ГОСТ 34 doc generator & presale estimation (TS)
+<span class="output-accent">=== Флагманские авторские проекты (9 систем) ===</span>
+  [1] <span class="output-success">ASMODEUS</span>     - Adversary Emulation (BAS), Red Team & Chaos Engine (Rust)
+  [2] <span class="output-success">FERRUM</span>       - Kubernetes Admission & Runtime eBPF enforcement plane (Rust)
+  [3] <span class="output-success">Shapoclyack</span>  - External Attack Surface Discovery, RBVM & Enterprise Wiki
+  [4] <span class="output-success">BSDM-Proxy</span>   - HTTPS Caching Proxy & Secure Web Gateway (Rust)
+  [5] <span class="output-success">Lariska</span>      - E-Core isolated endpoint telemetry & inventory agent (Rust)
+  [6] <span class="output-success">Pulse</span>        - Async network scanner & JARM TLS fingerprinting (Rust)
+  [7] <span class="output-success">Oko-Ra</span>       - Causal AI hybrid threat & cascading risk platform (Python)
+  [8] <span class="output-success">Octo-man</span>     - Scalable containerized network sweep CLI (Go / Docker)
+  [9] <span class="output-success">EvaCal</span>       - Enterprise ГОСТ 34 doc generator & presale estimation (TS)
 
 Введите имя проекта (например: <span class="output-success">asmodeus</span>, <span class="output-success">wiki</span>, <span class="output-success">tree shapoclyack</span>)`);
         break;
@@ -456,11 +421,6 @@ Type <span class="output-success">'help'</span>, <span class="output-success">'p
 
       case "shapoclyack":
         showProjectDetails("shapoclyack");
-        break;
-
-      case "apex":
-      case "unified-platform":
-        showProjectDetails("apex");
         break;
 
       case "bsdm":
@@ -578,13 +538,12 @@ Type <span class="output-success">'help'</span>, <span class="output-success">'p
 
   function showFullEcosystemTree() {
     printOutput(`
-<span class="output-accent">=== Архитектурное дерево экосистемы ONIXUS // APEX ===</span>
+<span class="output-accent">=== Архитектурное дерево авторских проектов ONIXUS // SEC_LAB ===</span>
 <span class="output-dim">.
 ├── </span><span class="output-highlight">asmodeus/</span>         <span class="output-accent">[Rust]</span>        BAS, Red Team Cyber Exercises & Chaos Engine
 <span class="output-dim">├── </span><span class="output-highlight">ferrum/</span>           <span class="output-accent">[Rust]</span>        Kubernetes Admission & Runtime eBPF Enforcement
 <span class="output-dim">├── </span><span class="output-highlight">shapoclyack/</span>      <span class="output-accent">[Python]</span>      EASM, CAASM, RBVM & Enterprise Wiki
 <span class="output-dim">│   └── </span><span class="output-highlight">docs/wiki/</span>    <span class="output-accent">[Markdown]</span>    Corporate Wiki, Role Guides & SLA Regulations
-<span class="output-dim">├── </span><span class="output-highlight">unified-platform/</span> <span class="output-accent">[Next.js]</span>     APEX Single Pane of Glass & Asset 360° Explorer
 <span class="output-dim">├── </span><span class="output-highlight">bsdm-proxy/</span>       <span class="output-accent">[Rust]</span>        HTTPS Caching Proxy, SWG & DNS Sinkhole (RPZ)
 <span class="output-dim">├── </span><span class="output-highlight">lariska/</span>          <span class="output-accent">[Rust]</span>        E-Core Isolated Endpoint Telemetry & Inventory Agent
 <span class="output-dim">├── </span><span class="output-highlight">pulse/</span>            <span class="output-accent">[Rust]</span>        Async Network & Port Scanner, JARM TLS, Rhai

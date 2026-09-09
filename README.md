@@ -2,7 +2,7 @@
 
 [![Live Portal](https://img.shields.io/badge/site-onixus.github.io-0284c7?style=for-the-badge&logo=githubpages&logoColor=white)](https://onixus.github.io)
 [![Enterprise Wiki](https://img.shields.io/badge/wiki-Shapoclyack%20Knowledge%20Base-f59e0b?style=for-the-badge)](https://github.com/onixus/Shapoclyack/wiki)
-[![Systems](https://img.shields.io/badge/platforms-10%20flagship%20systems-10b981?style=for-the-badge)](#-представленные-системы-экосистемы)
+[![Systems](https://img.shields.io/badge/platforms-9%20flagship%20systems-10b981?style=for-the-badge)](#-представленные-системы-экосистемы-9-платформ)
 
 Официальный сайт-витрина инженерных и исследовательских проектов [onixus](https://github.com/onixus), подготовленный для публикации через **GitHub Pages**.
 
@@ -30,18 +30,17 @@
 
 ---
 
-## 🚀 Представленные системы экосистемы (10 платформ)
+## 🚀 Представленные системы экосистемы (9 платформ)
 
 1. **[ASMODEUS](https://github.com/onixus/Asmodeus)** — *Adversary Emulation (BAS), Red Team Cyber Exercises & Chaos Engineering Engine* на Rust (NIST CSF 2.0, 8 сценариев MITRE ATT&CK, blast radius, замер MTTD/MTTR).
 2. **[FERRUM](https://github.com/onixus/Ferrum)** — *Self-hosted Kubernetes enforcement plane на Rust*. Низкоуровневый eBPF datapath (`sys_enter tracepoint`), admission webhook, подписанные policy bundles (Ed25519), мгновенный SIGKILL.
 3. **[Shapoclyack](https://github.com/onixus/Shapoclyack)** — *Self-hosted EASM, CAASM & Risk-Based Vulnerability Management Platform*. Двухосевой скоринг NIST SP 800-30 Rev. 1, инструментальная верификация закрытия (`machine_verified`), distro patch gaps, Enterprise Wiki.
-4. **[APEX Unified Platform](https://github.com/onixus/unified-platform)** — *Централизованная консоль безопасности (Single Pane of Glass)* на Next.js 14 / Tailwind / Radix UI + FastAPI BFF + ClickHouse DataLake. Сквозной Asset 360° Explorer.
-5. **[BSDM-Proxy](https://github.com/onixus/bsdm-proxy)** — *HTTPS caching proxy & Secure Web Gateway (SWG)* на Rust: MITM TLS-инспекция, DNS Sinkhole (RPZ), ML-детекция, AmneziaWG VPN, Admin Console.
-6. **[Lariska](https://github.com/onixus/Lariska)** — *High-performance endpoint inventory agent* для Shapoclyack: изоляция на энергоэффективных E-ядрах (Apple Silicon M1–M4, Intel Hybrid, AMD Zen 4c/5c), Shadow IT детекция, локальный спулинг zstd SQLite.
-7. **[Pulse](https://github.com/onixus/pulse)** — *Субсекундный асинхронный сканер сети, портов и TLS-отпечатков* на Rust: SYN/UDP probes, Salesforce JARM fingerprinting, скрипты Rhai, TUI/GUI, периметральный мониторинг.
-8. **[Oko-Ra (Око-Ра)](https://github.com/onixus/Oko-Ra)** — *Автономная платформа мониторинга гибридных угроз и социетальных рисков*: детерминированное ядро, Causal AI, сертификаты Минцифры РФ, 7 release gates.
-9. **[Network Scan CLI (Octo-man)](https://github.com/onixus/Octo-man)** — *Контейнеризованный конвейер пакетного сканирования сетей (CIDR sweep)*: лестница fping ➔ naabu ➔ nmap NSE, адаптивный поиск и инкрементальный delta discovery.
-10. **[EvaCal](https://github.com/onixus/EvaCal)** — *Корпоративный калькулятор трудозатрат и генератор документации ГОСТ 34.602-2020 / РД 50-34.698-90 с оформлением по ГОСТ 2.104-2006* (TypeScript).
+4. **[BSDM-Proxy](https://github.com/onixus/bsdm-proxy)** — *HTTPS caching proxy & Secure Web Gateway (SWG)* на Rust: MITM TLS-инспекция, DNS Sinkhole (RPZ), ML-детекция, AmneziaWG VPN, Admin Console.
+5. **[Lariska](https://github.com/onixus/Lariska)** — *High-performance endpoint inventory agent* для Shapoclyack: изоляция на энергоэффективных E-ядрах (Apple Silicon M1–M4, Intel Hybrid, AMD Zen 4c/5c), Shadow IT детекция, локальный спулинг zstd SQLite.
+6. **[Pulse](https://github.com/onixus/GenDec)** — *Субсекундный асинхронный сканер сети, портов и TLS-отпечатков* на Rust: SYN/UDP probes, Salesforce JARM fingerprinting, скрипты Rhai, TUI/GUI, периметральный мониторинг.
+7. **[Oko-Ra (Око-Ра)](https://github.com/onixus/Oko-Ra)** — *Автономная платформа мониторинга гибридных угроз и социетальных рисков*: детерминированное ядро, Causal AI, сертификаты Минцифры РФ, 7 release gates.
+8. **[Network Scan CLI (Octo-man)](https://github.com/onixus/Octo-man)** — *Контейнеризованный конвейер пакетного сканирования сетей (CIDR sweep)*: лестница fping ➔ naabu ➔ nmap NSE, адаптивный поиск и инкрементальный delta discovery.
+9. **[EvaCal](https://github.com/onixus/EvaCal)** — *Корпоративный калькулятор трудозатрат и генератор документации ГОСТ 34.602-2020 / РД 50-34.698-90 с оформлением по ГОСТ 2.104-2006* (TypeScript).
 
 ---
 
@@ -49,7 +48,7 @@
 
 - **Zero-Dependency & Lightning Fast**: Чистый HTML5, CSS3 (Modern Glassmorphism & Custom Design Tokens) и Vanilla JS (ES6+).
 - **Интерактивный хаб Enterprise Wiki**: Навигация по ролевым сценариям (Инженер, Архитектор, CISO), регламентам SLA и дорожной карте развертывания.
-- **Интерактивный терминал (CLI Shell v3.0)**: Встроенная консоль с поддержкой истории команд (стрелки вверх/вниз), автодополнения (Tab) и выводом подробной информации по каждому из 10 проектов и разделам Wiki (`wiki`, `asmodeus`, `ferrum`, `shapoclyack`, `apex`, `pulse`, `okora`, `octoman`, `tree` и др.).
+- **Интерактивный терминал (CLI Shell v3.0)**: Встроенная консоль с поддержкой истории команд (стрелки вверх/вниз), автодополнения (Tab) и выводом подробной информации по каждому из 9 проектов и разделам Wiki (`wiki`, `asmodeus`, `ferrum`, `shapoclyack`, `pulse`, `okora`, `octoman`, `tree` и др.).
 - **Быстрый `git clone`**: Копирование команд клонирования проектов в один клик с визуальными уведомлениями (Toast).
 - **Адаптивный дизайн**: Корректное отображение на мобильных устройствах, планшетах и десктопах.
 - **Готовый CI/CD workflow**: Автоматический деплой через `.github/workflows/deploy.yml` при пуше в репозиторий.

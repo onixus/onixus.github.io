@@ -1,6 +1,6 @@
 /**
  * ONIXUS // SEC_LAB
- * Flagship Projects Database (10 Flagship Platforms & Enterprise Wiki)
+ * Flagship Projects Database (9 Flagship Platforms & Enterprise Wiki)
  */
 
 var PROJECTS_DATA = [
@@ -105,38 +105,6 @@ var PROJECTS_DATA = [
     icon: "radar"
   },
   {
-    id: "apex",
-    alias: "unified-platform",
-    title: "APEX Unified Platform",
-    category: "security",
-    badge: "Next.js • Single Pane of Glass",
-    summary: "Централизованная консоль безопасности и управления, объединяющая 8 систем в платформу класса XDR / EASM / SWG.",
-    description: "Единый операторский портал (Single Pane of Glass), объединяющий разрозненные защитные и исследовательские компоненты через Unified API Gateway (BFF) на FastAPI и фронтенд на Next.js 14 с хранилищем телеметрии ClickHouse.",
-    highlights: [
-      "Asset 360° Explorer: сквозной профиль хоста со сведениями всех подсистем",
-      "Unified API Gateway (BFF): высокопроизводительная агрегация телеметрии",
-      "ClickHouse DataLake: аналитика событий безопасности в реальном времени",
-      "Интеграция 8 компонентов: Shapoclyack, Ferrum, BSDM, Lariska, Pulse, Oko-Ra, Octo-man, EvaCal"
-    ],
-    structure: `unified-platform/
-├── gateway/                  # FastAPI Backend-for-Frontend (BFF)
-│   ├── app/
-│   │   ├── routers/          # Proxy & aggregator endpoints for 8 subsystems
-│   │   ├── services/         # ClickHouse & cache connector
-│   │   └── main.py
-│   └── Dockerfile
-├── web-console/              # Next.js 14 / React 18 / Tailwind Web Shell
-│   ├── src/
-│   │   ├── app/              # Dashboard, Asset 360, Analytics views
-│   │   └── components/       # Radix UI cybersecurity components
-│   └── package.json
-└── docker-compose.yml        # Orchestration with ClickHouse & Redis`,
-    tags: ["Next.js", "FastAPI", "BFF", "ClickHouse", "Single-Pane-of-Glass", "XDR"],
-    githubUrl: "https://github.com/onixus/unified-platform",
-    cloneCmd: "git clone https://github.com/onixus/unified-platform.git",
-    icon: "grid"
-  },
-  {
     id: "bsdm",
     alias: "bsdm-proxy",
     title: "BSDM-Proxy",
@@ -219,8 +187,8 @@ var PROJECTS_DATA = [
 │   └── tui/                  # Ratatui terminal dashboard
 └── gui/                      # Native macOS and Windows Glass-Neon GUI apps`,
     tags: ["Rust", "Port-Scanner", "JARM-TLS", "Rhai", "TUI", "Network-Audit"],
-    githubUrl: "https://github.com/onixus/pulse",
-    cloneCmd: "git clone https://github.com/onixus/pulse.git",
+    githubUrl: "https://github.com/onixus/GenDec",
+    cloneCmd: "git clone https://github.com/onixus/GenDec.git",
     icon: "radio"
   },
   {
