@@ -2,7 +2,7 @@
 
 [![Live Portal](https://img.shields.io/badge/site-onixus.github.io-0284c7?style=for-the-badge&logo=githubpages&logoColor=white)](https://onixus.github.io)
 [![Enterprise Wiki](https://img.shields.io/badge/wiki-Shapoclyack%20Knowledge%20Base-f59e0b?style=for-the-badge)](https://github.com/onixus/Shapoclyack/wiki)
-[![Systems](https://img.shields.io/badge/platforms-9%20flagship%20systems-10b981?style=for-the-badge)](#-представленные-системы-экосистемы-9-платформ)
+[![Systems](https://img.shields.io/badge/focus-4%20core%20open--source%20projects-10b981?style=for-the-badge)](#-core-open-source-projects)
 
 Официальный сайт-витрина инженерных и исследовательских проектов [onixus](https://github.com/onixus), подготовленный для публикации через **GitHub Pages**.
 
@@ -30,17 +30,19 @@
 
 ---
 
-## 🚀 Представленные системы экосистемы (9 платформ)
+## 🚀 Core open-source projects
 
-1. **[ASMODEUS](https://github.com/onixus/Asmodeus)** — *Adversary Emulation (BAS), Red Team Cyber Exercises & Chaos Engineering Engine* на Rust (NIST CSF 2.0, 8 сценариев MITRE ATT&CK, blast radius, замер MTTD/MTTR).
-2. **[FERRUM](https://github.com/onixus/Ferrum)** — *Self-hosted Kubernetes enforcement plane на Rust*. Низкоуровневый eBPF datapath (`sys_enter tracepoint`), admission webhook, подписанные policy bundles (Ed25519), мгновенный SIGKILL.
-3. **[Shapoclyack](https://github.com/onixus/Shapoclyack)** — *Self-hosted EASM, CAASM & Risk-Based Vulnerability Management Platform*. Двухосевой скоринг NIST SP 800-30 Rev. 1, инструментальная верификация закрытия (`machine_verified`), distro patch gaps, Enterprise Wiki.
-4. **[BSDM-Proxy](https://github.com/onixus/bsdm-proxy)** — *HTTPS caching proxy & Secure Web Gateway (SWG)* на Rust: MITM TLS-инспекция, DNS Sinkhole (RPZ), ML-детекция, AmneziaWG VPN, Admin Console.
-5. **[Lariska](https://github.com/onixus/Lariska)** — *High-performance endpoint inventory agent* для Shapoclyack: изоляция на энергоэффективных E-ядрах (Apple Silicon M1–M4, Intel Hybrid, AMD Zen 4c/5c), Shadow IT детекция, локальный спулинг zstd SQLite.
-6. **[Pulse](https://github.com/onixus/GenDec)** — *Субсекундный асинхронный сканер сети, портов и TLS-отпечатков* на Rust: SYN/UDP probes, Salesforce JARM fingerprinting, скрипты Rhai, TUI/GUI, периметральный мониторинг.
-7. **[Oko-Ra (Око-Ра)](https://github.com/onixus/Oko-Ra)** — *Автономная платформа мониторинга гибридных угроз и социетальных рисков*: детерминированное ядро, Causal AI, сертификаты Минцифры РФ, 7 release gates.
-8. **[Network Scan CLI (Octo-man)](https://github.com/onixus/Octo-man)** — *Контейнеризованный конвейер пакетного сканирования сетей (CIDR sweep)*: лестница fping ➔ naabu ➔ nmap NSE, адаптивный поиск и инкрементальный delta discovery.
-9. **[EvaCal](https://github.com/onixus/EvaCal)** — *Корпоративный калькулятор трудозатрат и генератор документации ГОСТ 34.602-2020 / РД 50-34.698-90 с оформлением по ГОСТ 2.104-2006* (TypeScript).
+1. **[Shapoclyack](https://github.com/onixus/Shapoclyack)** — self-hosted EASM / CAASM / Risk-Based Vulnerability Management with asset-centric identity, distro-aware patch gaps and mechanical remediation verification.
+2. **[BSDM-Proxy](https://github.com/onixus/bsdm-proxy)** — Rust HTTP/HTTPS forward proxy and Secure Web Gateway with selective TLS inspection, tiered caching, policy and asynchronous analytics.
+3. **[FERRUM](https://github.com/onixus/Ferrum)** — Rust Kubernetes enforcement plane combining admission policy, signed bundles and an eBPF runtime datapath.
+4. **[ASMODEUS](https://github.com/onixus/Asmodeus)** — Rust adversary-emulation / BAS and chaos-engineering engine with explicit safety boundaries and Blue Team feedback metrics.
+
+### Supporting public projects
+
+- **[Lariska](https://github.com/onixus/Lariska)** — cross-platform endpoint inventory agent used by Shapoclyack.
+- **[EvaCal](https://github.com/onixus/EvaCal)** — enterprise estimation and GOST 34 documentation workflow.
+
+Private and archived repositories are intentionally not presented as flagship projects on the public showcase.
 
 ---
 
