@@ -1,10 +1,10 @@
-name: Deploy GitHub Pages
+name: Validate and Deploy GitHub Pages
 
 on:
+  pull_request:
   push:
     branches:
       - main
-      - master
   workflow_dispatch:
 
 permissions:
@@ -13,11 +13,21 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: "pages-${{ github.ref }}"
   cancel-in-progress: false
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Validate site catalog and structure
+        run: node scripts/validate-site.mjs
+
   deploy:
+    if: github.event_name != 'pull_request'
+    needs: validate
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

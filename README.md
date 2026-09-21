@@ -1,74 +1,73 @@
-# onixus // Systems & Cybersecurity Showcase (Git-site)
+# onixus.github.io — APEX Platform Showcase
 
 [![Live Portal](https://img.shields.io/badge/site-onixus.github.io-0284c7?style=for-the-badge&logo=githubpages&logoColor=white)](https://onixus.github.io)
-[![Enterprise Wiki](https://img.shields.io/badge/wiki-Shapoclyack%20Knowledge%20Base-f59e0b?style=for-the-badge)](https://github.com/onixus/Shapoclyack/wiki)
-[![Systems](https://img.shields.io/badge/focus-4%20core%20open--source%20projects-10b981?style=for-the-badge)](#-core-open-source-projects)
+[![APEX Contract](https://img.shields.io/badge/APEX-contract%20v1-10b981?style=for-the-badge)](https://github.com/onixus/unified-platform/blob/main/contracts/v1/CONTRACT.md)
+[![Shapoclyack Wiki](https://img.shields.io/badge/wiki-Shapoclyack-f59e0b?style=for-the-badge)](https://github.com/onixus/Shapoclyack/wiki)
 
-Официальный сайт-витрина инженерных и исследовательских проектов [onixus](https://github.com/onixus), подготовленный для публикации через **GitHub Pages**.
+Public engineering showcase for the **APEX security platform** and independent tools published by [onixus](https://github.com/onixus).
 
-🌐 **Живой сайт:** [https://onixus.github.io](https://onixus.github.io) (или [https://onixus.github.io/Git-site/](https://onixus.github.io/Git-site/))
+## APEX Platform
 
----
+The site presents eight canonical APEX participants:
 
-## 🧭 Корпоративная база знаний (Wiki) & Ролевые сценарии
+1. **APEX Gateway** — integration plane and canonical architecture contract.
+2. **Shapoclyack** — EASM / CAASM / RBVM and operational knowledge base.
+3. **Lariska** — endpoint inventory and telemetry.
+4. **FERRUM** — Kubernetes admission/runtime enforcement.
+5. **BSDM-Proxy** — Secure Web Gateway and policy enforcement.
+6. **Pulse** — network scanning and scan observations.
+7. **Oko-Ra** — world-model / causal-risk analysis.
+8. **ASMODEUS** — synthetic BAS and resilience validation.
 
-Ключевым ядром нормативной документации и процессов информационной безопасности выступает **Enterprise Wiki** платформы Shapoclyack:
+The canonical participant registry lives in:
+[`onixus/unified-platform/contracts/v1/systems.json`](https://github.com/onixus/unified-platform/blob/main/contracts/v1/systems.json).
 
-* 📚 **[GitHub Wiki онлайн](https://github.com/onixus/Shapoclyack/wiki)**
-* 📁 **[Исходники в репозитории (docs/wiki/)](https://github.com/onixus/Shapoclyack/tree/main/docs/wiki)**
+The normative architecture contract is:
+[`contracts/v1/CONTRACT.md`](https://github.com/onixus/unified-platform/blob/main/contracts/v1/CONTRACT.md).
 
-### Ролевые руководства
-1. 🛠️ **[Инженер ИБ](https://github.com/onixus/Shapoclyack/blob/main/docs/wiki/scenarios-security-engineer.md)** — триаж находок с доказательной базой, **инструментальная верификация закрытия (`machine_verified = true`)**, устранение Patch Gaps на хостах, фильтрация шума.
-2. 🏛️ **[Архитектор ИБ / Enterprise](https://github.com/onixus/Shapoclyack/blob/main/docs/wiki/scenarios-architect.md)** — картографирование периметра (EASM/CAASM), выявление Shadow IT, топология remote agents (NATS JetStream mTLS без входящих портов), комплаенс PCI DSS 4.0, CIS Controls v8, ISO 27001.
-3. 📊 **[CISO / Руководство ИБ](https://github.com/onixus/Shapoclyack/blob/main/docs/wiki/scenarios-ciso.md)** — дашборд совокупного риска **NIST SP 800-30 Rev. 1**, контроль угроз в дикой природе (CISA KEV), метрики зрелости Adoption и Noise, динамика MTTR и соблюдение SLA.
+Core rules include explicit domain ownership, versioned integration APIs/events, no private-database coupling, ClickHouse as analytics projection only, idempotent async processing, W3C Trace Context and verifiable software-supply-chain promotion.
 
-### Регламенты и стандарты
-* 🔄 **[Операционные процессы ИБ](https://github.com/onixus/Shapoclyack/blob/main/docs/wiki/security-processes.md)** — регламент сквозного жизненного цикла уязвимости (VM Lifecycle).
-* 🚨 **[Экстренное реагирование (0-Day / KEV)](https://github.com/onixus/Shapoclyack/blob/main/docs/wiki/security-processes.md#3-процесс-экстренного-реагирования-на-0-day-и-активные-угрозы-cisa-kev)** — регламент действий дежурной смены при появлении активных эксплойтов (SLA 24ч).
-* ⏱️ **[Матрица SLA ремедиации](https://github.com/onixus/Shapoclyack/blob/main/docs/wiki/security-processes.md#12-матрица-sla-по-устранению-уязвимостей)** — нормативы устранения уязвимостей и регламент согласования риск-акцептов (Waiver с TTL).
-* 🗺️ **[12-недельный план внедрения и RACI](https://github.com/onixus/Shapoclyack/blob/main/docs/wiki/implementation-plan.md)** — пошаговый план развертывания, распределение ролей и критерии успеха (KPI).
+## Bonus tools
 
----
+**EvaCal** and **Metis** are standalone tools for colleagues. They are intentionally **outside the APEX platform** and do not participate in the canonical APEX contract registry.
 
-## 🚀 Core open-source projects
+- [EvaCal](https://github.com/onixus/EvaCal) — estimation and ГОСТ 34 documentation workflow.
+- [Metis](https://github.com/onixus/Metis) — product portfolio, roadmap and delivery governance.
 
-1. **[Shapoclyack](https://github.com/onixus/Shapoclyack)** — self-hosted EASM / CAASM / Risk-Based Vulnerability Management with asset-centric identity, distro-aware patch gaps and mechanical remediation verification.
-2. **[BSDM-Proxy](https://github.com/onixus/bsdm-proxy)** — Rust HTTP/HTTPS forward proxy and Secure Web Gateway with selective TLS inspection, tiered caching, policy and asynchronous analytics.
-3. **[FERRUM](https://github.com/onixus/Ferrum)** — Rust Kubernetes enforcement plane combining admission policy, signed bundles and an eBPF runtime datapath.
-4. **[ASMODEUS](https://github.com/onixus/Asmodeus)** — Rust adversary-emulation / BAS and chaos-engineering engine with explicit safety boundaries and Blue Team feedback metrics.
+## Site architecture
 
-### Supporting public projects
+The site remains intentionally zero-dependency:
 
-- **[Lariska](https://github.com/onixus/Lariska)** — cross-platform endpoint inventory agent used by Shapoclyack.
-- **[EvaCal](https://github.com/onixus/EvaCal)** — enterprise estimation and GOST 34 documentation workflow.
+- `index.html` — semantic page layout and static content.
+- `projects-data.js` — **single source of truth** for the project catalog and scope (`platform` vs `bonus`).
+- `app.js` — dynamic cards, architecture view, terminal and clipboard helpers.
+- `styles.css` — responsive design system.
+- `scripts/validate-site.mjs` — structural checks used by CI.
+- `.github/workflows/deploy.yml` — pull-request validation and GitHub Pages deployment.
 
-Private and archived repositories are intentionally not presented as flagship projects on the public showcase.
+The interactive terminal supports commands such as:
 
----
+```text
+platform
+bonus
+contract
+projects
+tree
+cat ferrum
+metis
+wiki
+```
 
-## 🛠 Особенности сайта-витрины
+## Local preview
 
-- **Zero-Dependency & Lightning Fast**: Чистый HTML5, CSS3 (Modern Glassmorphism & Custom Design Tokens) и Vanilla JS (ES6+).
-- **Интерактивный хаб Enterprise Wiki**: Навигация по ролевым сценариям (Инженер, Архитектор, CISO), регламентам SLA и дорожной карте развертывания.
-- **Интерактивный терминал (CLI Shell v3.0)**: Встроенная консоль с поддержкой истории команд (стрелки вверх/вниз), автодополнения (Tab) и выводом подробной информации по каждому из 9 проектов и разделам Wiki (`wiki`, `asmodeus`, `ferrum`, `shapoclyack`, `pulse`, `okora`, `octoman`, `tree` и др.).
-- **Быстрый `git clone`**: Копирование команд клонирования проектов в один клик с визуальными уведомлениями (Toast).
-- **Адаптивный дизайн**: Корректное отображение на мобильных устройствах, планшетах и десктопах.
-- **Готовый CI/CD workflow**: Автоматический деплой через `.github/workflows/deploy.yml` при пуше в репозиторий.
+The site is static, so any local HTTP server is enough:
 
----
+```bash
+python3 -m http.server 8080
+```
 
-## 🌐 Как включить GitHub Pages в репозитории
+Then open `http://localhost:8080`.
 
-### Способ 1: Через GitHub Actions (Рекомендуемый)
-1. Перейдите в репозиторий **[onixus/Git-site](https://github.com/onixus/Git-site)** (или **[onixus/onixus.github.io](https://github.com/onixus/onixus.github.io)**) на GitHub.
-2. Откройте **Settings** → **Pages**.
-3. В разделе **Build and deployment** выберите:
-   - **Source**: `GitHub Actions`.
-4. При пуше workflow `.github/workflows/deploy.yml` автоматически опубликует сайт.
+## Deployment
 
-### Способ 2: Напрямую из ветки main
-1. Перейдите в **Settings** → **Pages**.
-2. В разделе **Build and deployment** выберите:
-   - **Source**: `Deploy from a branch`.
-   - **Branch**: `main`, папка `/ (root)`.
-3. Нажмите **Save**.
+Pushes to `main` deploy to GitHub Pages after the structural validation job passes. Pull requests run validation without deploying.

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>onixus // Open Source Security & Systems Engineering</title>
-  <meta name="description" content="Open-source security and systems engineering by onixus: Shapoclyack, BSDM-Proxy, Ferrum and Asmodeus — attack-surface management, secure networking, Kubernetes/eBPF enforcement and adversary emulation.">
+  <title>onixus // APEX Security Platform & Engineering Tools</title>
+  <meta name="description" content="APEX security platform by onixus: eight contract-enforced components for attack-surface management, endpoint inventory, scanning, secure networking, Kubernetes enforcement, risk analysis and synthetic BAS — plus standalone colleague tools EvaCal and Metis.">
   <link rel="icon" href="https://avatars.githubusercontent.com/u/12559109?v=4" type="image/png">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -21,7 +21,7 @@
 
       <nav>
         <ul class="nav-links">
-          <li><a href="#projects" class="nav-link">Core Projects</a></li>
+          <li><a href="#architecture" class="nav-link">APEX Platform</a></li><li><a href="#projects" class="nav-link">Components</a></li><li><a href="#bonus" class="nav-link">Bonus Tools</a></li>
           <li><a href="#wiki" class="nav-link" style="color: var(--accent-amber);">База знаний (Wiki) 🇷🇺</a></li>
           <li><a href="#terminal" class="nav-link">Терминал</a></li>
           <li>
@@ -44,7 +44,7 @@
         
         <div class="hero-badge-wrapper">
           <span class="status-dot"></span>
-          <span class="hero-badge-text">Open Source Security & Systems Engineering · Rust · eBPF · Kubernetes</span>
+          <span class="hero-badge-text">APEX Platform · 8 Contract-Enforced Components · Open Source</span>
         </div>
 
         <div class="hero-profile">
@@ -54,24 +54,24 @@
         </div>
 
         <h1 class="hero-title">
-          Open-source engineering for <br>
-          <span class="hero-title-highlight">Security, Systems & Cloud-Native</span>
+          Composable security engineering with <br>
+          <span class="hero-title-highlight">explicit ownership & versioned boundaries</span>
         </h1>
 
         <p class="hero-subtitle">
-          Building verifiable security and systems software: attack-surface management, Rust secure networking,
-          Kubernetes/eBPF enforcement and adversary emulation. The focus is reproducible engineering, explicit
-          trust boundaries and evidence-backed security claims.
+          APEX connects eight focused systems without collapsing them into one monolith: each service owns its domain,
+          the Gateway stays an integration plane, APIs and events are versioned, and the architecture contract is enforced
+          in CI. EvaCal and Metis remain useful standalone tools for colleagues outside the platform boundary.
         </p>
 
         <div class="hero-actions">
-          <a href="https://github.com/onixus/Shapoclyack" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <a href="https://github.com/onixus/unified-platform/blob/main/contracts/v1/CONTRACT.md" target="_blank" rel="noopener noreferrer" class="btn-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-            Explore Shapoclyack
+            Explore APEX Contract
           </a>
-          <a href="https://github.com/onixus/bsdm-proxy" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="border-color: rgba(245, 158, 11, 0.4); color: #fef08a;">
+          <a href="https://github.com/onixus/unified-platform/blob/main/contracts/v1/systems.json" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="border-color: rgba(245, 158, 11, 0.4); color: #fef08a;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-            Explore BSDM Proxy
+            Platform Registry
           </a>
           <a href="#projects" class="btn-secondary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
@@ -81,9 +81,9 @@
 
         <div class="hero-quick-cmd">
           <div class="cmd-text">
-            <span class="cmd-prompt">$</span> git clone https://github.com/onixus/Shapoclyack.git
+            <span class="cmd-prompt">$</span> git clone https://github.com/onixus/unified-platform.git
           </div>
-          <button class="copy-mini-btn" onclick="copyCloneCommand('git clone https://github.com/onixus/Shapoclyack.git')" title="Скопировать команду git clone">
+          <button class="copy-mini-btn" onclick="copyCloneCommand('git clone https://github.com/onixus/unified-platform.git')" title="Скопировать команду git clone">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
           </button>
         </div>
@@ -221,271 +221,62 @@
       </div>
     </section>
 
-    <!-- Projects Showcase Section -->
+    <!-- APEX Architecture & Projects -->
+    <section id="architecture" class="section platform-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">APEX Architecture Contract v1</span>
+          <h2 class="section-title">One platform, explicit owners</h2>
+          <p class="section-desc">
+            APEX is an integration architecture, not a shared-database monolith. The Gateway connects systems,
+            while each owning service keeps authoritative state and safety-critical authorization.
+          </p>
+        </div>
+
+        <div class="contract-callout">
+          <div class="contract-copy">
+            <span class="scope-pill scope-platform">Normative · v1.0</span>
+            <h3>Architecture rules enforced in repositories</h3>
+            <p>
+              Versioned APIs/events, canonical resource references, idempotent async consumers, W3C Trace Context,
+              ClickHouse as analytics projection only, and signed/provenanced production promotion.
+            </p>
+          </div>
+          <div class="contract-actions">
+            <a class="btn-primary" href="https://github.com/onixus/unified-platform/blob/main/contracts/v1/CONTRACT.md" target="_blank" rel="noopener noreferrer">Read Contract ↗</a>
+            <a class="btn-secondary" href="https://github.com/onixus/unified-platform/blob/main/contracts/v1/systems.json" target="_blank" rel="noopener noreferrer">Participant Registry ↗</a>
+          </div>
+        </div>
+
+        <div id="architectureGrid" class="architecture-grid" aria-label="APEX platform components"></div>
+      </div>
+    </section>
+
     <section id="projects" class="section">
       <div class="container">
-        
         <div class="section-header">
-          <span class="section-tag">Core Open-Source Projects</span>
-          <h2 class="section-title">Security & Systems Engineering</h2>
-          <p class="section-desc">Four projects define the public engineering focus: vulnerability management, secure networking, Kubernetes/eBPF enforcement and adversary emulation.</p>
+          <span class="section-tag">Canonical Participants</span>
+          <h2 class="section-title">APEX Platform Components</h2>
+          <p class="section-desc">
+            Eight independently owned systems with a shared architecture contract. Every component shown here is
+            currently marked <code>enforced</code> in the canonical platform registry.
+          </p>
         </div>
+        <div id="platformProjects" class="projects-grid"></div>
+      </div>
+    </section>
 
-        <!-- Pre-rendered Static Project Cards -->
-        <div id="projectsGrid" class="projects-grid">
-          
-          <!-- Card 1: ASMODEUS -->
-          <article class="project-card" data-project-id="asmodeus">
-            <div class="card-header">
-              <div class="card-icon-box" style="color: var(--accent-red); border-color: rgba(244, 63, 94, 0.3);">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              </div>
-              <span class="card-badge" style="background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3);">Rust • BAS & Red Team</span>
-            </div>
-            
-            <h3 class="card-title">ASMODEUS</h3>
-            <p class="card-summary">Adversary Emulation (BAS), Red Team Cyber Exercises & Chaos Engineering Engine на Rust (NIST CSF 2.0).</p>
-            
-            <ul class="card-highlights">
-              <li class="highlight-item"><span class="highlight-dot"></span><span>8 сценариев MITRE ATT&CK (Ransomware, K8s Escape, C2, Exfiltration)</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Инфраструктурный хаос (LATENCY_SPIKE, AGENT_CRASH, DNS_SINKHOLE_DROP)</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Защитные барьеры: Blast Radius limit, Circuit Breaker, Auto-Rollback</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Замер метрик Blue Team: MTTD, MTTR, Resilience Score</span></li>
-            </ul>
-            
-            <div class="card-tags">
-              <span class="tag-pill">#Rust</span>
-              <span class="tag-pill">#BAS</span>
-              <span class="tag-pill">#Red-Team</span>
-              <span class="tag-pill">#MITRE-ATTCK</span>
-              <span class="tag-pill">#Chaos-Engineering</span>
-            </div>
-            
-            <div class="card-actions">
-              <a href="https://github.com/onixus/Asmodeus" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                GitHub Repo
-              </a>
-              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Asmodeus.git')" title="Скопировать команду git clone">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                git clone
-              </button>
-            </div>
-          </article>
-
-          <!-- Card 2: FERRUM -->
-          <article class="project-card" data-project-id="ferrum">
-            <div class="card-header">
-              <div class="card-icon-box">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <span class="card-badge">Rust • Kubernetes eBPF Security</span>
-            </div>
-            
-            <h3 class="card-title">FERRUM</h3>
-            <p class="card-summary">Self-hosted Kubernetes enforcement plane на Rust. Admission + runtime enforcement, подписанные policy bundle, last-known-good вместо fail-open.</p>
-            
-            <ul class="card-highlights">
-              <li class="highlight-item"><span class="highlight-dot"></span><span>eBPF sys_enter tracepoint datapath (aya-ebpf)</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Admission Webhook: fail-closed, hot-reload, LKG на диске</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Ed25519 Signed Bundles: офлайн-выпуск PKI и валидация</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Strict Boundary Gate: строгий контроль покрытия тестами</span></li>
-            </ul>
-            
-            <div class="card-tags">
-              <span class="tag-pill">#Rust</span>
-              <span class="tag-pill">#Kubernetes</span>
-              <span class="tag-pill">#eBPF</span>
-              <span class="tag-pill">#Aya</span>
-              <span class="tag-pill">#Policy-Bundles</span>
-            </div>
-            
-            <div class="card-actions">
-              <a href="https://github.com/onixus/Ferrum" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                GitHub Repo
-              </a>
-              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Ferrum.git')" title="Скопировать команду git clone">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                git clone
-              </button>
-            </div>
-          </article>
-
-          <!-- Card 3: Shapoclyack (Featured with Wiki) -->
-          <article class="project-card" data-project-id="shapoclyack" style="border-color: rgba(245, 158, 11, 0.4); background: linear-gradient(135deg, rgba(19, 25, 41, 0.95), rgba(24, 30, 50, 0.9));">
-            <div class="card-header">
-              <div class="card-icon-box" style="color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.3);">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/><path d="M12 12 19 5"/></svg>
-              </div>
-              <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
-                <span class="card-badge">Python • EASM & RBVM</span>
-                <span class="card-badge" style="background: rgba(245, 158, 11, 0.18); color: #fef08a; border-color: rgba(245, 158, 11, 0.4);">Enterprise Wiki 🇷🇺</span>
-              </div>
-            </div>
-            
-            <h3 class="card-title">Shapoclyack</h3>
-            <p class="card-summary">Self-hosted EASM, CAASM и Risk-Based Vulnerability Management платформа со встроенной Enterprise Wiki и механической верификацией.</p>
-            
-            <ul class="card-highlights">
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Asset-Centric модель: сохранение контекста активов при смене IP/DHCP</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Двухосевой риск по NIST SP 800-30 Rev. 1 (Likelihood vs Impact)</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Механическая ре-верификация закрытия (machine_verified = true)</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Vendor Advisory Matching (Patch Gaps для Ubuntu USN / Debian)</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Enterprise Wiki: ролевые сценарии (Инженер, Архитектор, CISO) и регламенты SLA</span></li>
-            </ul>
-            
-            <div class="card-tags">
-              <span class="tag-pill">#Python</span>
-              <span class="tag-pill">#EASM</span>
-              <span class="tag-pill">#RBVM</span>
-              <span class="tag-pill">#NIST-SP-800-30</span>
-              <span class="tag-pill">#Enterprise-Wiki</span>
-            </div>
-            
-            <div class="card-actions">
-              <a href="https://github.com/onixus/Shapoclyack" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                GitHub Repo
-              </a>
-              <a href="https://github.com/onixus/Shapoclyack/wiki" target="_blank" rel="noopener noreferrer" class="btn-card-wiki">
-                <span>База знаний (Wiki)</span> ↗
-              </a>
-              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Shapoclyack.git')" title="Скопировать команду git clone">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                git clone
-              </button>
-            </div>
-          </article>
-
-          <!-- Card 4: BSDM-Proxy -->
-          <article class="project-card" data-project-id="bsdm-proxy">
-            <div class="card-header">
-              <div class="card-icon-box">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
-              </div>
-              <span class="card-badge">Rust • Secure Web Gateway</span>
-            </div>
-            
-            <h3 class="card-title">BSDM-Proxy</h3>
-            <p class="card-summary">Высокопроизводительный HTTPS кэширующий прокси-сервер и Secure Web Gateway (SWG) на Rust с изолированной консолью администратора.</p>
-            
-            <ul class="card-highlights">
-              <li class="highlight-item"><span class="highlight-dot"></span><span>HTTPS Caching & MITM TLS-инспекция трафика</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>DNS Sinkhole (RPZ) для блокировки C2 и вредоносных доменов</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Аналитический конвейер: Kafka -> ClickHouse -> ML-детекция</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Поддержка защищенных туннелей AmneziaWG VPN</span></li>
-            </ul>
-            
-            <div class="card-tags">
-              <span class="tag-pill">#Rust</span>
-              <span class="tag-pill">#SWG</span>
-              <span class="tag-pill">#Proxy-Server</span>
-              <span class="tag-pill">#DNS-RPZ</span>
-              <span class="tag-pill">#Admin-Console</span>
-            </div>
-            
-            <div class="card-actions">
-              <a href="https://github.com/onixus/bsdm-proxy" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                GitHub Repo
-              </a>
-              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/bsdm-proxy.git')" title="Скопировать команду git clone">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                git clone
-              </button>
-            </div>
-          </article>
-
+    <section id="bonus" class="section bonus-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Standalone Utilities</span>
+          <h2 class="section-title">Bonus tools for colleagues</h2>
+          <p class="section-desc">
+            EvaCal and Metis are useful independent tools, but they are deliberately outside the APEX platform and
+            do not participate in the canonical APEX contract registry.
+          </p>
         </div>
-
-        <div class="section-header" style="margin-top: 4rem;">
-          <span class="section-tag">Related Public Projects</span>
-          <h2 class="section-title">Supporting tools</h2>
-          <p class="section-desc">Public companion projects that support the broader engineering ecosystem without competing with the four core projects for attention.</p>
-        </div>
-
-        <div class="projects-grid">
-          <!-- Card 5: Lariska -->
-          <article class="project-card" data-project-id="lariska">
-            <div class="card-header">
-              <div class="card-icon-box">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
-              </div>
-              <span class="card-badge">Rust • Endpoint Agent</span>
-            </div>
-            
-            <h3 class="card-title">Lariska</h3>
-            <p class="card-summary">Высокопроизводительный кроссплатформенный агент инвентаризации конечных точек с изоляцией на E-ядрах.</p>
-            
-            <ul class="card-highlights">
-              <li class="highlight-item"><span class="highlight-dot"></span><span>E-Core Pinning: изоляция на энергоэффективных ядрах (M1-M4, Intel, AMD)</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Детекция несанкционированного ПО (Shadow IT) в рантайме</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Локальный спулинг SQLite с zstd сжатием и Crash Recovery</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Псевдонимизация hardware ID (SHA-256) и защита от PATH-hijacking</span></li>
-            </ul>
-            
-            <div class="card-tags">
-              <span class="tag-pill">#Rust</span>
-              <span class="tag-pill">#Endpoint-Agent</span>
-              <span class="tag-pill">#Shadow-IT</span>
-              <span class="tag-pill">#E-Cores</span>
-              <span class="tag-pill">#Inventory</span>
-            </div>
-            
-            <div class="card-actions">
-              <a href="https://github.com/onixus/Lariska" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                GitHub Repo
-              </a>
-              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Lariska.git')" title="Скопировать команду git clone">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                git clone
-              </button>
-            </div>
-          </article>
-
-          <!-- Card 9: EvaCal -->
-          <article class="project-card" data-project-id="evacal">
-            <div class="card-header">
-              <div class="card-icon-box">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
-              </div>
-              <span class="card-badge">TypeScript • ГОСТ 34 & Presale</span>
-            </div>
-            
-            <h3 class="card-title">EvaCal</h3>
-            <p class="card-summary">Корпоративный калькулятор трудозатрат и автоматизированный генератор документации по ГОСТ 34.602-2020 / РД 50-34.698-90 с оформлением по ГОСТ 2.104-2006.</p>
-            
-            <ul class="card-highlights">
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Календарный план, ставки ролей и сметные расчеты КП</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Генерация комплекта ТЗ, ПЗ, АФ, ПМИ и спецификаций</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Оформление по ГОСТ 2.104-2006 (Формы 2 и 2а) и профиль без рамок</span></li>
-              <li class="highlight-item"><span class="highlight-dot"></span><span>Сквозная матрица требований и трассируемости</span></li>
-            </ul>
-            
-            <div class="card-tags">
-              <span class="tag-pill">#TypeScript</span>
-              <span class="tag-pill">#ГОСТ-34</span>
-              <span class="tag-pill">#Presale</span>
-              <span class="tag-pill">#Estimation</span>
-              <span class="tag-pill">#Enterprise-Docs</span>
-            </div>
-            
-            <div class="card-actions">
-              <a href="https://github.com/onixus/EvaCal" target="_blank" rel="noopener noreferrer" class="btn-card-repo">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                GitHub Repo
-              </a>
-              <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/EvaCal.git')" title="Скопировать команду git clone">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                git clone
-              </button>
-            </div>
-          </article>
-
-        </div>
-
+        <div id="bonusProjects" class="projects-grid bonus-grid"></div>
       </div>
     </section>
 
@@ -516,20 +307,19 @@
 
           <div style="padding: 0 1.5rem 1.5rem 1.5rem; background: #05080f;">
             <div class="terminal-input-row">
-              <span class="terminal-prompt">onixus@lab:~$</span>
-              <input type="text" id="terminalInput" class="terminal-input" placeholder="Введите команду (например: projects, wiki, tree, asmodeus)..." autocomplete="off" spellcheck="false">
+              <span class="terminal-prompt">onixus@apex:~$</span>
+              <input type="text" id="terminalInput" class="terminal-input" placeholder="Введите команду (например: platform, bonus, contract, tree)..." autocomplete="off" spellcheck="false">
             </div>
 
             <div class="terminal-quick-cmds">
-              <button class="quick-cmd-btn" onclick="runTerminalCommand('projects')">projects</button>
-              <button class="quick-cmd-btn" onclick="runTerminalCommand('wiki')" style="border-color: rgba(245,158,11,0.5); color: #fef08a;">wiki</button>
+              <button class="quick-cmd-btn" onclick="runTerminalCommand('platform')">platform</button>
+              <button class="quick-cmd-btn" onclick="runTerminalCommand('bonus')">bonus</button>
+              <button class="quick-cmd-btn" onclick="runTerminalCommand('contract')">contract</button>
               <button class="quick-cmd-btn" onclick="runTerminalCommand('tree')">tree</button>
-              <button class="quick-cmd-btn" onclick="runTerminalCommand('asmodeus')">asmodeus</button>
-              <button class="quick-cmd-btn" onclick="runTerminalCommand('ferrum')">ferrum</button>
               <button class="quick-cmd-btn" onclick="runTerminalCommand('shapoclyack')">shapoclyack</button>
+              <button class="quick-cmd-btn" onclick="runTerminalCommand('ferrum')">ferrum</button>
               <button class="quick-cmd-btn" onclick="runTerminalCommand('bsdm')">bsdm</button>
-              <button class="quick-cmd-btn" onclick="runTerminalCommand('lariska')">lariska</button>
-              <button class="quick-cmd-btn" onclick="runTerminalCommand('evacal')">evacal</button>
+              <button class="quick-cmd-btn" onclick="runTerminalCommand('metis')">metis</button>
               <button class="quick-cmd-btn" onclick="runTerminalCommand('clear')">clear</button>
             </div>
           </div>
@@ -545,11 +335,11 @@
       <div class="footer-content">
         <div class="footer-brand">
           <span class="footer-logo">onixus // SEC_LAB</span>
-          <span class="footer-sub">Autonomous Cyber Resilience, eBPF Kernel Security & DevSecOps Solutions</span>
+          <span class="footer-sub">APEX Security Platform · Explicit Ownership · Versioned Boundaries</span>
         </div>
 
         <ul class="footer-links">
-          <li><a href="#projects" class="footer-link">Core Projects</a></li>
+          <li><a href="#architecture" class="footer-link">APEX Platform</a></li><li><a href="#bonus" class="footer-link">Bonus Tools</a></li>
           <li><a href="#wiki" class="footer-link">База знаний (Wiki)</a></li>
           <li><a href="#terminal" class="footer-link">Терминал</a></li>
           <li><a href="https://github.com/onixus" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub Profile</a></li>
