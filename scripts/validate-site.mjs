@@ -31,6 +31,7 @@ const expectedPlatform = [
   "asmodeus"
 ];
 const expectedBonus = ["evacal", "metis"];
+const expectedPrivate = new Set(["apex-gateway", "pulse", "okora"]);
 
 const platform = projects.filter((project) => project.scope === "platform");
 const bonus = projects.filter((project) => project.scope === "bonus");
@@ -52,6 +53,22 @@ for (const project of platform) {
   }
 }
 
+for (const project of projects) {
+  const shouldBePrivate = expectedPrivate.has(project.id);
+  if (shouldBePrivate && project.visibility !== "private") {
+    fail(`${project.id} must be marked visibility=private`);
+  }
+  if (!shouldBePrivate && project.visibility !== "public") {
+    fail(`${project.id} must be marked visibility=public`);
+  }
+  if (shouldBePrivate && (project.githubUrl || project.cloneCmd)) {
+    fail(`${project.id} must not expose public GitHub/clone links`);
+  }
+  if (!shouldBePrivate && (!project.githubUrl || !project.cloneCmd)) {
+    fail(`${project.id} must expose public GitHub/clone links`);
+  }
+}
+
 for (const project of bonus) {
   if (project.contractStatus) {
     fail(`${project.id} is a bonus tool and must not carry APEX contract status`);
@@ -60,6 +77,9 @@ for (const project of bonus) {
 
 if (ids.includes("octoman")) fail("archived Octo-man must not be presented as an active project");
 if (appSource.includes("var PROJECTS_DATA")) fail("app.js must not duplicate PROJECTS_DATA");
+if (html.includes("github.com/onixus/unified-platform")) fail("public HTML must not link to private unified-platform");
+if (html.includes("github.com/onixus/GenDec")) fail("public HTML must not link to private GenDec");
+if (html.includes("github.com/onixus/Oko-Ra")) fail("public HTML must not link to private Oko-Ra");
 
 for (const requiredId of ["architecture", "projects", "bonus", "terminal"]) {
   if (!html.includes(`id="${requiredId}"`)) fail(`index.html missing #${requiredId}`);

@@ -22,6 +22,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: |
+          node --check projects-data.js
+          node --check app.js
       - name: Validate site catalog and structure
         run: node scripts/validate-site.mjs
 

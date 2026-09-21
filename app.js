@@ -43,6 +43,14 @@ function projectCard(project, showContract) {
     ? `<a href="${escapeHtml(project.wikiUrl)}" target="_blank" rel="noopener noreferrer" class="btn-card-secondary">Wiki ↗</a>`
     : "";
 
+  const repositoryAction = project.visibility === "public" && project.githubUrl
+    ? `<a href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn-card-repo">GitHub Repo ↗</a>`
+    : `<span class="btn-card-repo is-disabled" aria-label="Private repository">Private repository</span>`;
+
+  const cloneAction = project.visibility === "public" && project.cloneCmd
+    ? `<button class="btn-card-clone" onclick="copyCloneCommand('${escapeJsSingleQuoted(project.cloneCmd)}')" title="Скопировать команду git clone">git clone</button>`
+    : "";
+
   return `
     <article class="project-card project-card-${escapeHtml(project.scope)}" data-project-id="${escapeHtml(project.id)}">
       <div class="card-header">
@@ -50,6 +58,7 @@ function projectCard(project, showContract) {
         <div class="card-badges">
           ${contract}
           <span class="card-badge">${escapeHtml(project.badge)}</span>
+          ${project.visibility === "private" ? '<span class="scope-pill scope-private">Private repo</span>' : ""}
         </div>
       </div>
 
@@ -68,9 +77,9 @@ function projectCard(project, showContract) {
       </div>
 
       <div class="card-actions">
-        <a href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn-card-repo">GitHub Repo ↗</a>
+        ${repositoryAction}
         ${wikiAction}
-        <button class="btn-card-clone" onclick="copyCloneCommand('${escapeJsSingleQuoted(project.cloneCmd)}')" title="Скопировать команду git clone">git clone</button>
+        ${cloneAction}
       </div>
     </article>`;
 }
@@ -80,16 +89,21 @@ function renderArchitectureSummary() {
   if (!container) return;
   const platform = PROJECTS_DATA.filter((project) => project.scope === "platform");
 
-  container.innerHTML = platform.map((project) => `
-    <a class="architecture-node" href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer">
+  container.innerHTML = platform.map((project) => {
+    const body = `
       <span class="architecture-node-icon">${escapeHtml(project.icon || "◇")}</span>
       <span class="architecture-node-copy">
         <strong>${escapeHtml(project.title)}</strong>
         <small>${escapeHtml(project.platformRole)}</small>
       </span>
-      <span class="architecture-node-status">enforced</span>
-    </a>
-  `).join("");
+      <span class="architecture-node-status">${project.visibility === "private" ? "private" : "enforced"}</span>`;
+
+    if (project.visibility === "public" && project.githubUrl) {
+      return `<a class="architecture-node" href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer">${body}</a>`;
+    }
+
+    return `<div class="architecture-node architecture-node-private" title="Repository is private">${body}</div>`;
+  }).join("");
 }
 
 /* --------------------------------------------------------------------------
@@ -222,7 +236,7 @@ Type <span class="output-success">'help'</span>, <span class="output-success">'p
         printOutput(`
 <span class="output-accent">Links:</span>
   • GitHub: <a href="https://github.com/onixus" target="_blank" class="output-success">github.com/onixus ↗</a>
-  • APEX contract: <a href="https://github.com/onixus/unified-platform/blob/main/contracts/v1/CONTRACT.md" target="_blank" class="output-success">contracts/v1/CONTRACT.md ↗</a>
+  • APEX contract: <span class="output-dim">canonical source is maintained in the private platform repository</span>
   • Shapoclyack Wiki: <a href="https://github.com/onixus/Shapoclyack/wiki" target="_blank" class="output-success">GitHub Wiki ↗</a>`);
         break;
 
@@ -265,8 +279,7 @@ ${projects.map((project, index) => `  [${index + 1}] <span class="output-success
   • W3C Trace Context crosses service boundaries.
   • Production promotion requires immutable versioning, SHA256, SBOM, signature and provenance.
 
-Canonical source:
-<a href="https://github.com/onixus/unified-platform/blob/main/contracts/v1/CONTRACT.md" target="_blank" class="output-success">onixus/unified-platform/contracts/v1/CONTRACT.md ↗</a>`);
+Canonical source: <span class="output-dim">private platform repository · contracts/v1/CONTRACT.md</span>`);
   }
 
   function showPlatformTree() {
@@ -297,7 +310,9 @@ The bonus tools are intentionally outside the APEX participant registry.`);
     printOutput(`
 <span class="output-accent">=== ${escapeHtml(project.title)} structure ===</span>
 <span class="output-dim">${escapeHtml(project.structure)}</span>
-<span class="output-highlight">GitHub:</span> <a href="${escapeHtml(project.githubUrl)}" target="_blank" class="output-success">${escapeHtml(project.githubUrl)}</a>`);
+<span class="output-highlight">Repository:</span> ${project.visibility === "public" && project.githubUrl
+      ? `<a href="${escapeHtml(project.githubUrl)}" target="_blank" class="output-success">${escapeHtml(project.githubUrl)}</a>`
+      : '<span class="output-dim">private</span>'}`);
   }
 
   function showProjectDetails(targetName, silentIfNotFound = false) {
@@ -320,8 +335,12 @@ ${escapeHtml(project.description)}
 <span class="output-highlight">Capabilities:</span>
 ${project.highlights.map((item) => `  • ${escapeHtml(item)}`).join("\n")}
 
-<span class="output-highlight">GitHub:</span> <a href="${escapeHtml(project.githubUrl)}" target="_blank" class="output-success">${escapeHtml(project.githubUrl)}</a>
-<span class="output-highlight">Clone:</span> <span class="output-success">${escapeHtml(project.cloneCmd)}</span>`);
+<span class="output-highlight">Repository:</span> ${project.visibility === "public" && project.githubUrl
+      ? `<a href="${escapeHtml(project.githubUrl)}" target="_blank" class="output-success">${escapeHtml(project.githubUrl)}</a>`
+      : '<span class="output-dim">private</span>'}
+${project.visibility === "public" && project.cloneCmd
+      ? `<span class="output-highlight">Clone:</span> <span class="output-success">${escapeHtml(project.cloneCmd)}</span>`
+      : ""}`);
     return true;
   }
 
