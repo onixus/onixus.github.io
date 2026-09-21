@@ -1,286 +1,259 @@
 /**
- * ONIXUS // SEC_LAB
- * Flagship Projects Database (9 Flagship Platforms & Enterprise Wiki)
+ * onixus.github.io project catalog.
+ *
+ * Single source of truth for the public showcase and interactive terminal.
+ * APEX platform components are intentionally separated from standalone bonus tools.
  */
-
 var PROJECTS_DATA = [
   {
-    id: "asmodeus",
-    title: "ASMODEUS",
-    category: "security",
-    badge: "Rust • BAS & Red Team",
-    summary: "Adversary Emulation (BAS), Red Team Cyber Exercises & Chaos Engineering Engine на Rust (NIST CSF 2.0).",
-    description: "Автономный наступательный движок моделирования атак и стресс-тестирования инфраструктуры. Проводит контролируемые кибер-учения по MITRE ATT&CK для непрерывной валидации защитных контуров ядра Ferrum, шлюза BSDM-Proxy и агентов Lariska.",
+    id: "apex-gateway",
+    title: "APEX Gateway",
+    scope: "platform",
+    platformRole: "Integration plane",
+    contractStatus: "enforced",
+    badge: "FastAPI • Integration Plane",
+    summary: "Versioned integration plane and canonical APEX Architecture Contract boundary.",
+    description: "APEX Gateway is the platform integration plane. It routes cross-system interactions while preserving ownership in the downstream services: it is not the source of truth for Shapoclyack, Ferrum, BSDM-Proxy, Oko-Ra, Pulse or Asmodeus.",
     highlights: [
-      "8 сценариев атак по MITRE ATT&CK (Ransomware, K8s Escape, C2, Exfiltration)",
-      "Инфраструктурный хаос (LATENCY_SPIKE, AGENT_CRASH, DNS_SINKHOLE_DROP)",
-      "Защитные барьеры: Blast Radius limit, Circuit Breaker, Auto-Rollback",
-      "Автоматический замер метрик Blue Team: MTTD, MTTR, Resilience Score"
+      "Canonical APEX Architecture Contract v1",
+      "Versioned HTTP/event boundaries instead of private database coupling",
+      "Owning services keep safety-critical authorization and domain state",
+      "W3C Trace Context and canonical resource references across boundaries"
     ],
-    structure: `asmodeus/
-├── Cargo.toml
-├── crates/
-│   ├── asmodeus-control-plane/ # REST & gRPC mTLS orchestration API
-│   ├── asmodeus-runner/        # Lightweight attack runner (<32MB RAM, <5% CPU)
-│   ├── asmodeus-dsl/           # Attack & Chaos scenario definition engine
-│   ├── asmodeus-safety/        # Blast Radius, Circuit Breaker & Dead-man switch
-│   └── asmodeus-telemetry/     # Blue Team MTTD/MTTR reaction observer
-└── docs/
-    ├── FTT.md                  # Functional and Technical Requirements
-    ├── TT.md                   # Technical Specification & API contracts
-    └── ARCHITECTURE.md         # Canonical architectural design & crate graph`,
-    tags: ["Rust", "BAS", "Red-Team", "MITRE-ATTCK", "Chaos-Engineering", "Tokio"],
-    githubUrl: "https://github.com/onixus/Asmodeus",
-    cloneCmd: "git clone https://github.com/onixus/Asmodeus.git",
-    icon: "zap"
-  },
-  {
-    id: "ferrum",
-    title: "FERRUM",
-    category: "security",
-    badge: "Rust • Kubernetes eBPF Security",
-    summary: "Self-hosted Kubernetes enforcement plane на Rust. Admission + runtime enforcement, подписанные policy bundle, last-known-good вместо fail-open.",
-    description: "Строгий enforcement plane для Kubernetes, ориентированный на детерминированную безопасность. Обеспечивает низкоуровневый eBPF-перехват системных вызовов в ядре Linux, строгий admission control, подпись и валидацию политик (Ed25519), а также мгновенный SIGKILL нарушителей.",
-    highlights: [
-      "eBPF sys_enter tracepoint datapath (aya-ebpf под target_arch = bpf)",
-      "Admission Webhook: fail-closed, hot-reload bundle, LKG на диске",
-      "Ed25519 Signed Bundles: офлайн-выпуск PKI и валидация политик",
-      "Strict Boundary Gate: строгий контроль покрытия тестами (boundary_gate.rs)"
-    ],
-    structure: `ferrum/
-├── Cargo.toml
-├── crates/
-│   ├── ferrum-ebpf/          # Userspace loader, prefilter, decoder kernel-записей
-│   ├── ferrum-ebpf-progs/    # eBPF datapath: sys_enter tracepoint (aya-ebpf)
-│   ├── ferrum-admission/     # Validating/mutating webhook, fail-closed, LKG
-│   ├── ferrum-agent/         # BPF-носитель, LKG на диске, respond через SIGKILL
-│   ├── ferrum-crypto/        # Ed25519 подпись bundle, X.509/mTLS material
-│   ├── ferrum-controller/    # Reconcile CRD -> compile -> rollout через Secret
-│   ├── ferrum-cli/           # ferrumctl: validate, compile, sign, verify
-│   └── ferrum-testkit/       # Boundary gates и replay ring-buffer тестов
-└── docs/
-    └── MVP-1-BOUNDARY.md     # Границы MVP-1 и приемочные критерии`,
-    tags: ["Rust", "Kubernetes", "eBPF", "Aya", "Admission-Control", "Runtime-Security"],
-    githubUrl: "https://github.com/onixus/Ferrum",
-    cloneCmd: "git clone https://github.com/onixus/Ferrum.git",
-    icon: "shield"
+    structure: `unified-platform/
+├── contracts/v1/CONTRACT.md
+├── contracts/v1/systems.json
+├── gateway/
+└── web/`,
+    tags: ["APEX", "FastAPI", "Integration", "Contracts"],
+    githubUrl: "https://github.com/onixus/unified-platform",
+    cloneCmd: "git clone https://github.com/onixus/unified-platform.git",
+    icon: "◇"
   },
   {
     id: "shapoclyack",
     title: "Shapoclyack",
-    category: "security",
+    scope: "platform",
+    platformRole: "EASM / RBVM",
+    contractStatus: "enforced",
     badge: "Python • EASM & RBVM",
-    summary: "Self-hosted EASM, CAASM и Risk-Based Vulnerability Management платформа со встроенной Enterprise Wiki.",
-    description: "Комплексная платформа непрерывного обнаружения внешней поверхности атаки (EASM) и управления рисками уязвимостей. Заменяет шум традиционных сканеров механической верификацией устранения дефектов, двухосевой оценкой риска по стандарту NIST SP 800-30 Rev. 1, точным учетом бэкпортов вендоров и полной корпоративной базой знаний (Wiki).",
+    summary: "Asset-centric EASM, CAASM and risk-based vulnerability management with evidence-backed remediation.",
+    description: "Shapoclyack is the platform domain authority for assets, findings, remediation lifecycle and exposure-risk evidence. It combines external attack-surface discovery, vulnerability context, mechanical re-verification and the operational Enterprise Wiki.",
     highlights: [
-      "Asset-Centric модель: сохранение контекста активов при смене IP/DHCP адресации",
-      "Двухосевой риск по NIST SP 800-30 Rev. 1: Risk = f(Likelihood, Impact)",
-      "Механическая ре-верификация закрытия (machine_verified = true)",
-      "Distro-Aware Vendor Advisory Matching: учет бэкпортов Ubuntu USN / Debian Security",
-      "Enterprise Wiki: ролевые сценарии (Инженер, Архитектор, CISO) и регламенты SLA"
+      "Asset-centric identity across changing network addresses",
+      "Risk model aligned to NIST SP 800-30 concepts",
+      "Mechanical remediation re-verification",
+      "Enterprise Wiki with operational roles, SLA and implementation guides"
     ],
-    structure: `shapoclyack/
-├── pyproject.toml
+    structure: `Shapoclyack/
 ├── app/
-│   ├── core/                 # EASM scanner engine & asset inventory
-│   ├── api/                  # FastAPI REST endpoints & verification API
-│   ├── scanners/             # Subdomain, port, TLS, NSE & CVE modules
-│   └── worker/               # NATS JetStream distributed task consumer
-├── web-next/                 # Modern Next.js 14 Web Operator Console
-├── docs/
-│   ├── wiki/                 # Enterprise Wiki: role guides & security processes
-│   │   ├── README.md         # Wiki Home & Portal
-│   │   ├── scenarios-security-engineer.md
-│   │   ├── scenarios-architect.md
-│   │   ├── scenarios-ciso.md
-│   │   ├── security-processes.md # VM SLA & 0-day Emergency Response
-│   │   └── implementation-plan.md # 12-week roadmap & RACI matrix
-│   ├── architecture.md       # Core architecture, ClickHouse & NATS
-│   └── risk-scoring.md       # NIST SP 800-30 Risk formulation
-└── k8s/                      # Kubernetes / Kustomize manifests`,
-    tags: ["Python", "Kubernetes", "EASM", "RBVM", "NIST-SP-800-30", "ClickHouse", "Wiki"],
+├── web-next/
+├── docs/wiki/
+└── k8s/`,
+    tags: ["Python", "EASM", "CAASM", "RBVM", "NIST"],
     githubUrl: "https://github.com/onixus/Shapoclyack",
     cloneCmd: "git clone https://github.com/onixus/Shapoclyack.git",
     wikiUrl: "https://github.com/onixus/Shapoclyack/wiki",
-    icon: "radar"
+    icon: "◎"
+  },
+  {
+    id: "lariska",
+    title: "Lariska",
+    scope: "platform",
+    platformRole: "Endpoint inventory",
+    contractStatus: "enforced",
+    badge: "Rust • Endpoint Agent",
+    summary: "Cross-platform endpoint inventory and telemetry agent for the APEX security platform.",
+    description: "Lariska collects endpoint inventory and telemetry with a service-owned identity boundary and versioned agent APIs. It supplies Shapoclyack with endpoint context without turning the central Gateway into endpoint source of truth.",
+    highlights: [
+      "Cross-platform inventory and Shadow IT signals",
+      "Local resilient spool and compressed delivery",
+      "Signed service identity boundary",
+      "Versioned enrollment, inventory and heartbeat APIs"
+    ],
+    structure: `Lariska/
+├── src/
+├── packaging/
+└── apex-contract/`,
+    tags: ["Rust", "Endpoint", "Inventory", "Telemetry"],
+    githubUrl: "https://github.com/onixus/Lariska",
+    cloneCmd: "git clone https://github.com/onixus/Lariska.git",
+    icon: "◈"
+  },
+  {
+    id: "ferrum",
+    title: "FERRUM",
+    scope: "platform",
+    platformRole: "Kubernetes enforcement",
+    contractStatus: "enforced",
+    badge: "Rust • Kubernetes/eBPF",
+    summary: "Admission and runtime enforcement plane with signed policy bundles and eBPF datapath.",
+    description: "Ferrum is the owning service for Kubernetes admission policy, runtime enforcement and break-glass state. The Gateway cannot bypass its authorization and analytics storage cannot become control-plane state.",
+    highlights: [
+      "Admission and runtime policy enforcement",
+      "Signed bundles with last-known-good behavior",
+      "eBPF runtime datapath",
+      "Strict product boundary gates and canonical APEX URNs"
+    ],
+    structure: `Ferrum/
+├── crates/ferrum-admission/
+├── crates/ferrum-agent/
+├── crates/ferrum-ebpf/
+└── crates/ferrum-testkit/`,
+    tags: ["Rust", "Kubernetes", "eBPF", "Policy"],
+    githubUrl: "https://github.com/onixus/Ferrum",
+    cloneCmd: "git clone https://github.com/onixus/Ferrum.git",
+    icon: "⬡"
   },
   {
     id: "bsdm",
     alias: "bsdm-proxy",
     title: "BSDM-Proxy",
-    category: "network",
+    scope: "platform",
+    platformRole: "Secure Web Gateway",
+    contractStatus: "enforced",
     badge: "Rust • Secure Web Gateway",
-    summary: "HTTPS caching proxy & Secure Web Gateway (SWG) на Rust с изолированной консолью администратора.",
-    description: "Высокопроизводительный кэширующий HTTPS прокси-сервер и шлюз безопасности веб-доступа (Secure Web Gateway). Включает встроенную панель администрирования, глубокий анализ трафика (MITM TLS), фильтрацию DNS Sinkhole (RPZ) и туннели AmneziaWG.",
+    summary: "High-performance HTTP/HTTPS proxy and SWG with explicit policy and agent boundaries.",
+    description: "BSDM-Proxy owns SWG policy and proxy decisions. Kafka and ClickHouse remain implementation details for transport and analytics rather than cross-system authority. The APEX boundary exposes versioned agent APIs and event contracts.",
     highlights: [
-      "HTTPS Caching & MITM TLS-инспекция трафика",
-      "DNS Sinkhole (RPZ) для блокировки C2 и вредоносных доменов",
-      "Аналитика безопасности: Kafka -> ClickHouse -> ML-детекция",
-      "Поддержка защищенных туннелей AmneziaWG VPN"
+      "HTTP/HTTPS proxy and selective TLS inspection",
+      "DNS sinkhole and policy enforcement",
+      "Versioned /api/v1/agent boundary",
+      "Asynchronous analytics without making ClickHouse transactional state"
     ],
     structure: `bsdm-proxy/
-├── Cargo.toml
 ├── src/
-│   ├── main.rs
-│   ├── proxy/                # Tokio/Hyper async HTTPS caching proxy engine
-│   ├── swg/                  # TLS inspection & Secure Web Gateway rules
-│   ├── admin_ui/             # Embedded web console & dashboard
-│   ├── dns/                  # DNS Sinkhole Response Policy Zones (RPZ)
-│   └── auth/                 # RBAC & bearer token authorization
-└── config/
-    └── bsdm.example.toml     # Routing, caching & SWG policy config`,
-    tags: ["Rust", "SWG", "Proxy-Server", "WebGateway", "DNS-RPZ", "Admin-Console"],
+├── bsdm-events/
+├── docs/architecture/
+└── apex-contract/`,
+    tags: ["Rust", "SWG", "Proxy", "DNS", "Policy"],
     githubUrl: "https://github.com/onixus/bsdm-proxy",
     cloneCmd: "git clone https://github.com/onixus/bsdm-proxy.git",
-    icon: "server"
-  },
-  {
-    id: "lariska",
-    title: "Lariska",
-    category: "telemetry",
-    badge: "Rust • Endpoint Agent",
-    summary: "Высокопроизводительный кроссплатформенный агент инвентаризации конечных точек с изоляцией на E-ядрах.",
-    description: "Системный агент телеметрии и инвентаризации для платформы Shapoclyack. Собирает установленное ПО, детектирует Shadow IT (Python, Node, Java runtime packages), работает с нулевым влиянием на хост благодаря строгой привязке к энергоэффективным E-ядрам и локальному спулингу zstd.",
-    highlights: [
-      "E-Core Pinning: ограничение работы энергоэффективными ядрами (M1-M4, Intel, AMD)",
-      "Детекция несанкционированного ПО (Shadow IT) в рантайме",
-      "Устойчивая доставка: локальная очередь SQLite с zstd сжатием",
-      "Псевдонимизация hardware ID (SHA-256) и защита от PATH-hijacking"
-    ],
-    structure: `lariska/
-├── Cargo.toml
-├── src/
-│   ├── main.rs
-│   ├── collector/            # OS packages, kernel modules & process telemetry
-│   ├── shadow_it/            # Python, Node.js, Java package inspector
-│   ├── affinity/             # Apple Silicon & Intel Hybrid E-core detector
-│   ├── spool/                # Local SQLite crash-resilient disk spooler
-│   └── transport/            # mTLS compressed snapshot delta sender
-└── packaging/
-    └── systemd/              # Linux systemd daemon service definition`,
-    tags: ["Rust", "Endpoint-Agent", "Shadow-IT", "Telemetry", "Inventory", "E-Cores"],
-    githubUrl: "https://github.com/onixus/Lariska",
-    cloneCmd: "git clone https://github.com/onixus/Lariska.git",
-    icon: "cpu"
+    icon: "▣"
   },
   {
     id: "pulse",
     title: "Pulse",
-    category: "network",
-    badge: "Rust • Async Port Scanner",
-    summary: "Субсекундный асинхронный сканер сети, портов и TLS-отпечатков на Rust (CLI, TUI, macOS & Win GUI).",
-    description: "Современный асинхронный сканер открытых портов и периметра. Поддерживает TCP SYN, UDP зонды 20 протоколов, хэширование Salesforce JARM TLS (10 зондов), встроенные песочницы скриптов Rhai и непрерывный мониторинг периметра с алертами.",
+    scope: "platform",
+    platformRole: "Network scanner",
+    contractStatus: "enforced",
+    badge: "Rust • Network Scanner",
+    summary: "Fast network scanning engine with a versioned APEX scan API and scan-report event boundary.",
+    description: "Pulse is the network-scanning component of the platform. It owns scan execution and observations, exposes versioned /api/v1 scan routes and publishes the apex.pulse.scan_report.v1 event contract.",
     highlights: [
-      "Async TCP Connect, SYN half-open, UDP probes для 20 протоколов",
-      "Salesforce JARM TLS Server Fingerprinting (10-probe SHA-256)",
-      "Встроенный движок аудита Rhai для скриптов безопасности",
-      "Непрерывный периметральный мониторинг с алертами в Telegram/Slack"
+      "Async network and service scanning",
+      "Versioned /api/v1 scan boundary",
+      "APEX scan report event adapter",
+      "CI-enforced local contract manifest"
     ],
-    structure: `pulse/
-├── Cargo.toml
+    structure: `GenDec/
 ├── src/
-│   ├── main.rs
-│   ├── scan/                 # Async TCP/UDP probe engine & SinFP OS detection
-│   ├── jarm/                 # Salesforce JARM TLS 10-probe fingerprinter
-│   ├── rhai/                 # Sandboxed scripting plugin environment
-│   ├── monitor/              # Continuous perimeter drift daemon
-│   └── tui/                  # Ratatui terminal dashboard
-└── gui/                      # Native macOS and Windows Glass-Neon GUI apps`,
-    tags: ["Rust", "Port-Scanner", "JARM-TLS", "Rhai", "TUI", "Network-Audit"],
+├── docs/
+├── apex-contract/
+└── .github/workflows/`,
+    tags: ["Rust", "Scanner", "Network", "TLS"],
     githubUrl: "https://github.com/onixus/GenDec",
     cloneCmd: "git clone https://github.com/onixus/GenDec.git",
-    icon: "radio"
+    icon: "⌁"
   },
   {
     id: "okora",
     alias: "oko-ra",
-    title: "Oko-Ra (Око-Ра)",
-    category: "security",
-    badge: "Python • Causal AI Threats",
-    summary: "Автономная платформа анализа гибридных угроз, моделирования каскадных сценариев и социетальных рисков.",
-    description: "Аналитический комплекс для моделирования эффекта домино и каскадных инфраструктурных сбоев. Сочетает детерминированное ядро расчетов, каузальный искусственный интеллект (Causal AI), интеграцию с сертификатами Минцифры РФ и 7 автоматических шлюзов безопасности.",
+    title: "Oko-Ra",
+    scope: "platform",
+    platformRole: "World-model risk",
+    contractStatus: "enforced",
+    badge: "Python • Risk & Causal Analysis",
+    summary: "World-model and causal-risk service for scenarios, threat relationships and operational briefings.",
+    description: "Oko-Ra owns world-model, scenario-graph and causal-risk projections. Its APEX boundary keeps domain authority local while exposing versioned workflow, result and briefing APIs.",
     highlights: [
-      "Детерминированное ядро расчетов + Causal AI для анализа гибридных угроз",
-      "Моделирование каскадных сбоев и инфраструктурного эффекта домино",
-      "Интеграция с Национальным УЦ Минцифры РФ (Russian CA)",
-      "7 строгих производственных шлюзов: 282/282 тестов, 100% strict Mypy"
+      "Threat and scenario graph analysis",
+      "Causal and cascading-risk projections",
+      "Versioned agent workflow/result APIs",
+      "Service-native JWT and tenant boundary"
     ],
     structure: `Oko-Ra/
-├── pyproject.toml
-├── okora/
-│   ├── core/                 # Deterministic risk & threat calculation core
-│   ├── causal/               # Causal AI inference & cascade graph model
-│   ├── adapters/             # Cross-domain & Russian CA telemetry ingesters
-│   └── api/                  # Operator REST API & verification gates
-├── web-ui/                   # Next.js analyst interface & scenario explorer
-└── tests/                    # 282 automated unit & integration test suite`,
-    tags: ["Python", "Causal-AI", "Hybrid-Threats", "Risk-Modeling", "Russian-CA"],
+├── apps/api/
+├── packages/
+├── tests/
+└── apex-contract/`,
+    tags: ["Python", "Risk", "Causal", "FastAPI"],
     githubUrl: "https://github.com/onixus/Oko-Ra",
     cloneCmd: "git clone https://github.com/onixus/Oko-Ra.git",
-    icon: "eye"
+    icon: "◉"
   },
   {
-    id: "octoman",
-    alias: "network-scan-cli",
-    title: "Network Scan CLI (Octo-man)",
-    category: "network",
-    badge: "Go • Scalable Network Sweep",
-    summary: "Контейнеризованный конвейер пакетного сканирования масштабных сетей (CIDR + IP + FQDN).",
-    description: "Воспроизводимый конвейер массового сканирования распределенных сетей. Реализует ступенчатую лестницу зондирования (Probe ladder), адаптивное двухволновое сканирование с добором пропущенных хостов и инкрементальное выявление дельты изменений периметра.",
+    id: "asmodeus",
+    title: "ASMODEUS",
+    scope: "platform",
+    platformRole: "Synthetic BAS",
+    contractStatus: "enforced",
+    badge: "Rust • BAS & Red Team",
+    summary: "Synthetic adversary-emulation and resilience validation with explicit safety boundaries.",
+    description: "Asmodeus owns synthetic scenarios, exercise runs and exercise safety state. Signed APEX identity is verified at its runtime boundary and the Gateway cannot bypass synthetic-only safety controls.",
     highlights: [
-      "Лестница зондирования (Probe Ladder): fping ICMP -> TCP SYN -> naabu",
-      "Адаптивное сканирование с заполнением пробелов (wave-2 gap fill)",
-      "Delta Discovery (--delta) для отслеживания динамики периметра",
-      "Обогащение именами хостов (dnsx forward + reverse PTR)"
+      "Synthetic BAS and adversary-emulation workflows",
+      "Signed APEX v1 identity verification",
+      "Explicit blast-radius and safety constraints",
+      "Blue-team validation and resilience metrics"
     ],
-    structure: `network-scan-cli/
-├── Dockerfile                # Multi-stage image with naabu, nmap, dnsx, fping
-├── pipeline/
-│   ├── discovery.sh          # Staged host & port discovery pipeline
-│   ├── enrich.sh             # Hostname & PTR DNS enrichment
-│   └── nmap_runner.py        # Targeted NSE service & vulnerability scanner
-├── presets/                  # Speed & depth profiles (fast, balanced, thorough)
-└── README.md`,
-    tags: ["Go", "Docker", "Network-Scan", "Naabu", "Nmap", "CIDR-Sweep"],
-    githubUrl: "https://github.com/onixus/Octo-man",
-    cloneCmd: "git clone https://github.com/onixus/Octo-man.git",
-    icon: "terminal"
+    structure: `Asmodeus/
+├── crates/
+├── docs/
+├── tests/
+└── apex-contract/`,
+    tags: ["Rust", "BAS", "Red Team", "Safety"],
+    githubUrl: "https://github.com/onixus/Asmodeus",
+    cloneCmd: "git clone https://github.com/onixus/Asmodeus.git",
+    icon: "⚡"
   },
   {
     id: "evacal",
     title: "EvaCal",
-    category: "enterprise",
-    badge: "TypeScript • ГОСТ 34 & Presale",
-    summary: "Корпоративный калькулятор трудозатрат и автоматизированный генератор документации по ГОСТ 34 / ГОСТ 2.104.",
-    description: "Профессиональная платформа для пресейла, комплексной оценки трудозатрат ИТ-проектов и автоматической генерации полного комплекта нормативно-технической документации (ГОСТ 34.602-2020 / РД 50-34.698-90) с основной надписью по ГОСТ 2.104-2006 и сквозной матрицей трассируемости.",
+    scope: "bonus",
+    platformRole: "Standalone colleague tool",
+    badge: "TypeScript • ГОСТ 34",
+    summary: "Standalone estimation and ГОСТ 34 documentation workflow for engineering and presale teams.",
+    description: "EvaCal is a useful standalone tool for colleagues. It is intentionally outside the APEX platform and does not participate in the canonical APEX Architecture Contract.",
     highlights: [
-      "Календарный план, ставки ролей и сметные расчеты коммерческих предложений",
-      "7-шаговый мастер генерации комплекта (ТЗ, ПЗ, АФ, ПМИ, Ведомость оборудования)",
-      "Оформление по ГОСТ 2.104-2006 (Формы 2 и 2а) и профиль без рамок",
-      "Сквозная трассируемость требований ТЗ с разделами ПЗ и методиками испытаний"
+      "Presale estimation and role-based effort models",
+      "ГОСТ 34 document workflows",
+      "Traceability and release snapshots",
+      "Independent product lifecycle outside APEX"
     ],
-    structure: `evacal/
-├── package.json
-├── tsconfig.json
+    structure: `EvaCal/
+├── app/
 ├── lib/
-│   ├── gost34/               # GOST 34.602-2020 & RD 50 doc generation engine
-│   │   ├── applicability/    # Requirement applicability rules
-│   │   ├── traceability/     # Bidirectional traceability matrix
-│   │   └── templates/        # Standard sections & boilerplate
-│   ├── eskd/                 # GOST 2.104 title blocks & stamps (Forms 2/2a)
-│   └── estimation/           # Role matrix, effort calculator & Gantt generator
-└── app/                      # Next.js interactive estimation studio`,
-    tags: ["TypeScript", "ГОСТ-34", "Presale", "Estimation", "Enterprise-Docs"],
+├── prisma/
+└── docs/`,
+    tags: ["TypeScript", "ГОСТ-34", "Presale", "Docs"],
     githubUrl: "https://github.com/onixus/EvaCal",
     cloneCmd: "git clone https://github.com/onixus/EvaCal.git",
-    icon: "file-text"
+    icon: "▤"
+  },
+  {
+    id: "metis",
+    title: "Metis",
+    scope: "bonus",
+    platformRole: "Standalone colleague tool",
+    badge: "Go • Portfolio Governance",
+    summary: "Standalone product-portfolio and delivery-governance workspace for colleagues.",
+    description: "Metis is a separate colleague-facing tool for product portfolio, roadmap, economics and delivery governance. It is not an APEX platform component and evolves independently of the APEX contract.",
+    highlights: [
+      "Product and portfolio planning",
+      "Roadmap and delivery governance",
+      "Economics, decisions and commitments",
+      "Versioned own API without APEX platform coupling"
+    ],
+    structure: `Metis/
+├── api/
+├── cmd/
+├── internal/
+├── web/
+└── db/`,
+    tags: ["Go", "Portfolio", "Roadmap", "Governance"],
+    githubUrl: "https://github.com/onixus/Metis",
+    cloneCmd: "git clone https://github.com/onixus/Metis.git",
+    icon: "◆"
   }
 ];
-
-if (typeof window !== "undefined") {
-  window.PROJECTS_DATA = PROJECTS_DATA;
-}
-
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = { PROJECTS_DATA };
-}
