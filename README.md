@@ -25,10 +25,12 @@ Core rules include explicit domain ownership, versioned integration APIs/events,
 
 ## Bonus tools
 
-**EvaCal** and **Metis** are standalone tools for colleagues. They are intentionally **outside the APEX platform** and do not participate in the canonical APEX contract registry.
+**EvaCal**, **Metis** and **R-TrustTunnel** are standalone tools for colleagues. They are intentionally **outside the APEX platform** and do not participate in the canonical APEX contract registry.
 
 - [EvaCal](https://github.com/onixus/EvaCal) — estimation and ГОСТ 34 documentation workflow.
 - [Metis](https://github.com/onixus/Metis) — product portfolio, roadmap and delivery governance.
+
+- [R-TrustTunnel](https://github.com/onixus/Rust-trustvpn) — native Rust VPN client for TrustTunnel, Hysteria 2 and AmneziaWG 3 (development preview).
 
 ## Site architecture
 

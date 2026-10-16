@@ -52,7 +52,7 @@ function projectCard(project, showContract) {
     : "";
 
   return `
-    <article class="project-card project-card-${escapeHtml(project.scope)}" data-project-id="${escapeHtml(project.id)}">
+    <article id="${escapeHtml(project.id)}" class="project-card project-card-${escapeHtml(project.scope)}" data-project-id="${escapeHtml(project.id)}">
       <div class="card-header">
         <div class="card-icon-box" aria-hidden="true">${escapeHtml(project.icon || "◇")}</div>
         <div class="card-badges">
@@ -121,7 +121,7 @@ function initTerminal() {
   const availableCommands = [
     "help", "platform", "bonus", "projects", "contract", "tree", "wiki",
     "apex-gateway", "shapoclyack", "lariska", "ferrum", "bsdm", "pulse",
-    "okora", "asmodeus", "evacal", "metis", "whoami", "contact", "clear", "date"
+    "okora", "asmodeus", "evacal", "metis", "rtrust", "r-trusttunnel", "rust-trustvpn", "whoami", "contact", "clear", "date"
   ];
 
   if (terminalWrapper) {
@@ -132,7 +132,7 @@ function initTerminal() {
 
   printOutput(`
 <span class="output-accent">ONIXUS // APEX Platform Shell v4.0</span>
-Platform: <span class="output-success">8 APEX components</span> · Bonus: <span class="output-warning">EvaCal, Metis</span>
+Platform: <span class="output-success">8 APEX components</span> · Bonus: <span class="output-warning">EvaCal, Metis, R-TrustTunnel</span>
 Type <span class="output-success">'help'</span>, <span class="output-success">'platform'</span>, <span class="output-success">'bonus'</span>, <span class="output-success">'contract'</span> or <span class="output-success">'tree'</span>.
 ---------------------------------------------------------------------`);
 

@@ -30,7 +30,7 @@ const expectedPlatform = [
   "okora",
   "asmodeus"
 ];
-const expectedBonus = ["evacal", "metis"];
+const expectedBonus = ["evacal", "metis", "rtrust"];
 const expectedPrivate = new Set(["apex-gateway", "pulse", "okora"]);
 
 const platform = projects.filter((project) => project.scope === "platform");

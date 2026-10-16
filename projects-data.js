@@ -269,5 +269,33 @@ var PROJECTS_DATA = [
     githubUrl: "https://github.com/onixus/Metis",
     cloneCmd: "git clone https://github.com/onixus/Metis.git",
     icon: "◆"
-  }
+  },
+{
+  "id": "rtrust",
+  "alias": "rust-trustvpn",
+  "title": "R-TrustTunnel",
+  "scope": "bonus",
+  "platformRole": "Standalone VPN client",
+  "visibility": "public",
+  "badge": "Rust • VPN Client • Preview",
+  "summary": "Нативный VPN-клиент на Rust для TrustTunnel, Hysteria 2 и AmneziaWG 3. Проект в стадии development preview.",
+  "description": "Кроссплатформенный VPN-клиент с собственными транспортами на Rust, управлением профилями и диагностикой подключения. Windows, Linux, macOS и Android; iOS — Network Extension preview.",
+  "highlights": [
+    "TrustTunnel по HTTP/2 и HTTP/3, Hysteria 2 и AmneziaWG 3",
+    "Нативный desktop UI, WebView-интерфейс и Android VpnService",
+    "Импорт профилей, зашифрованное хранилище и синхронизация с порталом",
+    "Диагностика соединения, восстановление и защита fail-closed"
+  ],
+  "structure": "Rust-trustvpn/\n├── Cargo.toml\n├── crates/\n│   ├── engine/     # VPN transports and dataplane\n│   ├── desktop/    # Desktop UI\n│   ├── control/    # Shared desktop controller\n│   ├── mobile/     # Shared mobile core\n│   ├── profile/    # Profile formats and validation\n│   ├── portal/     # Managed profile synchronization\n│   ├── store/      # Encrypted storage\n│   └── update/     # Update handling\n└── docs/           # Platform status and documentation",
+  "tags": [
+    "Rust",
+    "VPN",
+    "TrustTunnel",
+    "Hysteria-2",
+    "AmneziaWG-3"
+  ],
+  "githubUrl": "https://github.com/onixus/Rust-trustvpn",
+  "cloneCmd": "git clone https://github.com/onixus/Rust-trustvpn.git",
+  "icon": "⬡"
+}
 ];
