@@ -1376,3 +1376,22 @@ a {
   border-color: var(--border-subtle);
   background: rgba(15, 23, 42, 0.64);
 }
+
+/* Static project documentation */
+.project-page { line-height: 1.75; }
+.project-topbar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.project-document { max-width: 900px; padding-top: 2rem; padding-bottom: 3rem; }
+.project-document h1 { font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.2; margin: 1rem 0 1.5rem; overflow-wrap: anywhere; }
+.project-document h2 { font-size: 1.4rem; line-height: 1.4; margin-bottom: 1rem; }
+.project-document section { padding: 1.75rem 0; border-top: 1px solid var(--border-subtle); }
+.project-document p { margin-bottom: 1rem; }
+.project-lead { font-size: 1.15rem; color: var(--text-secondary); }
+.project-document ul { list-style: disc; padding-left: 1.4rem; }
+.project-document li { margin: .5rem 0; }
+.project-page a { color: var(--accent-cyan); text-decoration: underline; text-underline-offset: .2em; }
+.project-document pre { padding: 1rem; overflow-x: auto; border: 1px solid var(--border-subtle); border-radius: 8px; }
+.project-footer { padding-bottom: 2rem; }
+.project-skip { position: absolute; top: -100px; left: 1rem; padding: .75rem; background: #0b1220; z-index: 100; }
+.project-skip:focus { top: 0; }
+.project-page a:focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 4px; }
+.card-actions { flex-wrap: wrap; }

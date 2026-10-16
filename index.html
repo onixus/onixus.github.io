@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>onixus // APEX Security Platform & Engineering Tools</title>
-  <meta name="description" content="APEX security platform by onixus: eight contract-enforced components for attack-surface management, endpoint inventory, scanning, secure networking, Kubernetes enforcement, risk analysis and synthetic BAS — plus standalone colleague tools EvaCal, Metis and R-TrustTunnel.">
+  <title>Проекты onixus — платформа безопасности APEX и инженерные инструменты</title>
+  <meta name="description" content="Проекты onixus: управление уязвимостями, защита Kubernetes, сетевые инструменты, VPN-клиент R-TrustTunnel, документация ГОСТ 34 и управление портфелем.">
+  <link rel="canonical" href="https://onixus.github.io/">
   <link rel="icon" href="https://avatars.githubusercontent.com/u/12559109?v=4" type="image/png">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=project-pages-1">
 </head>
 <body>
 
@@ -41,7 +42,7 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
-        
+
         <div class="hero-badge-wrapper">
           <span class="status-dot"></span>
           <span class="hero-badge-text">APEX Platform · 8 Contract-Enforced Components · Open Source</span>
@@ -96,7 +97,7 @@
          =================================================== -->
     <section id="wiki" class="section">
       <div class="container">
-        
+
         <div class="section-header">
           <span class="section-tag" style="color: var(--accent-amber);">Корпоративные стандарты & Регламенты</span>
           <h2 class="section-title">База знаний (Enterprise Wiki) & Ролевые сценарии ИБ</h2>
@@ -123,7 +124,7 @@
 
           <!-- Role Cards Grid -->
           <div class="wiki-roles-grid">
-            
+
             <!-- Role 1: Security Engineer -->
             <div class="wiki-role-card">
               <div class="wiki-role-icon">🛠️</div>
@@ -263,7 +264,305 @@
             currently marked <code>enforced</code> in the canonical platform registry.
           </p>
         </div>
-        <div id="platformProjects" class="projects-grid"></div>
+        <!-- generated:platformProjects:start -->
+        <div id="platformProjects" class="projects-grid">
+    <article id="apex-gateway" class="project-card project-card-platform" data-project-id="apex-gateway">
+      <div class="card-header">
+        <div class="card-icon-box" aria-hidden="true">◇</div>
+        <div class="card-badges">
+          <span class="scope-pill scope-platform">APEX v1 · enforced</span>
+          <span class="card-badge">FastAPI • Integration Plane</span>
+          <span class="scope-pill scope-private">Private repo</span>
+        </div>
+      </div>
+
+      <div class="project-role">Integration plane</div>
+      <h3 class="card-title">APEX Gateway</h3>
+      <p class="card-summary">Unified API gateway/BFF implementing the APEX integration plane and versioned cross-system boundaries.</p>
+
+      <ul class="card-highlights">
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Canonical APEX Architecture Contract v1</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Versioned HTTP/event boundaries instead of private database coupling</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Owning services keep safety-critical authorization and domain state</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>W3C Trace Context and canonical resource references across boundaries</span></li>
+
+      </ul>
+
+      <div class="card-tags">
+        <span class="tag-pill">#APEX</span><span class="tag-pill">#FastAPI</span><span class="tag-pill">#Integration</span><span class="tag-pill">#Contracts</span>
+      </div>
+
+      <div class="card-actions">
+        <a href="/projects/apex-gateway/" class="btn-card-secondary">Подробнее / Overview →</a>
+        <span class="btn-card-repo is-disabled" aria-label="Private repository">Private repository</span>
+
+
+      </div>
+    </article>
+    <article id="shapoclyack" class="project-card project-card-platform" data-project-id="shapoclyack">
+      <div class="card-header">
+        <div class="card-icon-box" aria-hidden="true">◎</div>
+        <div class="card-badges">
+          <span class="scope-pill scope-platform">APEX v1 · enforced</span>
+          <span class="card-badge">Python • EASM &amp; RBVM</span>
+
+        </div>
+      </div>
+
+      <div class="project-role">EASM / RBVM</div>
+      <h3 class="card-title">Shapoclyack</h3>
+      <p class="card-summary">Asset-centric EASM, CAASM and risk-based vulnerability management with evidence-backed remediation.</p>
+
+      <ul class="card-highlights">
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Asset-centric identity across changing network addresses</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Risk model aligned to NIST SP 800-30 concepts</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Mechanical remediation re-verification</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Enterprise Wiki with operational roles, SLA and implementation guides</span></li>
+
+      </ul>
+
+      <div class="card-tags">
+        <span class="tag-pill">#Python</span><span class="tag-pill">#EASM</span><span class="tag-pill">#CAASM</span><span class="tag-pill">#RBVM</span><span class="tag-pill">#NIST</span>
+      </div>
+
+      <div class="card-actions">
+        <a href="/projects/shapoclyack/" class="btn-card-secondary">Подробнее / Overview →</a>
+        <a href="https://github.com/onixus/Shapoclyack" target="_blank" rel="noopener noreferrer" class="btn-card-repo">GitHub Repo ↗</a>
+        <a href="https://github.com/onixus/Shapoclyack/wiki" target="_blank" rel="noopener noreferrer" class="btn-card-secondary">Wiki ↗</a>
+        <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Shapoclyack.git')" title="Скопировать команду git clone">git clone</button>
+      </div>
+    </article>
+    <article id="lariska" class="project-card project-card-platform" data-project-id="lariska">
+      <div class="card-header">
+        <div class="card-icon-box" aria-hidden="true">◈</div>
+        <div class="card-badges">
+          <span class="scope-pill scope-platform">APEX v1 · enforced</span>
+          <span class="card-badge">Rust • Endpoint Agent</span>
+
+        </div>
+      </div>
+
+      <div class="project-role">Endpoint inventory</div>
+      <h3 class="card-title">Lariska</h3>
+      <p class="card-summary">Cross-platform endpoint inventory and telemetry agent for the APEX security platform.</p>
+
+      <ul class="card-highlights">
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Cross-platform inventory and Shadow IT signals</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Local resilient spool and compressed delivery</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Signed service identity boundary</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Versioned enrollment, inventory and heartbeat APIs</span></li>
+
+      </ul>
+
+      <div class="card-tags">
+        <span class="tag-pill">#Rust</span><span class="tag-pill">#Endpoint</span><span class="tag-pill">#Inventory</span><span class="tag-pill">#Telemetry</span>
+      </div>
+
+      <div class="card-actions">
+        <a href="/projects/lariska/" class="btn-card-secondary">Подробнее / Overview →</a>
+        <a href="https://github.com/onixus/Lariska" target="_blank" rel="noopener noreferrer" class="btn-card-repo">GitHub Repo ↗</a>
+
+        <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Lariska.git')" title="Скопировать команду git clone">git clone</button>
+      </div>
+    </article>
+    <article id="ferrum" class="project-card project-card-platform" data-project-id="ferrum">
+      <div class="card-header">
+        <div class="card-icon-box" aria-hidden="true">⬡</div>
+        <div class="card-badges">
+          <span class="scope-pill scope-platform">APEX v1 · enforced</span>
+          <span class="card-badge">Rust • Kubernetes/eBPF</span>
+
+        </div>
+      </div>
+
+      <div class="project-role">Kubernetes enforcement</div>
+      <h3 class="card-title">FERRUM</h3>
+      <p class="card-summary">Admission and runtime enforcement plane with signed policy bundles and eBPF datapath.</p>
+
+      <ul class="card-highlights">
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Admission and runtime policy enforcement</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Signed bundles with last-known-good behavior</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>eBPF runtime datapath</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Strict product boundary gates and canonical APEX URNs</span></li>
+
+      </ul>
+
+      <div class="card-tags">
+        <span class="tag-pill">#Rust</span><span class="tag-pill">#Kubernetes</span><span class="tag-pill">#eBPF</span><span class="tag-pill">#Policy</span>
+      </div>
+
+      <div class="card-actions">
+        <a href="/projects/ferrum/" class="btn-card-secondary">Подробнее / Overview →</a>
+        <a href="https://github.com/onixus/Ferrum" target="_blank" rel="noopener noreferrer" class="btn-card-repo">GitHub Repo ↗</a>
+
+        <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Ferrum.git')" title="Скопировать команду git clone">git clone</button>
+      </div>
+    </article>
+    <article id="bsdm" class="project-card project-card-platform" data-project-id="bsdm">
+      <div class="card-header">
+        <div class="card-icon-box" aria-hidden="true">▣</div>
+        <div class="card-badges">
+          <span class="scope-pill scope-platform">APEX v1 · enforced</span>
+          <span class="card-badge">Rust • Secure Web Gateway</span>
+
+        </div>
+      </div>
+
+      <div class="project-role">Secure Web Gateway</div>
+      <h3 class="card-title">BSDM-Proxy</h3>
+      <p class="card-summary">High-performance HTTP/HTTPS proxy and SWG with explicit policy and agent boundaries.</p>
+
+      <ul class="card-highlights">
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>HTTP/HTTPS proxy and selective TLS inspection</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>DNS sinkhole and policy enforcement</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Versioned /api/v1/agent boundary</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Asynchronous analytics without making ClickHouse transactional state</span></li>
+
+      </ul>
+
+      <div class="card-tags">
+        <span class="tag-pill">#Rust</span><span class="tag-pill">#SWG</span><span class="tag-pill">#Proxy</span><span class="tag-pill">#DNS</span><span class="tag-pill">#Policy</span>
+      </div>
+
+      <div class="card-actions">
+        <a href="/projects/bsdm-proxy/" class="btn-card-secondary">Подробнее / Overview →</a>
+        <a href="https://github.com/onixus/bsdm-proxy" target="_blank" rel="noopener noreferrer" class="btn-card-repo">GitHub Repo ↗</a>
+
+        <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/bsdm-proxy.git')" title="Скопировать команду git clone">git clone</button>
+      </div>
+    </article>
+    <article id="pulse" class="project-card project-card-platform" data-project-id="pulse">
+      <div class="card-header">
+        <div class="card-icon-box" aria-hidden="true">⌁</div>
+        <div class="card-badges">
+          <span class="scope-pill scope-platform">APEX v1 · enforced</span>
+          <span class="card-badge">Rust • Network Scanner</span>
+          <span class="scope-pill scope-private">Private repo</span>
+        </div>
+      </div>
+
+      <div class="project-role">Network scanner</div>
+      <h3 class="card-title">Pulse</h3>
+      <p class="card-summary">Fast network scanning engine with a versioned APEX scan API and scan-report event boundary.</p>
+
+      <ul class="card-highlights">
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Async network and service scanning</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Versioned /api/v1 scan boundary</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>APEX scan report event adapter</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>CI-enforced local contract manifest</span></li>
+
+      </ul>
+
+      <div class="card-tags">
+        <span class="tag-pill">#Rust</span><span class="tag-pill">#Scanner</span><span class="tag-pill">#Network</span><span class="tag-pill">#TLS</span>
+      </div>
+
+      <div class="card-actions">
+        <a href="/projects/pulse/" class="btn-card-secondary">Подробнее / Overview →</a>
+        <span class="btn-card-repo is-disabled" aria-label="Private repository">Private repository</span>
+
+
+      </div>
+    </article>
+    <article id="okora" class="project-card project-card-platform" data-project-id="okora">
+      <div class="card-header">
+        <div class="card-icon-box" aria-hidden="true">◉</div>
+        <div class="card-badges">
+          <span class="scope-pill scope-platform">APEX v1 · enforced</span>
+          <span class="card-badge">Python • Risk &amp; Causal Analysis</span>
+          <span class="scope-pill scope-private">Private repo</span>
+        </div>
+      </div>
+
+      <div class="project-role">World-model risk</div>
+      <h3 class="card-title">Oko-Ra</h3>
+      <p class="card-summary">World-model and causal-risk service for scenarios, threat relationships and operational briefings.</p>
+
+      <ul class="card-highlights">
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Threat and scenario graph analysis</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Causal and cascading-risk projections</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Versioned agent workflow/result APIs</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Service-native JWT and tenant boundary</span></li>
+
+      </ul>
+
+      <div class="card-tags">
+        <span class="tag-pill">#Python</span><span class="tag-pill">#Risk</span><span class="tag-pill">#Causal</span><span class="tag-pill">#FastAPI</span>
+      </div>
+
+      <div class="card-actions">
+        <a href="/projects/okora/" class="btn-card-secondary">Подробнее / Overview →</a>
+        <span class="btn-card-repo is-disabled" aria-label="Private repository">Private repository</span>
+
+
+      </div>
+    </article>
+    <article id="asmodeus" class="project-card project-card-platform" data-project-id="asmodeus">
+      <div class="card-header">
+        <div class="card-icon-box" aria-hidden="true">⚡</div>
+        <div class="card-badges">
+          <span class="scope-pill scope-platform">APEX v1 · enforced</span>
+          <span class="card-badge">Rust • BAS &amp; Red Team</span>
+
+        </div>
+      </div>
+
+      <div class="project-role">Synthetic BAS</div>
+      <h3 class="card-title">ASMODEUS</h3>
+      <p class="card-summary">Synthetic adversary-emulation and resilience validation with explicit safety boundaries.</p>
+
+      <ul class="card-highlights">
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Synthetic BAS and adversary-emulation workflows</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Signed APEX v1 identity verification</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Explicit blast-radius and safety constraints</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Blue-team validation and resilience metrics</span></li>
+
+      </ul>
+
+      <div class="card-tags">
+        <span class="tag-pill">#Rust</span><span class="tag-pill">#BAS</span><span class="tag-pill">#Red Team</span><span class="tag-pill">#Safety</span>
+      </div>
+
+      <div class="card-actions">
+        <a href="/projects/asmodeus/" class="btn-card-secondary">Подробнее / Overview →</a>
+        <a href="https://github.com/onixus/Asmodeus" target="_blank" rel="noopener noreferrer" class="btn-card-repo">GitHub Repo ↗</a>
+
+        <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Asmodeus.git')" title="Скопировать команду git clone">git clone</button>
+      </div>
+    </article></div>
+        <!-- generated:platformProjects:end -->
       </div>
     </section>
 
@@ -277,14 +576,127 @@
             do not participate in the canonical APEX contract registry.
           </p>
         </div>
-        <div id="bonusProjects" class="projects-grid bonus-grid"></div>
+        <!-- generated:bonusProjects:start -->
+        <div id="bonusProjects" class="projects-grid bonus-grid">
+    <article id="evacal" class="project-card project-card-bonus" data-project-id="evacal">
+      <div class="card-header">
+        <div class="card-icon-box" aria-hidden="true">▤</div>
+        <div class="card-badges">
+          <span class="scope-pill scope-bonus">Standalone bonus tool</span>
+          <span class="card-badge">TypeScript • ГОСТ 34</span>
+
+        </div>
+      </div>
+
+      <div class="project-role">Standalone colleague tool</div>
+      <h3 class="card-title">EvaCal</h3>
+      <p class="card-summary">Standalone presale estimation, project workflow, resource planning and ГОСТ 34 documentation workspace.</p>
+
+      <ul class="card-highlights">
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Role-based estimation, margins and presale approval flow</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>ГОСТ 34 document generation with traceability and review gates</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Project lifecycle board, actual hours and schedule deviation tracking</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Portfolio capacity planning and delivery analytics</span></li>
+
+      </ul>
+
+      <div class="card-tags">
+        <span class="tag-pill">#TypeScript</span><span class="tag-pill">#ГОСТ-34</span><span class="tag-pill">#Presale</span><span class="tag-pill">#Docs</span>
+      </div>
+
+      <div class="card-actions">
+        <a href="/projects/evacal/" class="btn-card-secondary">Подробнее / Overview →</a>
+        <a href="https://github.com/onixus/EvaCal" target="_blank" rel="noopener noreferrer" class="btn-card-repo">GitHub Repo ↗</a>
+
+        <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/EvaCal.git')" title="Скопировать команду git clone">git clone</button>
+      </div>
+    </article>
+    <article id="metis" class="project-card project-card-bonus" data-project-id="metis">
+      <div class="card-header">
+        <div class="card-icon-box" aria-hidden="true">◆</div>
+        <div class="card-badges">
+          <span class="scope-pill scope-bonus">Standalone bonus tool</span>
+          <span class="card-badge">Go • Portfolio Governance</span>
+
+        </div>
+      </div>
+
+      <div class="project-role">Standalone colleague tool</div>
+      <h3 class="card-title">Metis</h3>
+      <p class="card-summary">Standalone portfolio-governance workspace for products, priorities, roadmaps, commitments and economics.</p>
+
+      <ul class="card-highlights">
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Portfolio graph, demand signals and prioritization</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Roadmaps, delivery projections and commitments</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>SSDLC/certification evidence and decision history</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Economics, P&amp;L scenarios and win/loss analysis</span></li>
+
+      </ul>
+
+      <div class="card-tags">
+        <span class="tag-pill">#Go</span><span class="tag-pill">#Portfolio</span><span class="tag-pill">#Roadmap</span><span class="tag-pill">#Governance</span>
+      </div>
+
+      <div class="card-actions">
+        <a href="/projects/metis/" class="btn-card-secondary">Подробнее / Overview →</a>
+        <a href="https://github.com/onixus/Metis" target="_blank" rel="noopener noreferrer" class="btn-card-repo">GitHub Repo ↗</a>
+
+        <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Metis.git')" title="Скопировать команду git clone">git clone</button>
+      </div>
+    </article>
+    <article id="rtrust" class="project-card project-card-bonus" data-project-id="rtrust">
+      <div class="card-header">
+        <div class="card-icon-box" aria-hidden="true">⬡</div>
+        <div class="card-badges">
+          <span class="scope-pill scope-bonus">Standalone bonus tool</span>
+          <span class="card-badge">Rust • VPN Client • Preview</span>
+
+        </div>
+      </div>
+
+      <div class="project-role">Standalone VPN client</div>
+      <h3 class="card-title">R-TrustTunnel</h3>
+      <p class="card-summary">Нативный VPN-клиент на Rust для TrustTunnel, Hysteria 2 и AmneziaWG 3. Проект в стадии development preview.</p>
+
+      <ul class="card-highlights">
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>TrustTunnel по HTTP/2 и HTTP/3, Hysteria 2 и AmneziaWG 3</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Нативный desktop UI, WebView-интерфейс и Android VpnService</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Импорт профилей, зашифрованное хранилище и синхронизация с порталом</span></li>
+
+          <li class="highlight-item"><span class="highlight-dot"></span><span>Диагностика соединения, восстановление и защита fail-closed</span></li>
+
+      </ul>
+
+      <div class="card-tags">
+        <span class="tag-pill">#Rust</span><span class="tag-pill">#VPN</span><span class="tag-pill">#TrustTunnel</span><span class="tag-pill">#Hysteria-2</span><span class="tag-pill">#AmneziaWG-3</span>
+      </div>
+
+      <div class="card-actions">
+        <a href="/projects/rtrusttunnel/" class="btn-card-secondary">Подробнее / Overview →</a>
+        <a href="https://github.com/onixus/Rust-trustvpn" target="_blank" rel="noopener noreferrer" class="btn-card-repo">GitHub Repo ↗</a>
+
+        <button class="btn-card-clone" onclick="copyCloneCommand('git clone https://github.com/onixus/Rust-trustvpn.git')" title="Скопировать команду git clone">git clone</button>
+      </div>
+    </article></div>
+        <!-- generated:bonusProjects:end -->
       </div>
     </section>
 
     <!-- Interactive Terminal Section -->
     <section id="terminal" class="section">
       <div class="container">
-        
+
         <div class="section-header">
           <span class="section-tag">Interactive Console</span>
           <h2 class="section-title">Интерактивный терминал</h2>

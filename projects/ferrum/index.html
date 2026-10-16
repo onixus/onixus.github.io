@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FERRUM — защита Kubernetes и контроль выполнения через eBPF</title>
+  <meta name="description" content="FERRUM: контроль admission и runtime в Kubernetes, подписанные политики и eBPF. Архитектура, возможности и документация проекта на Rust.">
+  <link rel="canonical" href="https://onixus.github.io/projects/ferrum/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="FERRUM — защита Kubernetes и контроль выполнения через eBPF">
+  <meta property="og:description" content="FERRUM: контроль admission и runtime в Kubernetes, подписанные политики и eBPF. Архитектура, возможности и документация проекта на Rust.">
+  <meta property="og:url" content="https://onixus.github.io/projects/ferrum/">
+  <link rel="stylesheet" href="/styles.css?v=project-pages-1">
+</head>
+<body class="project-page">
+  <a class="project-skip" href="#content">К содержанию</a>
+  <header class="project-topbar container"><a href="/">onixus // SEC_LAB</a><nav aria-label="Навигация"><a href="/projects/">Все проекты</a> · <a href="/#projects">Каталог</a></nav></header>
+  <main id="content" class="container project-document">
+    <nav aria-label="Хлебные крошки"><a href="/">Главная</a> / <a href="/projects/">Проекты</a> / FERRUM</nav>
+    <p class="section-tag">Компонент платформы APEX</p>
+    <h1>FERRUM — защита Kubernetes и контроль выполнения через eBPF</h1>
+    <p class="project-lead">FERRUM: контроль admission и runtime в Kubernetes, подписанные политики и eBPF. Архитектура, возможности и документация проекта на Rust.</p>
+    <section><h2>Кому подходит</h2><p>Для платформенных инженеров и команд безопасности Kubernetes, которым нужен контроль допуска и поведения рабочих нагрузок.</p></section>
+    <section><h2>Возможности</h2><ul><li>Проверка политик при admission</li><li>Контроль выполнения с использованием eBPF</li><li>Подписанные наборы политик</li><li>Использование последнего рабочего набора политик</li></ul></section>
+    <section><h2>Пример использования</h2><p>Команда задаёт и подписывает политики, проверяет их на тестовом кластере и применяет контроль при допуске и выполнении нагрузок.</p></section>
+    <section><h2>Как начать</h2><p>Откройте README репозитория: там находятся требования к окружению и инструкции для выбранной версии. Перед установкой проверьте актуальную документацию и доступные релизы.</p>
+    <p><a href="https://github.com/onixus/Ferrum" rel="noopener noreferrer">Репозиторий и README →</a> · <a href="https://github.com/onixus/Ferrum/releases" rel="noopener noreferrer">Релизы →</a></p>
+    <p>Для изучения исходного кода:</p><pre><code>git clone https://github.com/onixus/Ferrum.git</code></pre></section>
+    <section><h2>Ограничения и статус</h2><p>Работа eBPF зависит от ядра Linux и окружения. Политики принудительного ограничения нужно проверять на совместимость с рабочими нагрузками до внедрения.</p></section>
+    <section><h2>Другие проекты</h2><ul><li><a href="/projects/apex-gateway/">APEX Gateway</a> — интеграция компонентов платформы безопасности</li><li><a href="/projects/shapoclyack/">Shapoclyack</a> — управление уязвимостями и поверхностью атаки</li><li><a href="/projects/lariska/">Lariska</a> — агент инвентаризации конечных устройств</li><li><a href="/projects/bsdm-proxy/">BSDM-Proxy</a> — HTTPS-прокси и защищённый веб-шлюз</li><li><a href="/projects/pulse/">Pulse</a> — сканирование сети и обнаружение сервисов</li><li><a href="/projects/okora/">Oko-Ra</a> — анализ угроз, сценариев и каскадных рисков</li><li><a href="/projects/asmodeus/">ASMODEUS</a> — моделирование атак и проверка устойчивости защиты</li></ul></section>
+  </main>
+  <footer class="container project-footer"><a href="/projects/">Все проекты onixus</a> · <a href="https://github.com/onixus">GitHub</a></footer>
+</body>
+</html>

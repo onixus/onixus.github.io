@@ -34,6 +34,11 @@ function renderProjectSections() {
   bonusContainer.innerHTML = bonus.map((project) => projectCard(project, false)).join("");
 }
 
+function projectPageUrl(project) {
+  const slug = project.id === "rtrust" ? "rtrusttunnel" : project.id === "bsdm" ? "bsdm-proxy" : project.id;
+  return `/projects/${slug}/`;
+}
+
 function projectCard(project, showContract) {
   const contract = showContract
     ? `<span class="scope-pill scope-platform">APEX v1 · ${escapeHtml(project.contractStatus || "declared")}</span>`
@@ -77,6 +82,7 @@ function projectCard(project, showContract) {
       </div>
 
       <div class="card-actions">
+        <a href="${projectPageUrl(project)}" class="btn-card-secondary">Подробнее / Overview →</a>
         ${repositoryAction}
         ${wikiAction}
         ${cloneAction}

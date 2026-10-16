@@ -27,7 +27,9 @@ jobs:
           node --check projects-data.js
           node --check app.js
       - name: Validate site catalog and structure
-        run: node scripts/validate-site.mjs
+        run: |
+          node scripts/validate-site.mjs
+          node scripts/build-project-pages.mjs --check
 
   deploy:
     if: github.event_name != 'pull_request'

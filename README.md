@@ -69,3 +69,17 @@ Then open `http://localhost:8080`.
 ## Deployment
 
 Pushes to `main` deploy to GitHub Pages after the structural validation job passes. Pull requests run validation without deploying.
+
+## Static Russian project pages
+
+Each project has a Russian overview under `/projects/`, with its own title, description and canonical URL. Project copy lives in `content/projects-ru.json`; the catalog remains in `projects-data.js`. English catalog descriptions remain available on the home page.
+
+After changing the catalog, Russian copy, or card renderer, run:
+
+```bash
+node scripts/build-project-pages.mjs
+node scripts/validate-site.mjs
+node scripts/build-project-pages.mjs --check
+```
+
+Commit the generated HTML alongside its source. CI rejects stale generated pages. Home cards and project pages are readable without JavaScript.
